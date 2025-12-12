@@ -4,14 +4,15 @@ import { KioskProvider } from './contexts/KioskContext';
 
 import Navigation from './components/navigation/Navigation';
 import FloatingHomeButton from './components/navigation/FloatingHomeButton';
-import KioskSettings from './components/navigation/KioskSettings';
 import NowPlaying from './components/player/NowPlaying';
 import StationGrid from './components/stations/StationGrid';
 import WeatherBadge from './components/widgets/WeatherBadge';
 import WeatherBackground from './components/widgets/WeatherBackground';
+import VolumeControl from './components/widgets/VolumeControl';
 import NewsTicker from './components/widgets/NewsTicker';
 import MixcloudTab from './components/tabs/MixcloudTab';
 import SpotifyTab from './components/tabs/SpotifyTab';
+import KeyboardToggle from './components/KeyboardToggle';
 
 function AppContent() {
   const { activeTab } = useRadio();
@@ -22,7 +23,7 @@ function AppContent() {
       <WeatherBackground />
 
       {/* Sticky Header - Always visible */}
-      <header 
+      <header
         className="sticky top-0 z-50 flex items-center justify-between p-4 border-b border-white/10"
         style={{
           background: 'rgba(10, 10, 15, 0.8)',
@@ -30,11 +31,15 @@ function AppContent() {
           WebkitBackdropFilter: 'blur(20px)',
         }}
       >
-{/* Clean header - no branding */}
+        {/* Left side - Weather & Navigation */}
         <div className="flex items-center gap-2">
           <WeatherBadge />
           <Navigation />
-          <KioskSettings />
+        </div>
+
+        {/* Right side - Volume Control */}
+        <div className="flex items-center">
+          <VolumeControl />
         </div>
       </header>
 
@@ -76,6 +81,7 @@ function App() {
       <RadioProvider>
         <KioskProvider>
           <AppContent />
+          <KeyboardToggle />
         </KioskProvider>
       </RadioProvider>
     </WeatherProvider>

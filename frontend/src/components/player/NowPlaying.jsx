@@ -1,17 +1,15 @@
 import { useState, useRef } from 'react';
-import { Play, Pause, Heart, SkipBack, SkipForward, Volume2 } from 'lucide-react';
+import { Play, Pause, Heart, SkipBack, SkipForward } from 'lucide-react';
 import { useRadio } from '../../contexts/RadioContext';
 
 export default function NowPlaying() {
-  const { 
-    currentStation, 
-    isPlaying, 
-    metadata, 
-    volume,
-    setVolume,
-    togglePlay, 
-    nextStation, 
-    prevStation 
+  const {
+    currentStation,
+    isPlaying,
+    metadata,
+    togglePlay,
+    nextStation,
+    prevStation
   } = useRadio();
 
   const [isLiked, setIsLiked] = useState(false);
@@ -118,28 +116,6 @@ export default function NowPlaying() {
               {currentStation ? 'Paused' : 'Select a station'}
             </div>
           )}
-        </div>
-
-        {/* Volume slider */}
-        <div className="flex items-center gap-3 mb-4">
-          <Volume2 size={18} className="text-white/60" />
-          <input
-            type="range"
-            min="0"
-            max="1"
-            step="0.01"
-            value={volume}
-            onChange={(e) => setVolume(parseFloat(e.target.value))}
-            className="flex-1 h-1.5 bg-white/10 rounded-full appearance-none cursor-pointer
-              [&::-webkit-slider-thumb]:appearance-none
-              [&::-webkit-slider-thumb]:w-4
-              [&::-webkit-slider-thumb]:h-4
-              [&::-webkit-slider-thumb]:rounded-full
-              [&::-webkit-slider-thumb]:bg-white
-              [&::-webkit-slider-thumb]:shadow-[0_0_8px_rgba(255,255,255,0.4)]
-              [&::-webkit-slider-thumb]:transition-transform
-              [&::-webkit-slider-thumb]:hover:scale-110"
-          />
         </div>
 
         {/* Controls */}

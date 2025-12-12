@@ -1,11 +1,11 @@
 import { motion, AnimatePresence } from 'framer-motion';
-import { Home, Radio, X } from 'lucide-react';
+import { Home, Radio, X, XCircle } from 'lucide-react';
 import { useKiosk } from '../../contexts/KioskContext';
 import { useRadio } from '../../contexts/RadioContext';
 import { useState } from 'react';
 
 export default function FloatingHomeButton() {
-  const { launchedApp, returnHome, kioskMode } = useKiosk();
+  const { launchedApp, returnHome, closeApp, kioskMode } = useKiosk();
   const { setActiveTab } = useRadio();
   const [expanded, setExpanded] = useState(false);
 
@@ -15,6 +15,14 @@ export default function FloatingHomeButton() {
   const handleReturnHome = async () => {
     await returnHome();
     setActiveTab('radio');
+    setExpanded(false);
+  };
+
+  const handleCloseApp = async () => {
+    if (launchedApp?.id) {
+      await closeApp(launchedApp.id);
+      await returnHome();
+    }
     setExpanded(false);
   };
 
@@ -51,17 +59,22 @@ export default function FloatingHomeButton() {
                 <span>Back to Radio</span>
               </motion.button>
 
-              {/* Show currently launched app info */}
+              {/* Close external app button - only show when app is launched */}
               {launchedApp && (
-                <div 
-                  className="px-4 py-2 rounded-full text-sm text-white/70"
+                <motion.button
+                  onClick={handleCloseApp}
+                  className="flex items-center gap-3 px-4 py-3 rounded-full font-medium shadow-lg"
                   style={{
-                    background: 'rgba(0, 0, 0, 0.5)',
+                    background: 'rgba(239, 68, 68, 0.95)',
                     backdropFilter: 'blur(10px)',
+                    border: '1px solid rgba(255, 255, 255, 0.2)',
                   }}
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
                 >
-                  {launchedApp.app || launchedApp.id} is open
-                </div>
+                  <XCircle className="w-5 h-5" />
+                  <span>Close {launchedApp.app || launchedApp.id}</span>
+                </motion.button>
               )}
             </motion.div>
           )}

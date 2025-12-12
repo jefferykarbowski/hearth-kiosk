@@ -10,7 +10,7 @@ export function KioskProvider({ children }) {
   const [availableApps, setAvailableApps] = useState([]);
   const [launchedApp, setLaunchedApp] = useState(null);
   const [loading, setLoading] = useState(true);
-  const [kioskMode, setKioskMode] = useState(true); // Enable kiosk mode by default
+  const [kioskMode, setKioskMode] = useState(false); // Kiosk mode disabled
 
   // Fetch available apps on mount
   useEffect(() => {
@@ -45,30 +45,25 @@ export function KioskProvider({ children }) {
       if (data.success) {
         setLaunchedApp({ id: appId, ...data });
         return data;
-      } else if (data.webUrl) {
-        // Native app not available, open web version
-        // In kiosk mode, we might want to handle this differently
-        if (kioskMode) {
-          // For kiosk, open in new window that can be managed
-          window.open(data.webUrl, appId, 'width=1024,height=768');
-        } else {
-          window.open(data.webUrl, '_blank');
-        }
-        setLaunchedApp({ id: appId, method: 'web', webUrl: data.webUrl });
-        return { success: true, method: 'web', webUrl: data.webUrl };
       }
-      
+
       return data;
     } catch (e) {
       console.error('Failed to launch app:', e);
-      // Fallback to web
-      if (app.webUrl) {
-        window.open(app.webUrl, '_blank');
-        return { success: true, method: 'web', webUrl: app.webUrl };
-      }
       return { success: false, error: e.message };
     }
-  }, [availableApps, kioskMode]);
+  }, [availableApps]);
+
+  const closeApp = useCallback(async (appId) => {
+    try {
+      await fetch(`/api/kiosk/close/${appId}`, { method: 'POST' });
+      if (launchedApp?.id === appId) {
+        setLaunchedApp(null);
+      }
+    } catch (e) {
+      console.error('Failed to close app:', e);
+    }
+  }, [launchedApp]);
 
   const returnHome = useCallback(async () => {
     try {
@@ -105,6 +100,7 @@ export function KioskProvider({ children }) {
     kioskMode,
     setKioskMode,
     launchApp,
+    closeApp,
     returnHome,
     focusApp,
     isAppAvailable,

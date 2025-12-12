@@ -14,14 +14,14 @@ const DEFAULT_STATIONS = [
   {
     id: 'kfjc',
     name: 'KFJC',
-    streamUrl: 'http://netcast.kfjc.org/kfjc-128k-mp3',
-    logo: '/logos/kfjc.png',
+    streamUrl: 'http://netcast.kfjc.org/kfjc-320k-aac',
+    logo: '/logos/kfjc.gif',
     genre: 'The Wave of the West'
   },
   {
     id: 'kalx',
     name: 'KALX',
-    streamUrl: 'http://stream.kalx.berkeley.edu:8000/kalx-128.mp3',
+    streamUrl: 'https://stream.kalx.berkeley.edu:8443/kalx.flac',
     logo: '/logos/kalx.png',
     genre: 'UC Berkeley'
   },
@@ -29,7 +29,7 @@ const DEFAULT_STATIONS = [
     id: 'wfmu',
     name: 'WFMU',
     streamUrl: 'http://stream0.wfmu.org/freeform-128k',
-    logo: '/logos/wfmu.png',
+    logo: '/logos/wfmu.svg',
     genre: 'Freeform • Jersey City'
   },
   {
