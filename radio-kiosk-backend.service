@@ -1,0 +1,15 @@
+[Unit]
+Description=Radio Kiosk Backend Server
+After=network.target
+
+[Service]
+Type=simple
+User=jeff-karbowski
+WorkingDirectory=/home/jeff-karbowski/kitchen-radio-kiosk-react/backend
+ExecStart=/usr/bin/node server.js
+Restart=on-failure
+RestartSec=5
+Environment=NODE_ENV=production
+
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,10 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=Radio Kiosk
+Comment=Radio Kiosk Application
+Exec=/home/jeff-karbowski/kitchen-radio-kiosk-react/start-kiosk.sh
+Icon=audio-headphones
+Terminal=false
+Categories=AudioVideo;Audio;Music;Player;
+StartupNotify=true

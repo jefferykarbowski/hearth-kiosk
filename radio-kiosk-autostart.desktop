@@ -1,0 +1,9 @@
+[Desktop Entry]
+Type=Application
+Name=Radio Kiosk Browser
+Comment=Launch Radio Kiosk in Chromium
+Exec=/home/jeff-karbowski/kitchen-radio-kiosk-react/launch-kiosk-browser.sh
+Hidden=false
+NoDisplay=false
+X-GNOME-Autostart-enabled=true
+X-GNOME-Autostart-Delay=5

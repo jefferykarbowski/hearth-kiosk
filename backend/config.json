@@ -1,0 +1,24 @@
+{
+  "weather": {
+    "apiKey": "27868b1f2816c1f28c5e3d609e2ceddf",
+    "zipCode": "48640",
+    "country": "US",
+    "units": "imperial"
+  },
+  "news": {
+    "rssUrl": "https://feeds.npr.org/1001/rss.xml"
+  },
+  "lastfm": {
+    "apiKey": ""
+  },
+  "spotify": {
+    "clientId": "54613ec2940347caa16fba5ff7df48e7",
+    "clientSecret": "b328cd78917f4e6ea75217458a86a9ef",
+    "redirectUri": "http://127.0.0.1:3001/callback/spotify"
+  },
+  "mixcloud": {
+    "clientId": "y3Bl42b5qMBfkTXj8q",
+    "clientSecret": "LSQzqiJ1crfVchDvzwPRCCoaXIGcHStf",
+    "redirectUri": "http://localhost:3001/callback/mixcloud"
+  }
+}
