@@ -14,6 +14,17 @@ xhost +local: > /dev/null 2>&1
 # Configuration
 BACKEND_PORT=3001
 
+# Cleanup function - closes Spotify when kiosk exits
+cleanup() {
+    echo "Cleaning up..."
+    pkill -9 spotify 2>/dev/null
+    pkill -9 -f "node server.js" 2>/dev/null
+    exit 0
+}
+
+# Trap signals to run cleanup on exit
+trap cleanup EXIT INT TERM
+
 # Kill existing instances for a fresh start
 echo "Stopping existing instances..."
 pkill -9 -f "node server.js" 2>/dev/null
@@ -22,10 +33,21 @@ pkill -9 chromium-browser 2>/dev/null
 pkill -9 chromium 2>/dev/null
 pkill -9 wvkbd 2>/dev/null
 pkill -9 onboard 2>/dev/null
+pkill -9 devilspie2 2>/dev/null
+pkill -9 spotify 2>/dev/null
 sleep 0.5
+
+# Start devilspie2 for window management (handles Spotify fullscreen)
+if command -v devilspie2 &> /dev/null; then
+    devilspie2 &
+    echo "devilspie2 started for window management"
+fi
 
 # Disable GNOME's built-in keyboard (we use onboard)
 gsettings set org.gnome.desktop.a11y.applications screen-keyboard-enabled false 2>/dev/null
+
+# Disable Ubuntu dock for full-width Spotify window
+gnome-extensions disable ubuntu-dock@ubuntu.com 2>/dev/null
 
 # Start onboard virtual keyboard (works on X11)
 if command -v onboard &> /dev/null; then
@@ -55,9 +77,9 @@ done
 # Use Firefox for better virtual keyboard support
 if command -v firefox &> /dev/null; then
     echo "Launching Firefox in kiosk mode..."
-    exec firefox \
-        --kiosk \
-        http://localhost:$BACKEND_PORT
+    firefox --kiosk http://localhost:$BACKEND_PORT
+    # Firefox closed, run cleanup
+    cleanup
 else
     # Fallback to Chromium
     BROWSER=""
@@ -75,7 +97,7 @@ else
         exit 1
     fi
 
-    exec $BROWSER \
+    $BROWSER \
         --noerrdialogs \
         --disable-infobars \
         --disable-translate \
@@ -87,4 +109,6 @@ else
         --enable-features=VirtualKeyboard \
         --force-renderer-accessibility \
         http://localhost:$BACKEND_PORT
+    # Browser closed, run cleanup
+    cleanup
 fi

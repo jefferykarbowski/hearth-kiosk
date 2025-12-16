@@ -56,7 +56,7 @@ const DEFAULT_STATIONS = [
   {
     id: 'wtul',
     name: 'WTUL',
-    streamUrl: 'http://129.81.156.83:8000/stream',
+    streamUrl: 'http://129.81.255.83:8000/stream',
     logo: '/logos/wtul.png',
     genre: 'New Orleans'
   },
@@ -108,13 +108,6 @@ const DEFAULT_STATIONS = [
     streamUrl: 'https://kmud.streamguys1.com/live',
     logo: '/logos/kmud.png',
     genre: 'Redwood Community Radio'
-  },
-  {
-    id: 'kpjk',
-    name: 'KPJK Radio',
-    streamUrl: 'http://streaming.radio.co/s9378c22ee/listen',
-    logo: '/logos/kpjk.png',
-    genre: 'Drink Full and Descend'
   },
   {
     id: 'radio-free-brooklyn',
@@ -336,7 +329,7 @@ const DEFAULT_STATIONS = [
   {
     id: 'kmrd',
     name: 'KMRD-LP',
-    streamUrl: 'https://kmrd.broadcasttool.stream/stream',
+    streamUrl: 'https://kmrd.broadcasttool.stream/listen.m3u',
     logo: '/logos/kmrd.png',
     genre: 'Madrid Community Radio'
   },
@@ -349,43 +342,105 @@ export function RadioProvider({ children }) {
   const [metadata, setMetadata] = useState({ artist: '', title: '', artwork: null });
   const [volume, setVolume] = useState(0.8);
   const [activeTab, setActiveTab] = useState('radio');
-  
+  const [showScreensaver, setShowScreensaver] = useState(false);
+  const [lastActivityTime, setLastActivityTime] = useState(Date.now());
+
   const audioRef = useRef(null);
   const wsRef = useRef(null);
+  const screensaverTimeoutRef = useRef(null);
+
+  // Screensaver timeout (1 hour = 3600000ms)
+  const SCREENSAVER_TIMEOUT = 60 * 60 * 1000;
+
+  // Reset activity timer
+  const resetActivity = useCallback(() => {
+    setLastActivityTime(Date.now());
+    setShowScreensaver(false);
+  }, []);
+
+  // Check for inactivity and show screensaver
+  useEffect(() => {
+    const checkInactivity = () => {
+      const now = Date.now();
+      const timeSinceActivity = now - lastActivityTime;
+
+      // Show screensaver if not playing and inactive for timeout period
+      if (!isPlaying && timeSinceActivity >= SCREENSAVER_TIMEOUT) {
+        setShowScreensaver(true);
+      }
+    };
+
+    // Check every minute
+    const interval = setInterval(checkInactivity, 60000);
+
+    // Also check immediately when isPlaying changes
+    if (isPlaying) {
+      setShowScreensaver(false);
+      setLastActivityTime(Date.now());
+    }
+
+    return () => clearInterval(interval);
+  }, [isPlaying, lastActivityTime]);
+
+  // Dismiss screensaver handler
+  const dismissScreensaver = useCallback(() => {
+    setShowScreensaver(false);
+    setLastActivityTime(Date.now());
+  }, []);
+
+  // Manually trigger screensaver
+  const triggerScreensaver = useCallback(() => {
+    setShowScreensaver(true);
+  }, []);
 
   // Initialize audio element
   useEffect(() => {
-    audioRef.current = new Audio();
-    audioRef.current.volume = volume;
-    
-    audioRef.current.addEventListener('play', () => setIsPlaying(true));
-    audioRef.current.addEventListener('pause', () => setIsPlaying(false));
-    audioRef.current.addEventListener('error', (e) => {
+    const audio = new Audio();
+    audio.volume = volume;
+    audioRef.current = audio;
+
+    // Define handlers so we can remove them on cleanup
+    const handlePlay = () => setIsPlaying(true);
+    const handlePause = () => setIsPlaying(false);
+    const handleError = (e) => {
       console.error('Audio error:', e);
       setIsPlaying(false);
-    });
+    };
+
+    audio.addEventListener('play', handlePlay);
+    audio.addEventListener('pause', handlePause);
+    audio.addEventListener('error', handleError);
 
     return () => {
-      if (audioRef.current) {
-        audioRef.current.pause();
-        audioRef.current.src = '';
-      }
+      // Properly remove event listeners to prevent memory leaks
+      audio.removeEventListener('play', handlePlay);
+      audio.removeEventListener('pause', handlePause);
+      audio.removeEventListener('error', handleError);
+      audio.pause();
+      audio.src = '';
     };
   }, []);
 
-  // WebSocket connection for metadata
+  // WebSocket connection for metadata with exponential backoff
   useEffect(() => {
+    let reconnectAttempts = 0;
+    let reconnectTimeout = null;
+    let isUnmounted = false;
+
     const connectWebSocket = () => {
+      if (isUnmounted) return;
+
       const protocol = window.location.protocol === 'https:' ? 'wss:' : 'ws:';
       const host = import.meta.env.DEV ? 'localhost:3001' : window.location.host;
       const wsUrl = `${protocol}//${host}`;
-      
+
       wsRef.current = new WebSocket(wsUrl);
-      
+
       wsRef.current.onopen = () => {
         console.log('WebSocket connected');
+        reconnectAttempts = 0; // Reset on successful connection
       };
-      
+
       wsRef.current.onmessage = (event) => {
         try {
           const data = JSON.parse(event.data);
@@ -404,9 +459,14 @@ export function RadioProvider({ children }) {
       };
 
       wsRef.current.onclose = () => {
-        setTimeout(connectWebSocket, 3000);
+        if (isUnmounted) return;
+        // Exponential backoff: 3s, 6s, 12s, 24s, max 60s
+        const delay = Math.min(3000 * Math.pow(2, reconnectAttempts), 60000);
+        reconnectAttempts++;
+        console.log(`WebSocket closed, reconnecting in ${delay / 1000}s...`);
+        reconnectTimeout = setTimeout(connectWebSocket, delay);
       };
-      
+
       wsRef.current.onerror = (e) => {
         console.error('WebSocket error:', e);
       };
@@ -415,6 +475,10 @@ export function RadioProvider({ children }) {
     connectWebSocket();
 
     return () => {
+      isUnmounted = true;
+      if (reconnectTimeout) {
+        clearTimeout(reconnectTimeout);
+      }
       if (wsRef.current) {
         wsRef.current.close();
       }
@@ -494,13 +558,17 @@ export function RadioProvider({ children }) {
     metadata,
     volume,
     activeTab,
+    showScreensaver,
     setVolume,
     setActiveTab,
     playStation,
     stop,
     togglePlay,
     nextStation,
-    prevStation
+    prevStation,
+    dismissScreensaver,
+    resetActivity,
+    triggerScreensaver
   };
 
   return (

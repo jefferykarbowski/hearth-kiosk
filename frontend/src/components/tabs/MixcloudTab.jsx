@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Headphones, LogIn, Clock, Heart, ListMusic, Play, Search, X, Upload } from 'lucide-react';
+import { Headphones, LogIn, Clock, Heart, ListMusic, Play, Search, X, Upload, Sparkles } from 'lucide-react';
 import { motion } from 'framer-motion';
 
 export default function MixcloudTab() {
@@ -7,10 +7,11 @@ export default function MixcloudTab() {
   const [history, setHistory] = useState([]);
   const [favorites, setFavorites] = useState([]);
   const [newUploads, setNewUploads] = useState([]);
+  const [favoritesUpdates, setFavoritesUpdates] = useState([]);
   const [playlists, setPlaylists] = useState([]);
   const [playlistShows, setPlaylistShows] = useState([]);
   const [selectedPlaylist, setSelectedPlaylist] = useState(null);
-  const [activeView, setActiveView] = useState('search');
+  const [activeView, setActiveView] = useState('newUploads');
   const [loading, setLoading] = useState(true);
   const [selectedShow, setSelectedShow] = useState(null);
 
@@ -41,6 +42,7 @@ export default function MixcloudTab() {
         fetchFavorites();
         fetchPlaylists();
         fetchNewUploads();
+        fetchFavoritesUpdates();
       }
     } catch (e) {
       console.error('Auth check error:', e);
@@ -86,6 +88,16 @@ export default function MixcloudTab() {
       if (data.shows) setNewUploads(data.shows);
     } catch (e) {
       console.error('Fetch new uploads error:', e);
+    }
+  };
+
+  const fetchFavoritesUpdates = async () => {
+    try {
+      const res = await fetch('/api/mixcloud/favorites-updates');
+      const data = await res.json();
+      if (data.shows) setFavoritesUpdates(data.shows);
+    } catch (e) {
+      console.error('Fetch favorites updates error:', e);
     }
   };
 
@@ -136,7 +148,7 @@ export default function MixcloudTab() {
     setSearchQuery('');
     setSearchResults([]);
     if (isAuthenticated) {
-      setActiveView('history');
+      setActiveView('newUploads');
     }
   };
 
@@ -153,6 +165,7 @@ export default function MixcloudTab() {
   const getActiveList = () => {
     switch (activeView) {
       case 'favorites': return favorites;
+      case 'favoritesUpdates': return favoritesUpdates;
       case 'history': return history;
       case 'newUploads': return newUploads;
       case 'search': return searchResults;
@@ -250,15 +263,26 @@ export default function MixcloudTab() {
         {isAuthenticated && (
           <>
             <button
-              onClick={() => { setActiveView('history'); setSelectedShow(null); setSelectedPlaylist(null); }}
+              onClick={() => { setActiveView('newUploads'); setSelectedShow(null); setSelectedPlaylist(null); }}
               className={`flex items-center gap-2 px-4 py-2 rounded-full text-sm font-medium transition-all
-                ${activeView === 'history'
+                ${activeView === 'newUploads'
                   ? 'bg-indigo-500 text-white'
                   : 'bg-white/10 hover:bg-white/20 text-white/80'
                 }`}
             >
-              <Clock size={16} />
-              History
+              <Upload size={16} />
+              Feed
+            </button>
+            <button
+              onClick={() => { setActiveView('favoritesUpdates'); setSelectedShow(null); setSelectedPlaylist(null); }}
+              className={`flex items-center gap-2 px-4 py-2 rounded-full text-sm font-medium transition-all
+                ${activeView === 'favoritesUpdates'
+                  ? 'bg-indigo-500 text-white'
+                  : 'bg-white/10 hover:bg-white/20 text-white/80'
+                }`}
+            >
+              <Sparkles size={16} />
+              New from Favorites
             </button>
             <button
               onClick={() => { setActiveView('favorites'); setSelectedShow(null); setSelectedPlaylist(null); }}
@@ -272,6 +296,17 @@ export default function MixcloudTab() {
               Favorites
             </button>
             <button
+              onClick={() => { setActiveView('history'); setSelectedShow(null); setSelectedPlaylist(null); }}
+              className={`flex items-center gap-2 px-4 py-2 rounded-full text-sm font-medium transition-all
+                ${activeView === 'history'
+                  ? 'bg-indigo-500 text-white'
+                  : 'bg-white/10 hover:bg-white/20 text-white/80'
+                }`}
+            >
+              <Clock size={16} />
+              History
+            </button>
+            <button
               onClick={() => { setActiveView('playlists'); setSelectedShow(null); setSelectedPlaylist(null); }}
               className={`flex items-center gap-2 px-4 py-2 rounded-full text-sm font-medium transition-all
                 ${activeView === 'playlists'
@@ -281,17 +316,6 @@ export default function MixcloudTab() {
             >
               <ListMusic size={16} />
               Playlists
-            </button>
-            <button
-              onClick={() => { setActiveView('newUploads'); setSelectedShow(null); setSelectedPlaylist(null); }}
-              className={`flex items-center gap-2 px-4 py-2 rounded-full text-sm font-medium transition-all
-                ${activeView === 'newUploads'
-                  ? 'bg-indigo-500 text-white'
-                  : 'bg-white/10 hover:bg-white/20 text-white/80'
-                }`}
-            >
-              <Upload size={16} />
-              New Uploads
             </button>
           </>
         )}
@@ -395,7 +419,8 @@ export default function MixcloudTab() {
             <div className="p-8 text-center text-white/50">
               {activeView === 'history' ? 'No listening history' :
                activeView === 'favorites' ? 'No favorites yet' :
-               activeView === 'newUploads' ? 'No new uploads from DJs you follow' :
+               activeView === 'favoritesUpdates' ? 'No new uploads from favorited artists' :
+               activeView === 'newUploads' ? 'No shows in your feed yet' :
                activeView === 'playlist' ? 'No shows in this playlist' : 'No results'}
             </div>
           ) : (

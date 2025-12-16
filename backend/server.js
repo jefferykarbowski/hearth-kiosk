@@ -1681,23 +1681,34 @@ app.get('/api/mixcloud/playlist/:user/:slug', async (req, res) => {
   }
 });
 
-// Get new uploads from DJs you follow (tries multiple endpoints)
+// Get new uploads from DJs you follow (user's feed)
 app.get('/api/mixcloud/feed', async (req, res) => {
   if (!mixcloudTokens.accessToken) {
     return res.status(401).json({ error: 'Not authenticated', needsAuth: true });
   }
 
   try {
-    // Try /me/stream/ endpoint first (activity stream)
-    const streamRes = await fetch(`https://api.mixcloud.com/me/stream/?access_token=${mixcloudTokens.accessToken}&limit=30`);
-    const streamData = await streamRes.json();
+    // First get the user's username
+    const meRes = await fetch(`https://api.mixcloud.com/me/?access_token=${mixcloudTokens.accessToken}`);
+    const meData = await meRes.json();
 
-    console.log('[Mixcloud] Stream response:', JSON.stringify(streamData, null, 2).substring(0, 1000));
+    if (!meData.username) {
+      console.error('[Mixcloud] Could not get username');
+      return res.status(500).json({ error: 'Could not get user info' });
+    }
+
+    console.log(`[Mixcloud] Fetching feed for user: ${meData.username}`);
+
+    // Use the user's feed endpoint - this shows uploads from people they follow
+    const feedRes = await fetch(`https://api.mixcloud.com/${meData.username}/feed/?access_token=${mixcloudTokens.accessToken}&limit=30`);
+    const feedData = await feedRes.json();
+
+    console.log('[Mixcloud] Feed response:', JSON.stringify(feedData, null, 2).substring(0, 1000));
 
     let shows = [];
 
-    if (streamData.data && streamData.data.length > 0) {
-      shows = streamData.data
+    if (feedData.data && feedData.data.length > 0) {
+      shows = feedData.data
         .filter(item => item.key && item.name) // Filter to cloudcasts only
         .map(item => ({
           key: item.key,
@@ -1711,9 +1722,9 @@ app.get('/api/mixcloud/feed', async (req, res) => {
         }));
     }
 
-    // If stream is empty, fall back to getting uploads from followed users
+    // If feed is empty, fall back to getting uploads from followed users
     if (shows.length === 0) {
-      console.log('[Mixcloud] Stream empty, fetching from followed users...');
+      console.log('[Mixcloud] Feed empty, fetching from followed users...');
 
       const followingRes = await fetch(`https://api.mixcloud.com/me/following/?access_token=${mixcloudTokens.accessToken}&limit=15`);
       const followingData = await followingRes.json();
@@ -1759,6 +1770,73 @@ app.get('/api/mixcloud/feed', async (req, res) => {
   } catch (e) {
     console.error('Mixcloud feed error:', e);
     res.status(500).json({ error: 'Failed to fetch feed' });
+  }
+});
+
+// Get latest uploads from artists you've favorited
+app.get('/api/mixcloud/favorites-updates', async (req, res) => {
+  if (!mixcloudTokens.accessToken) {
+    return res.status(401).json({ error: 'Not authenticated', needsAuth: true });
+  }
+
+  try {
+    // Get user's favorites to find unique artists
+    const favRes = await fetch(`https://api.mixcloud.com/me/favorites/?access_token=${mixcloudTokens.accessToken}&limit=100`);
+    const favData = await favRes.json();
+
+    if (!favData.data || favData.data.length === 0) {
+      return res.json({ shows: [] });
+    }
+
+    // Extract unique artists from favorites
+    const artistKeys = new Map();
+    for (const fav of favData.data) {
+      if (fav.user?.key && !artistKeys.has(fav.user.key)) {
+        artistKeys.set(fav.user.key, fav.user.name);
+      }
+    }
+
+    console.log(`[Mixcloud] Found ${artistKeys.size} unique artists from favorites`);
+
+    // Fetch latest uploads from each artist (limit to 15 artists to avoid too many requests)
+    const shows = [];
+    const artistList = Array.from(artistKeys.entries()).slice(0, 15);
+
+    for (const [artistKey, artistName] of artistList) {
+      try {
+        const uploadsRes = await fetch(`https://api.mixcloud.com${artistKey}cloudcasts/?limit=3`);
+        const uploadsData = await uploadsRes.json();
+
+        if (uploadsData.data) {
+          for (const cloudcast of uploadsData.data) {
+            shows.push({
+              key: cloudcast.key,
+              name: cloudcast.name,
+              artist: cloudcast.user?.name || artistName,
+              artwork: cloudcast.pictures?.extra_large || cloudcast.pictures?.large || cloudcast.pictures?.medium,
+              url: cloudcast.url,
+              duration: cloudcast.audio_length,
+              tags: cloudcast.tags?.slice(0, 3).map(t => t.name) || [],
+              createdTime: cloudcast.created_time
+            });
+          }
+        }
+      } catch (e) {
+        console.error(`[Mixcloud] Error fetching uploads for ${artistKey}:`, e.message);
+      }
+    }
+
+    // Sort by created time (newest first)
+    shows.sort((a, b) => {
+      if (!a.createdTime || !b.createdTime) return 0;
+      return new Date(b.createdTime) - new Date(a.createdTime);
+    });
+
+    console.log(`[Mixcloud] Found ${shows.length} shows from favorited artists`);
+    res.json({ shows: shows.slice(0, 30) });
+  } catch (e) {
+    console.error('Mixcloud favorites-updates error:', e);
+    res.status(500).json({ error: 'Failed to fetch favorites updates' });
   }
 });
 
@@ -1853,8 +1931,11 @@ app.post('/api/kiosk/launch/:appId', async (req, res) => {
         };
         
         // Style the window after a delay (remove title bar, resize)
+        // Note: Spotify is handled by devilspie2, skip backend styling
         setTimeout(async () => {
-          await styleAppWindow(appConfig.name);
+          if (appId !== 'spotify') {
+            await styleAppWindow(appConfig.name);
+          }
         }, 2000);
         
         return res.json({ 
@@ -1922,13 +2003,13 @@ app.post('/api/kiosk/launch/:appId', async (req, res) => {
 async function styleAppWindow(appName) {
   const wmctrlExists = await commandExists('wmctrl');
   const xdotoolExists = await commandExists('xdotool');
-  
+
   if (wmctrlExists) {
     // Remove window decorations (title bar) and maximize
     exec(`wmctrl -r "${appName}" -b add,maximized_vert,maximized_horz`, (err) => {
       if (err) console.log(`[Kiosk] Could not maximize ${appName}`);
     });
-    
+
     // Remove decorations (frameless)
     exec(`wmctrl -r "${appName}" -b add,fullscreen`, (err) => {
       if (!err) {
@@ -1952,6 +2033,79 @@ async function styleAppWindow(appName) {
       }
     });
   }
+}
+
+// Style Spotify window as borderless 90% overlay
+async function styleSpotifyWindow() {
+  const wmctrlExists = await commandExists('wmctrl');
+  const xdotoolExists = await commandExists('xdotool');
+
+  if (!wmctrlExists) {
+    console.log('[Kiosk] wmctrl not available, cannot style Spotify window');
+    return;
+  }
+
+  // Get screen dimensions using xdpyinfo
+  exec('xdpyinfo | grep dimensions', (err, stdout) => {
+    if (err) {
+      console.log('[Kiosk] Could not get screen dimensions');
+      return;
+    }
+
+    // Parse dimensions like "dimensions:    2736x1824 pixels"
+    const match = stdout.match(/(\d+)x(\d+)/);
+    if (!match) {
+      console.log('[Kiosk] Could not parse screen dimensions');
+      return;
+    }
+
+    const screenWidth = parseInt(match[1], 10);
+    const screenHeight = parseInt(match[2], 10);
+
+    // Calculate size: 85% width (leaving 15% on left for back button), 92% height
+    const windowWidth = Math.floor(screenWidth * 0.85);
+    const windowHeight = Math.floor(screenHeight * 0.92);
+    // Position: 14% from left (leaves visible column for button), 4% from top
+    const x = Math.floor(screenWidth * 0.14);
+    const y = Math.floor(screenHeight * 0.04);
+
+    console.log(`[Kiosk] Screen: ${screenWidth}x${screenHeight}, Spotify window: ${windowWidth}x${windowHeight} at (${x},${y})`);
+
+    // Step 1: Remove maximized/fullscreen state
+    exec('wmctrl -r "Spotify" -b remove,maximized_vert,maximized_horz,fullscreen', () => {
+      // Step 2: Remove window decorations (title bar/borders) using wmctrl
+      exec('wmctrl -r "Spotify" -b remove,decorated', (err) => {
+        if (err) {
+          console.log('[Kiosk] wmctrl remove,decorated failed, trying xprop...');
+          // Fallback: Use xprop to remove decorations (works on more WMs)
+          if (xdotoolExists) {
+            exec('xdotool search --name "Spotify" | head -1', (err, windowId) => {
+              if (!err && windowId.trim()) {
+                // Set Motif hints to remove decorations
+                exec(`xprop -id ${windowId.trim()} -f _MOTIF_WM_HINTS 32c -set _MOTIF_WM_HINTS "0x2, 0x0, 0x0, 0x0, 0x0"`, (err) => {
+                  if (!err) console.log('[Kiosk] Removed decorations via xprop');
+                });
+              }
+            });
+          }
+        } else {
+          console.log('[Kiosk] Removed window decorations via wmctrl');
+        }
+
+        // Step 3: Keep window above others
+        exec('wmctrl -r "Spotify" -b add,above', () => {
+          // Step 4: Set window position and size
+          exec(`wmctrl -r "Spotify" -e 0,${x},${y},${windowWidth},${windowHeight}`, (err) => {
+            if (!err) {
+              console.log('[Kiosk] Positioned Spotify as 90% overlay');
+            } else {
+              console.log('[Kiosk] Could not position Spotify window:', err.message);
+            }
+          });
+        });
+      });
+    });
+  });
 }
 
 // Get list of available apps
@@ -2056,26 +2210,36 @@ app.post('/api/kiosk/close/:appId', async (req, res) => {
   const { appId } = req.params;
   const appInfo = launchedApps[appId];
 
-  if (!appInfo) {
-    return res.json({ success: false, error: 'App not tracked' });
-  }
-
-  console.log(`[Kiosk] Closing ${appId} (PID: ${appInfo.pid})`);
+  console.log(`[Kiosk] Closing ${appId}${appInfo ? ` (tracked PID: ${appInfo.pid})` : ' (not tracked)'}`);
 
   try {
-    // Try to kill the process
-    if (appInfo.pid) {
-      process.kill(appInfo.pid, 'SIGTERM');
+    // For Spotify specifically, use pkill since it's a snap with multiple processes
+    if (appId === 'spotify') {
+      exec('pkill -9 spotify', (err) => {
+        if (err) {
+          console.log('[Kiosk] pkill spotify returned:', err.message);
+        } else {
+          console.log('[Kiosk] Killed Spotify processes via pkill');
+        }
+      });
+    } else if (appInfo?.pid) {
+      // Try to kill the tracked process
+      try {
+        process.kill(appInfo.pid, 'SIGTERM');
+      } catch (e) {
+        console.log(`[Kiosk] Could not kill PID ${appInfo.pid}:`, e.message);
+      }
     }
 
-    // If it was a web window, also try wmctrl
+    // Also try wmctrl to close the window
     const appConfig = kioskApps[appId];
     if (appConfig) {
       const wmctrlExists = await commandExists('wmctrl');
       if (wmctrlExists) {
-        // Try to close the window by name
         exec(`wmctrl -c "${appConfig.name}"`, () => {});
-        exec(`wmctrl -c "${appConfig.webUrl}"`, () => {});
+        if (appConfig.webUrl) {
+          exec(`wmctrl -c "${appConfig.webUrl}"`, () => {});
+        }
       }
     }
 
@@ -2189,6 +2353,88 @@ app.post('/api/kiosk/keyboard/toggle', (req, res) => {
 // SYSTEM VOLUME CONTROL
 // ============================================
 
+// Helper: Find Spotify's sink-input ID
+function getSpotifySinkInput() {
+  return new Promise((resolve) => {
+    exec('pactl list sink-inputs', (error, stdout) => {
+      if (error) return resolve(null);
+
+      // Parse sink-inputs to find Spotify
+      const blocks = stdout.split('Sink Input #');
+      for (const block of blocks) {
+        if (block.includes('application.name = "Spotify"') ||
+            block.includes('application.process.binary = "spotify"')) {
+          const idMatch = block.match(/^(\d+)/);
+          if (idMatch) return resolve(idMatch[1]);
+        }
+      }
+      resolve(null);
+    });
+  });
+}
+
+// Helper: Get Spotify's current volume (0-100)
+function getSpotifyVolume(sinkInputId) {
+  return new Promise((resolve) => {
+    exec('pactl list sink-inputs', (error, stdout) => {
+      if (error) return resolve(null);
+
+      const blocks = stdout.split('Sink Input #');
+      for (const block of blocks) {
+        if (block.startsWith(sinkInputId + '\n') || block.startsWith(sinkInputId + '\r')) {
+          const volMatch = block.match(/Volume:.*?(\d+)%/);
+          if (volMatch) return resolve(parseInt(volMatch[1]));
+        }
+      }
+      resolve(null);
+    });
+  });
+}
+
+// Helper: Set Spotify's volume via PulseAudio
+function setSpotifyVolume(sinkInputId, percent) {
+  return new Promise((resolve) => {
+    exec(`pactl set-sink-input-volume ${sinkInputId} ${percent}%`, (error) => {
+      resolve(!error);
+    });
+  });
+}
+
+// Track Spotify volume for bidirectional sync
+let lastSpotifyAppVolume = null;
+let spotifySinkInputId = null;
+
+// Poll Spotify's volume and sync to system if changed
+setInterval(async () => {
+  // Find Spotify sink input if not cached or verify it's still valid
+  if (!spotifySinkInputId) {
+    spotifySinkInputId = await getSpotifySinkInput();
+  }
+
+  if (spotifySinkInputId) {
+    const spotifyVol = await getSpotifyVolume(spotifySinkInputId);
+
+    if (spotifyVol !== null) {
+      // If Spotify volume changed externally, sync to system
+      if (lastSpotifyAppVolume !== null && spotifyVol !== lastSpotifyAppVolume) {
+        console.log(`[Volume] Spotify app changed: ${lastSpotifyAppVolume}% -> ${spotifyVol}%, syncing system`);
+
+        // Set system volume to match Spotify
+        const wpctlExists = await commandExists('wpctl');
+        if (wpctlExists) {
+          exec(`wpctl set-volume @DEFAULT_AUDIO_SINK@ ${(spotifyVol / 100).toFixed(2)}`);
+        } else {
+          exec(`pactl set-sink-volume @DEFAULT_SINK@ ${spotifyVol}%`);
+        }
+      }
+      lastSpotifyAppVolume = spotifyVol;
+    } else {
+      // Spotify stopped playing, clear cache
+      spotifySinkInputId = null;
+    }
+  }
+}, 3000); // Poll every 3 seconds for Spotify volume sync
+
 // Get current system volume
 app.get('/api/volume', async (req, res) => {
   // Try PipeWire first (wpctl), then PulseAudio (pactl)
@@ -2204,8 +2450,8 @@ app.get('/api/volume', async (req, res) => {
       // Output format: "Volume: 0.50" or "Volume: 0.50 [MUTED]"
       const match = stdout.match(/Volume:\s*([\d.]+)/);
       const muted = stdout.includes('[MUTED]');
-      const volume = match ? parseFloat(match[1]) : 0;
-      res.json({ volume: Math.round(volume * 100), muted, method: 'pipewire' });
+      const volume = match ? Math.round(parseFloat(match[1]) * 100) : 0;
+      res.json({ volume, muted, method: 'pipewire' });
     });
   } else if (pactlExists) {
     exec('pactl get-sink-volume @DEFAULT_SINK@', (error, stdout) => {
@@ -2228,12 +2474,24 @@ app.get('/api/volume', async (req, res) => {
   }
 });
 
-// Set system volume
+// Set system volume (and sync to Spotify app if playing)
 app.put('/api/volume/:percent', async (req, res) => {
   const percent = Math.max(0, Math.min(100, parseInt(req.params.percent)));
 
   const wpctlExists = await commandExists('wpctl');
   const pactlExists = await commandExists('pactl');
+
+  // Sync to Spotify desktop app via PulseAudio if playing
+  if (!spotifySinkInputId) {
+    spotifySinkInputId = await getSpotifySinkInput();
+  }
+  if (spotifySinkInputId) {
+    const success = await setSpotifyVolume(spotifySinkInputId, percent);
+    if (success) {
+      console.log(`[Volume] Synced to Spotify app: ${percent}%`);
+      lastSpotifyAppVolume = percent; // Update tracking to prevent echo
+    }
+  }
 
   if (wpctlExists) {
     // wpctl uses 0.0-1.0 scale

@@ -1,4 +1,4 @@
-import { useState, useRef } from 'react';
+import { useState, useRef, useCallback } from 'react';
 import { Play, Pause, Heart, SkipBack, SkipForward } from 'lucide-react';
 import { useRadio } from '../../contexts/RadioContext';
 
@@ -15,15 +15,24 @@ export default function NowPlaying() {
   const [isLiked, setIsLiked] = useState(false);
   const [mousePosition, setMousePosition] = useState({ x: 50, y: 50 });
   const cardRef = useRef(null);
+  const throttleRef = useRef(null);
 
-  const handleMouseMove = (e) => {
-    if (!cardRef.current) return;
+  // Throttled mouse move handler - only updates every 50ms to reduce CPU usage
+  const handleMouseMove = useCallback((e) => {
+    if (!cardRef.current || throttleRef.current) return;
+
+    throttleRef.current = true;
     const rect = cardRef.current.getBoundingClientRect();
     setMousePosition({
       x: ((e.clientX - rect.left) / rect.width) * 100,
       y: ((e.clientY - rect.top) / rect.height) * 100
     });
-  };
+
+    // Throttle to ~20fps (50ms) instead of 60fps
+    setTimeout(() => {
+      throttleRef.current = false;
+    }, 50);
+  }, []);
 
   const toggleLike = () => {
     setIsLiked(!isLiked);

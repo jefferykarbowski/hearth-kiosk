@@ -63,3 +63,47 @@ Backend config in `backend/config.json`:
 
 ### Kiosk Mode Features
 Backend can launch native Linux apps (Spotify, Mixcloud, browsers) via `/api/kiosk/launch/:appId` and manage window focus using wmctrl/xdotool.
+
+## Kiosk Deployment (Surface Pro)
+
+### Starting the Kiosk
+```bash
+./start-kiosk.sh    # Starts backend, devilspie2, and Firefox in kiosk mode
+```
+
+### Key Dependencies
+- **devilspie2** - Window management for Spotify (install: `sudo apt install devilspie2`)
+- **wmctrl** - Window control commands
+- **xdotool** - X11 automation
+
+### Spotify Window Management
+Config at `~/.config/devilspie2/spotify.lua`:
+- Positions Spotify with top margin (160px for header) and bottom margin (70px for news ticker)
+- Uses wmctrl for reliable positioning
+- Removes window decorations (title bar)
+
+### GNOME Extensions Configuration
+The kiosk startup script configures:
+- **Hide Top Bar** (`hidetopbar@mathieu.bidon.ca`) - Hides Ubuntu top panel
+- **Ubuntu Dock** (`ubuntu-dock@ubuntu.com`) - Disabled for full-width Spotify window
+
+### Volume Sync
+Backend syncs volume bidirectionally between system (PipeWire/PulseAudio) and Spotify:
+- Kiosk slider changes → Spotify app volume updates via `pactl set-sink-input-volume`
+- Spotify volume changes → System volume syncs (polled every 1 second)
+
+### Screensaver
+- Activates after 1 hour of no music playback
+- Small sun icon in header (top left) to manually trigger
+- Displays clock, date, weather with animated background
+- Tap anywhere to dismiss
+
+### Cleanup on Exit
+`start-kiosk.sh` traps EXIT/INT/TERM signals to:
+- Kill Spotify when kiosk closes
+- Kill backend server
+- Works when Firefox closes, Ctrl+C, or SSH session ends
+
+### Screen Dimensions (Surface Pro)
+- Resolution: 2736x1824
+- Spotify window: Full width, y=160 to y=1754 (leaving room for header and news ticker)

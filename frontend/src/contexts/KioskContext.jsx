@@ -17,6 +17,17 @@ export function KioskProvider({ children }) {
     fetchAvailableApps();
   }, []);
 
+  // Close Spotify when kiosk window closes
+  useEffect(() => {
+    const handleBeforeUnload = () => {
+      // Fire and forget - close Spotify on kiosk exit
+      navigator.sendBeacon('/api/kiosk/close/spotify', '');
+    };
+
+    window.addEventListener('beforeunload', handleBeforeUnload);
+    return () => window.removeEventListener('beforeunload', handleBeforeUnload);
+  }, []);
+
   const fetchAvailableApps = async () => {
     try {
       const res = await fetch('/api/kiosk/apps');

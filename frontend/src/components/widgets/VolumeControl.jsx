@@ -8,7 +8,8 @@ export default function VolumeControl() {
   // Fetch current volume on mount and periodically
   useEffect(() => {
     fetchVolume();
-    const interval = setInterval(fetchVolume, 5000); // Poll every 5 seconds to catch external changes
+    // Poll every 2 seconds to catch external changes
+    const interval = setInterval(fetchVolume, 2000);
     return () => clearInterval(interval);
   }, []);
 
