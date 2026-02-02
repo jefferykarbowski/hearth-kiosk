@@ -1,6 +1,8 @@
-import { useState, useEffect } from 'react';
-import { Headphones, LogIn, Clock, Heart, ListMusic, Play, Search, X, Upload, Sparkles } from 'lucide-react';
+import { useState, useEffect, useRef, useCallback } from 'react';
+import { Headphones, LogIn, Clock, Heart, ListMusic, Play, Search, X, Upload, Sparkles, Keyboard } from 'lucide-react';
 import { motion } from 'framer-motion';
+import { useKeyboard } from '../../contexts/KeyboardContext';
+import VirtualKeyboard from '../VirtualKeyboard';
 
 export default function MixcloudTab() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -19,6 +21,31 @@ export default function MixcloudTab() {
   const [searchQuery, setSearchQuery] = useState('');
   const [searchResults, setSearchResults] = useState([]);
   const [searching, setSearching] = useState(false);
+  const [showKeyboard, setShowKeyboard] = useState(false);
+  const searchTimerRef = useRef(null);
+  
+  // Keyboard context for hiding news ticker
+  const { setIsKeyboardOpen } = useKeyboard();
+  
+  // Sync keyboard state with context
+  useEffect(() => {
+    setIsKeyboardOpen(showKeyboard);
+  }, [showKeyboard, setIsKeyboardOpen]);
+
+  // Pause Spotify when playing Mixcloud
+  const pauseSpotify = async () => {
+    try {
+      await fetch('/api/spotify/pause', { method: 'PUT' });
+    } catch (e) {
+      console.error('Failed to pause Spotify:', e);
+    }
+  };
+
+  // Play a Mixcloud show (pauses Spotify first)
+  const playShow = (showKey) => {
+    pauseSpotify();
+    setSelectedShow(showKey);
+  };
 
   useEffect(() => {
     checkAuthStatus();
@@ -125,16 +152,19 @@ export default function MixcloudTab() {
     window.location.href = '/auth/mixcloud';
   };
 
-  const handleSearch = async (e) => {
-    e?.preventDefault();
-    if (!searchQuery.trim()) return;
+  // Perform search
+  const performSearch = async (query) => {
+    if (!query.trim()) {
+      setSearchResults([]);
+      return;
+    }
 
     setSearching(true);
     setActiveView('search');
     setSelectedShow(null);
 
     try {
-      const res = await fetch(`/api/mixcloud/search?q=${encodeURIComponent(searchQuery)}`);
+      const res = await fetch(`/api/mixcloud/search?q=${encodeURIComponent(query)}`);
       const data = await res.json();
       setSearchResults(data.results || []);
     } catch (e) {
@@ -142,6 +172,28 @@ export default function MixcloudTab() {
     } finally {
       setSearching(false);
     }
+  };
+
+  // Debounced search - triggers 300ms after user stops typing
+  const handleSearchChange = useCallback((query) => {
+    setSearchQuery(query);
+    
+    if (searchTimerRef.current) {
+      clearTimeout(searchTimerRef.current);
+    }
+    
+    searchTimerRef.current = setTimeout(() => {
+      performSearch(query);
+    }, 300);
+  }, []);
+
+  // Form submit handler (for enter key)
+  const handleSearch = async (e) => {
+    e?.preventDefault();
+    if (searchTimerRef.current) {
+      clearTimeout(searchTimerRef.current);
+    }
+    performSearch(searchQuery);
   };
 
   const clearSearch = () => {
@@ -215,33 +267,30 @@ export default function MixcloudTab() {
             <input
               type="text"
               value={searchQuery}
-              onChange={(e) => setSearchQuery(e.target.value)}
+              onClick={() => setShowKeyboard(true)}
+              readOnly
               placeholder="Search DJ mixes, radio shows, artists..."
-              className="w-full pl-10 pr-10 py-3 rounded-full bg-white/10 border border-white/20 text-white placeholder-white/40 focus:outline-none focus:border-indigo-500/50"
+              className="w-full pl-10 pr-16 py-3 rounded-full bg-white/10 border border-white/20 text-white placeholder-white/40 focus:outline-none focus:border-indigo-500/50 cursor-pointer"
             />
-            {searchQuery && (
+            <div className="absolute right-3 top-1/2 -translate-y-1/2 flex items-center gap-2">
+              {searchQuery && (
+                <button
+                  type="button"
+                  onClick={() => { setSearchQuery(''); setSearchResults([]); if (isAuthenticated) setActiveView('newUploads'); }}
+                  className="text-white/40 hover:text-white"
+                >
+                  <X className="w-5 h-5" />
+                </button>
+              )}
               <button
                 type="button"
-                onClick={clearSearch}
-                className="absolute right-3 top-1/2 -translate-y-1/2 text-white/40 hover:text-white"
+                onClick={() => setShowKeyboard(true)}
+                className="text-white/40 hover:text-white"
               >
-                <X className="w-5 h-5" />
+                <Keyboard className="w-5 h-5" />
               </button>
-            )}
+            </div>
           </div>
-          <motion.button
-            type="submit"
-            disabled={searching || !searchQuery.trim()}
-            className="px-6 py-3 rounded-full font-medium"
-            style={{
-              background: 'linear-gradient(135deg, #5000ff 0%, #52aeff 100%)',
-              color: 'white',
-            }}
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-          >
-            {searching ? 'Searching...' : 'Search'}
-          </motion.button>
         </form>
       </div>
 
@@ -428,7 +477,7 @@ export default function MixcloudTab() {
               {getActiveList().map((show, index) => (
                 <motion.button
                   key={show.key || index}
-                  onClick={() => setSelectedShow(show.key)}
+                  onClick={() => playShow(show.key)}
                   className="w-full flex items-center gap-4 p-4 hover:bg-white/5 transition-colors text-left"
                   initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
@@ -481,6 +530,15 @@ export default function MixcloudTab() {
             </div>
           )}
         </div>
+      )}
+
+      {/* Virtual Keyboard */}
+      {showKeyboard && (
+        <VirtualKeyboard
+          initialValue={searchQuery}
+          onChange={(value) => handleSearchChange(value)}
+          onClose={() => setShowKeyboard(false)}
+        />
       )}
     </div>
   );

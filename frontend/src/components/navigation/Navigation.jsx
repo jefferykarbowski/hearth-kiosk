@@ -1,8 +1,7 @@
 import { motion } from "framer-motion";
-import { ExternalLink, Smartphone } from "lucide-react";
 import { useRadio } from "../../contexts/RadioContext";
 import { useKiosk } from "../../contexts/KioskContext";
-import { useState, useRef, useCallback } from "react";
+import { useCallback } from "react";
 
 // Custom Radio icon - radio tower with waves
 const RadioIcon = ({ className }) => (
@@ -50,20 +49,17 @@ const tabs = [
     icon: SpotifyIcon,
     color: "#1DB954", // Spotify green
     iconClass: "w-5 h-5",
-    launchesNativeApp: true,
   },
 ];
 
 export default function Navigation() {
   const { activeTab, setActiveTab, stop, isPlaying } = useRadio();
   const { launchApp, closeApp, returnHome, launchedApp, isAppAvailable, getAppInfo } = useKiosk();
-  const [launching, setLaunching] = useState(null);
-  const pendingTabRef = useRef(null); // Track what tab we're trying to switch to
 
-  // Debounced tab click handler to prevent rapid clicks
-  const handleTabClick = useCallback(async (tab) => {
+  // Simple tab click handler
+  const handleTabClick = useCallback((tab) => {
     // If clicking on already active tab, do nothing
-    if (activeTab === tab.id && !launching) {
+    if (activeTab === tab.id) {
       return;
     }
 
@@ -72,79 +68,21 @@ export default function Navigation() {
       stop();
     }
 
-    // Track the intended tab
-    pendingTabRef.current = tab.id;
-
-    // If we're currently launching Spotify but user clicked away, close it
-    if (launching === 'spotify' && tab.id !== 'spotify') {
-      console.log('User clicked away during Spotify launch, will close when ready');
-      setActiveTab(tab.id);
-      // The Spotify launch handler will check pendingTabRef and close if needed
-      return;
-    }
-
-    // If Spotify is running and we're switching away, close it first
-    if ((launchedApp?.id === 'spotify' || launching === 'spotify') && tab.id !== 'spotify') {
-      console.log('Closing Spotify before switching tabs...');
-      setActiveTab(tab.id); // Switch tab immediately for UI feedback
-      try {
-        await closeApp('spotify');
-        await returnHome();
-      } catch (e) {
-        console.error('Failed to close Spotify:', e);
-      }
-      return;
-    }
-
-    // Handle Spotify - launches native app
-    if (tab.id === 'spotify') {
-      setLaunching(tab.id);
-      setActiveTab(tab.id);
-      try {
-        const result = await launchApp('spotify');
-
-        // Check if user clicked away while we were launching
-        if (pendingTabRef.current !== 'spotify') {
-          console.log('User navigated away during Spotify launch, closing...');
-          await closeApp('spotify');
-          await returnHome();
-          return;
-        }
-
-        if (result.success) {
-          console.log(`Launched Spotify: ${result.method}`);
-        }
-      } catch (e) {
-        console.error('Spotify launch failed:', e);
-        setActiveTab('radio');
-      } finally {
-        setLaunching(null);
-      }
-      return;
-    }
-
-    // Handle Radio and Mixcloud - just switch tabs
+    // Just switch tabs - all tabs are now in-app
     setActiveTab(tab.id);
-  }, [activeTab, launching, launchedApp, closeApp, returnHome, launchApp, setActiveTab, stop, isPlaying]);
+  }, [activeTab, setActiveTab, stop, isPlaying]);
 
   return (
     <div className="inline-flex items-center gap-2">
       {tabs.map((tab) => {
-        const appInfo = tab.launchesNativeApp ? getAppInfo('spotify') : null;
-        const hasNativeApp = appInfo?.available;
-        const isLaunching = launching === tab.id;
         const IconComponent = tab.icon;
-
-        // Use activeTab as single source of truth for active state
         const isActive = activeTab === tab.id;
-
         const iconColor = isActive ? '#ffffff' : tab.color;
 
         return (
           <motion.button
             key={tab.id}
             onClick={() => handleTabClick(tab)}
-            disabled={isLaunching}
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
             style={{
@@ -163,39 +101,16 @@ export default function Navigation() {
               boxShadow: isActive
                 ? `0 4px 20px ${tab.color}50, 0 0 40px ${tab.color}30`
                 : `0 2px 8px ${tab.color}20`,
-              opacity: isLaunching ? 0.5 : 1,
-              cursor: isLaunching ? 'wait' : 'pointer',
             }}
           >
-            {isLaunching ? (
-              <motion.div
-                animate={{ rotate: 360 }}
-                transition={{ duration: 1, repeat: Infinity, ease: "linear" }}
-                style={{
-                  width: '20px',
-                  height: '20px',
-                  border: '2px solid rgba(255,255,255,0.3)',
-                  borderTopColor: 'white',
-                  borderRadius: '50%',
-                }}
-              />
-            ) : (
-              <IconComponent
-                className={tab.iconClass}
-                style={{ color: iconColor, fill: iconColor }}
-              />
-            )}
+            <IconComponent
+              className={tab.iconClass}
+              style={{ color: iconColor, fill: iconColor }}
+            />
             {tab.id !== 'mixcloud' && (
               <span style={{ color: iconColor }}>
                 {tab.label}
               </span>
-            )}
-            {/* Show indicator for native app availability (Spotify only) */}
-            {tab.id === 'spotify' && hasNativeApp && (
-              <Smartphone style={{ width: '16px', height: '16px', color: '#4ade80' }} />
-            )}
-            {tab.id === 'spotify' && !hasNativeApp && (
-              <ExternalLink style={{ width: '16px', height: '16px', opacity: 0.5, color: 'white' }} />
             )}
           </motion.button>
         );

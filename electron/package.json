@@ -1,0 +1,15 @@
+{
+  "name": "kitchen-radio-kiosk",
+  "version": "1.0.0",
+  "description": "Kitchen Radio Kiosk - Electron App",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "dev": "electron . --dev"
+  },
+  "author": "Jeff Karbowski",
+  "license": "MIT",
+  "devDependencies": {
+    "electron": "^40.1.0"
+  }
+}

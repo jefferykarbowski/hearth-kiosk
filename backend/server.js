@@ -176,22 +176,24 @@ function connectToStream(streamUrl) {
 
   // ICY only works with HTTP streams
   if (streamUrl.startsWith('https://')) {
-    console.log('HTTPS stream - ICY metadata not available, trying alternative methods');
+    console.log('HTTPS stream - ICY metadata not available for:', streamUrl);
     // For HTTPS streams, we can't get ICY metadata directly
-    // Could implement alternative methods here (like checking station's API)
+    // Clear any existing metadata and notify clients
+    currentMetadata = { artist: '', title: '', artwork: null };
+    broadcast({ type: 'metadata', ...currentMetadata });
     return;
   }
 
   icy.get(streamUrl, (res) => {
     icyConnection = res;
     console.log('ICY connection established');
-    
+
     res.on('metadata', async (metadata) => {
       try {
         const icyData = icy.parse(metadata);
         const streamTitle = icyData.StreamTitle || '';
         console.log('ICY metadata received:', streamTitle);
-        
+
         const parsed = parseMetadata(streamTitle);
         if (parsed && (parsed.artist !== currentMetadata.artist || parsed.title !== currentMetadata.title)) {
           currentMetadata = parsed;
@@ -207,22 +209,33 @@ function connectToStream(streamUrl) {
 
     res.on('error', (err) => {
       console.error('ICY stream error:', err.message);
+      // Clean up on error
+      icyConnection = null;
     });
 
     res.on('end', () => {
       console.log('ICY stream ended');
-      // Attempt reconnect after 5 seconds
+      icyConnection = null;
+      // Attempt reconnect after 10 seconds (only if still playing same station)
       setTimeout(() => {
         if (currentStationUrl === streamUrl) {
           connectToStream(streamUrl);
         }
-      }, 5000);
+      }, 10000);
     });
 
     // Consume stream data (required for metadata events)
     res.resume();
   }).on('error', (err) => {
     console.error('ICY connection error:', err.message);
+    icyConnection = null;
+    // Don't retry immediately on connection error - wait longer
+    setTimeout(() => {
+      if (currentStationUrl === streamUrl) {
+        console.log('Retrying ICY connection...');
+        connectToStream(streamUrl);
+      }
+    }, 15000);
   });
 }
 
@@ -263,6 +276,34 @@ wss.on('connection', (ws) => {
   ws.on('close', () => {
     console.log('WebSocket client disconnected');
   });
+});
+
+// Radio control API - allows external control of radio playback
+app.post('/api/radio/play/:stationId', (req, res) => {
+  const { stationId } = req.params;
+  console.log(`[Radio] Play station requested: ${stationId}`);
+  
+  // Broadcast to all WebSocket clients using the radio-command format
+  broadcast({ type: 'radio-command', action: 'play', stationId: stationId.toLowerCase() });
+  
+  res.json({ success: true, message: `Playing station: ${stationId}` });
+});
+
+app.post('/api/radio/stop', (req, res) => {
+  console.log('[Radio] Stop requested');
+  broadcast({ type: 'radio-command', action: 'stop' });
+  res.json({ success: true, message: 'Radio stopped' });
+});
+
+// Tab control API - allows external control of kiosk tabs
+app.post('/api/kiosk/tab/:tabId', (req, res) => {
+  const { tabId } = req.params;
+  console.log(`[Kiosk] Tab switch requested: ${tabId}`);
+  
+  // Broadcast to all WebSocket clients
+  broadcast({ type: 'switch-tab', tab: tabId.toLowerCase() });
+  
+  res.json({ success: true, message: `Switching to tab: ${tabId}` });
 });
 
 // Weather API
@@ -370,8 +411,12 @@ let spotifyTokens = savedTokens.spotify || {
   expiresAt: null
 };
 
-// Check if Spotify is authenticated
-app.get('/api/spotify/status', (req, res) => {
+// Check if Spotify is authenticated (with auto-refresh)
+app.get('/api/spotify/status', async (req, res) => {
+  // If token expired but we have a refresh token, try to refresh
+  if (spotifyTokens.refreshToken && (!spotifyTokens.accessToken || spotifyTokens.expiresAt <= Date.now())) {
+    await refreshSpotifyToken();
+  }
   const isAuthenticated = spotifyTokens.accessToken && spotifyTokens.expiresAt > Date.now();
   res.json({ authenticated: isAuthenticated });
 });
@@ -549,7 +594,10 @@ function formatRecentlyPlayed(data) {
       id: item.track.id,
       name: item.track.name,
       artist: item.track.artists.map(a => a.name).join(', '),
+      artistId: item.track.artists[0]?.id,
       album: item.track.album.name,
+      albumId: item.track.album.id,
+      albumUri: item.track.album.uri,
       artwork: item.track.album.images[0]?.url,
       playedAt: item.played_at,
       uri: item.track.uri,
@@ -702,6 +750,7 @@ app.get('/api/spotify/search', async (req, res) => {
         artistId: track.artists[0]?.id,
         album: track.album.name,
         albumId: track.album.id,
+        albumUri: track.album.uri,
         artwork: track.album.images[0]?.url,
         uri: track.uri,
         duration: track.duration_ms,
@@ -1254,7 +1303,7 @@ app.get('/api/spotify/devices', async (req, res) => {
 
 // Start/resume playback
 app.put('/api/spotify/play', async (req, res) => {
-  const { uri, uris, context_uri, device_id, position_ms } = req.body;
+  const { uri, uris, context_uri, device_id, position_ms, offset } = req.body;
 
   if (spotifyTokens.expiresAt && spotifyTokens.expiresAt < Date.now() + 60000) {
     await refreshSpotifyToken();
@@ -1264,13 +1313,52 @@ app.put('/api/spotify/play', async (req, res) => {
     return res.status(401).json({ error: 'Not authenticated', needsAuth: true });
   }
 
+  // Helper to find Kitchen Computer device
+  const findKitchenDevice = async () => {
+    const devRes = await fetch('https://api.spotify.com/v1/me/player/devices', {
+      headers: { 'Authorization': `Bearer ${spotifyTokens.accessToken}` }
+    });
+    if (!devRes.ok) return null;
+    const { devices } = await devRes.json();
+    return devices?.find(d => d.name === 'Kitchen Computer');
+  };
+
+  // Helper to transfer playback
+  const transferToDevice = async (targetDeviceId) => {
+    await fetch('https://api.spotify.com/v1/me/player', {
+      method: 'PUT',
+      headers: {
+        'Authorization': `Bearer ${spotifyTokens.accessToken}`,
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({ device_ids: [targetDeviceId], play: false })
+    });
+    // Brief delay for transfer to complete
+    await new Promise(r => setTimeout(r, 300));
+  };
+
   try {
-    const queryParams = device_id ? `?device_id=${device_id}` : '';
+    let targetDeviceId = device_id;
+    
+    // If no device specified, check if we have an active device
+    if (!targetDeviceId) {
+      const kitchenDevice = await findKitchenDevice();
+      if (kitchenDevice && !kitchenDevice.is_active) {
+        console.log('[Spotify] No active device, transferring to Kitchen Computer...');
+        await transferToDevice(kitchenDevice.id);
+        targetDeviceId = kitchenDevice.id;
+      } else if (kitchenDevice?.is_active) {
+        targetDeviceId = kitchenDevice.id;
+      }
+    }
+
+    const queryParams = targetDeviceId ? `?device_id=${targetDeviceId}` : '';
     const body = {};
 
     if (uris) body.uris = uris;
     else if (uri) body.uris = [uri];
     if (context_uri) body.context_uri = context_uri;
+    if (offset) body.offset = offset;
     if (position_ms) body.position_ms = position_ms;
 
     const response = await fetch(`https://api.spotify.com/v1/me/player/play${queryParams}`, {
@@ -1319,6 +1407,7 @@ app.put('/api/spotify/pause', async (req, res) => {
 
 // Skip to next track
 app.post('/api/spotify/next', async (req, res) => {
+  console.log('[Spotify] NEXT track requested');
   if (spotifyTokens.expiresAt && spotifyTokens.expiresAt < Date.now() + 60000) {
     await refreshSpotifyToken();
   }
@@ -1332,7 +1421,7 @@ app.post('/api/spotify/next', async (req, res) => {
       method: 'POST',
       headers: { 'Authorization': `Bearer ${spotifyTokens.accessToken}` }
     });
-
+    console.log('[Spotify] NEXT response:', response.status);
     res.json({ success: response.status === 204 || response.status === 200 });
   } catch (e) {
     console.error('Spotify next error:', e);
@@ -1464,6 +1553,31 @@ app.put('/api/spotify/repeat/:state', async (req, res) => {
   } catch (e) {
     console.error('Spotify repeat error:', e);
     res.status(500).json({ error: 'Failed to set repeat mode' });
+  }
+});
+
+// Seek to position in track
+app.put('/api/spotify/seek/:position_ms', async (req, res) => {
+  const { position_ms } = req.params;
+
+  if (spotifyTokens.expiresAt && spotifyTokens.expiresAt < Date.now() + 60000) {
+    await refreshSpotifyToken();
+  }
+
+  if (!spotifyTokens.accessToken) {
+    return res.status(401).json({ error: 'Not authenticated', needsAuth: true });
+  }
+
+  try {
+    const response = await fetch(`https://api.spotify.com/v1/me/player/seek?position_ms=${position_ms}`, {
+      method: 'PUT',
+      headers: { 'Authorization': `Bearer ${spotifyTokens.accessToken}` }
+    });
+
+    res.json({ success: response.status === 204 || response.status === 200 });
+  } catch (e) {
+    console.error('Spotify seek error:', e);
+    res.status(500).json({ error: 'Failed to seek' });
   }
 });
 
@@ -2205,6 +2319,21 @@ app.get('/api/kiosk/status', (req, res) => {
   });
 });
 
+// Radio control - play station by ID
+app.post('/api/radio/play/:stationId', (req, res) => {
+  const { stationId } = req.params;
+  console.log(`[Radio] Broadcasting play command for station: ${stationId}`);
+  broadcast({ type: 'radio-command', action: 'play', stationId });
+  res.json({ ok: true, stationId });
+});
+
+// Radio control - stop playback
+app.post('/api/radio/stop', (req, res) => {
+  console.log('[Radio] Broadcasting stop command');
+  broadcast({ type: 'radio-command', action: 'stop' });
+  res.json({ ok: true });
+});
+
 // Close an external app window
 app.post('/api/kiosk/close/:appId', async (req, res) => {
   const { appId } = req.params;
@@ -2437,116 +2566,325 @@ setInterval(async () => {
 
 // Get current system volume
 app.get('/api/volume', async (req, res) => {
-  // Try PipeWire first (wpctl), then PulseAudio (pactl)
-  const wpctlExists = await commandExists('wpctl');
-  const pactlExists = await commandExists('pactl');
+  exec('pactl get-sink-volume @DEFAULT_SINK@', (error, stdout) => {
+    if (error) {
+      return res.status(500).json({ error: 'Failed to get volume' });
+    }
+    const match = stdout.match(/(\d+)%/);
+    const volume = match ? parseInt(match[1]) : 0;
 
-  if (wpctlExists) {
-    exec('wpctl get-volume @DEFAULT_AUDIO_SINK@', (error, stdout) => {
-      if (error) {
-        console.error('[Volume] wpctl error:', error.message);
-        return res.status(500).json({ error: 'Failed to get volume' });
-      }
-      // Output format: "Volume: 0.50" or "Volume: 0.50 [MUTED]"
-      const match = stdout.match(/Volume:\s*([\d.]+)/);
-      const muted = stdout.includes('[MUTED]');
-      const volume = match ? Math.round(parseFloat(match[1]) * 100) : 0;
-      res.json({ volume, muted, method: 'pipewire' });
+    exec('pactl get-sink-mute @DEFAULT_SINK@', (err2, stdout2) => {
+      const muted = stdout2?.includes('yes') || false;
+      res.json({ volume, muted });
     });
-  } else if (pactlExists) {
-    exec('pactl get-sink-volume @DEFAULT_SINK@', (error, stdout) => {
-      if (error) {
-        console.error('[Volume] pactl error:', error.message);
-        return res.status(500).json({ error: 'Failed to get volume' });
-      }
-      // Output format: "Volume: front-left: 32768 /  50% / ..."
-      const match = stdout.match(/(\d+)%/);
-      const volume = match ? parseInt(match[1]) : 0;
-
-      // Check mute status
-      exec('pactl get-sink-mute @DEFAULT_SINK@', (err2, stdout2) => {
-        const muted = stdout2?.includes('yes') || false;
-        res.json({ volume, muted, method: 'pulseaudio' });
-      });
-    });
-  } else {
-    res.status(503).json({ error: 'No audio control available (wpctl/pactl not found)' });
-  }
+  });
 });
 
-// Set system volume (and sync to Spotify app if playing)
+// Set system volume
 app.put('/api/volume/:percent', async (req, res) => {
   const percent = Math.max(0, Math.min(100, parseInt(req.params.percent)));
 
-  const wpctlExists = await commandExists('wpctl');
-  const pactlExists = await commandExists('pactl');
-
-  // Sync to Spotify desktop app via PulseAudio if playing
-  if (!spotifySinkInputId) {
-    spotifySinkInputId = await getSpotifySinkInput();
-  }
-  if (spotifySinkInputId) {
-    const success = await setSpotifyVolume(spotifySinkInputId, percent);
-    if (success) {
-      console.log(`[Volume] Synced to Spotify app: ${percent}%`);
-      lastSpotifyAppVolume = percent; // Update tracking to prevent echo
+  exec(`pactl set-sink-volume @DEFAULT_SINK@ ${percent}%`, (error) => {
+    if (error) {
+      return res.status(500).json({ error: 'Failed to set volume' });
     }
-  }
-
-  if (wpctlExists) {
-    // wpctl uses 0.0-1.0 scale
-    const volume = (percent / 100).toFixed(2);
-    exec(`wpctl set-volume @DEFAULT_AUDIO_SINK@ ${volume}`, (error) => {
-      if (error) {
-        console.error('[Volume] wpctl set error:', error.message);
-        return res.status(500).json({ error: 'Failed to set volume' });
-      }
-      console.log(`[Volume] Set to ${percent}% via PipeWire`);
-      res.json({ success: true, volume: percent });
-    });
-  } else if (pactlExists) {
-    exec(`pactl set-sink-volume @DEFAULT_SINK@ ${percent}%`, (error) => {
-      if (error) {
-        console.error('[Volume] pactl set error:', error.message);
-        return res.status(500).json({ error: 'Failed to set volume' });
-      }
-      console.log(`[Volume] Set to ${percent}% via PulseAudio`);
-      res.json({ success: true, volume: percent });
-    });
-  } else {
-    res.status(503).json({ error: 'No audio control available' });
-  }
+    res.json({ success: true, volume: percent });
+  });
 });
 
 // Toggle mute
 app.post('/api/volume/mute/toggle', async (req, res) => {
-  const wpctlExists = await commandExists('wpctl');
-  const pactlExists = await commandExists('pactl');
+  exec('pactl set-sink-mute @DEFAULT_SINK@ toggle', (error) => {
+    if (error) {
+      return res.status(500).json({ error: 'Failed to toggle mute' });
+    }
+    res.json({ success: true });
+  });
+});
 
-  if (wpctlExists) {
-    exec('wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle', (error) => {
+// ============================================
+// BLUETOOTH DEVICE MANAGEMENT
+// ============================================
+
+// Helper: Execute bluetoothctl command
+function bluetoothctl(command) {
+  return new Promise((resolve, reject) => {
+    exec(`bluetoothctl ${command}`, { timeout: 10000 }, (error, stdout, stderr) => {
       if (error) {
-        console.error('[Volume] wpctl mute error:', error.message);
-        return res.status(500).json({ error: 'Failed to toggle mute' });
+        reject(new Error(stderr || error.message));
+      } else {
+        resolve(stdout);
       }
-      console.log('[Volume] Toggled mute via PipeWire');
-      res.json({ success: true });
     });
-  } else if (pactlExists) {
-    exec('pactl set-sink-mute @DEFAULT_SINK@ toggle', (error) => {
-      if (error) {
-        console.error('[Volume] pactl mute error:', error.message);
-        return res.status(500).json({ error: 'Failed to toggle mute' });
-      }
-      console.log('[Volume] Toggled mute via PulseAudio');
-      res.json({ success: true });
-    });
-  } else {
-    res.status(503).json({ error: 'No audio control available' });
+  });
+}
+
+// Helper: Parse bluetoothctl devices output
+function parseDevices(output, type = 'paired') {
+  const devices = [];
+  const lines = output.split('\n');
+  for (const line of lines) {
+    // Format: "Device AA:BB:CC:DD:EE:FF Device Name"
+    const match = line.match(/Device\s+([A-F0-9:]{17})\s+(.+)/i);
+    if (match) {
+      devices.push({
+        address: match[1],
+        name: match[2].trim(),
+        type
+      });
+    }
   }
+  return devices;
+}
+
+// Helper: Get device connection status
+async function getDeviceInfo(address) {
+  try {
+    const output = await bluetoothctl(`info ${address}`);
+    const connected = output.includes('Connected: yes');
+    const paired = output.includes('Paired: yes');
+    const trusted = output.includes('Trusted: yes');
+    const nameMatch = output.match(/Name:\s*(.+)/);
+    const iconMatch = output.match(/Icon:\s*(.+)/);
+    return {
+      connected,
+      paired,
+      trusted,
+      name: nameMatch ? nameMatch[1].trim() : null,
+      icon: iconMatch ? iconMatch[1].trim() : null
+    };
+  } catch {
+    return { connected: false, paired: false, trusted: false };
+  }
+}
+
+// Get all Bluetooth devices (paired and available)
+app.get('/api/bluetooth/devices', async (req, res) => {
+  try {
+    // Check if bluetoothctl exists
+    const btExists = await commandExists('bluetoothctl');
+    if (!btExists) {
+      return res.status(503).json({ error: 'bluetoothctl not found' });
+    }
+
+    // Get paired devices
+    const pairedOutput = await bluetoothctl('devices Paired');
+    const pairedDevices = parseDevices(pairedOutput, 'paired');
+
+    // Get connection status for each paired device
+    const devicesWithStatus = await Promise.all(
+      pairedDevices.map(async (device) => {
+        const info = await getDeviceInfo(device.address);
+        return {
+          ...device,
+          connected: info.connected,
+          trusted: info.trusted,
+          icon: info.icon
+        };
+      })
+    );
+
+    // Sort: connected first, then by name
+    devicesWithStatus.sort((a, b) => {
+      if (a.connected !== b.connected) return b.connected ? 1 : -1;
+      return a.name.localeCompare(b.name);
+    });
+
+    res.json({ devices: devicesWithStatus });
+  } catch (e) {
+    console.error('[Bluetooth] Error listing devices:', e.message);
+    res.status(500).json({ error: e.message });
+  }
+});
+
+// Scan for new devices
+app.post('/api/bluetooth/scan', async (req, res) => {
+  try {
+    const btExists = await commandExists('bluetoothctl');
+    if (!btExists) {
+      return res.status(503).json({ error: 'bluetoothctl not found' });
+    }
+
+    // Start scanning (runs for 10 seconds)
+    console.log('[Bluetooth] Starting scan...');
+    exec('bluetoothctl --timeout 10 scan on', (error) => {
+      if (error) {
+        console.log('[Bluetooth] Scan ended');
+      }
+    });
+
+    res.json({ success: true, message: 'Scanning for 10 seconds...' });
+  } catch (e) {
+    console.error('[Bluetooth] Scan error:', e.message);
+    res.status(500).json({ error: e.message });
+  }
+});
+
+// Connect to a device
+app.post('/api/bluetooth/connect/:address', async (req, res) => {
+  const { address } = req.params;
+  console.log(`[Bluetooth] Connecting to ${address}...`);
+
+  try {
+    const btExists = await commandExists('bluetoothctl');
+    if (!btExists) {
+      return res.status(503).json({ error: 'bluetoothctl not found' });
+    }
+
+    // Trust the device first (for auto-reconnect)
+    await bluetoothctl(`trust ${address}`);
+
+    // Connect
+    await bluetoothctl(`connect ${address}`);
+
+    console.log(`[Bluetooth] Connected to ${address}`);
+    res.json({ success: true, message: 'Connected' });
+  } catch (e) {
+    console.error(`[Bluetooth] Connect error for ${address}:`, e.message);
+    res.status(500).json({ error: e.message });
+  }
+});
+
+// Disconnect from a device
+app.post('/api/bluetooth/disconnect/:address', async (req, res) => {
+  const { address } = req.params;
+  console.log(`[Bluetooth] Disconnecting from ${address}...`);
+
+  try {
+    const btExists = await commandExists('bluetoothctl');
+    if (!btExists) {
+      return res.status(503).json({ error: 'bluetoothctl not found' });
+    }
+
+    await bluetoothctl(`disconnect ${address}`);
+
+    console.log(`[Bluetooth] Disconnected from ${address}`);
+    res.json({ success: true, message: 'Disconnected' });
+  } catch (e) {
+    console.error(`[Bluetooth] Disconnect error for ${address}:`, e.message);
+    res.status(500).json({ error: e.message });
+  }
+});
+
+// Get Bluetooth adapter status
+app.get('/api/bluetooth/status', async (req, res) => {
+  try {
+    const btExists = await commandExists('bluetoothctl');
+    if (!btExists) {
+      return res.status(503).json({ error: 'bluetoothctl not found', available: false });
+    }
+
+    const output = await bluetoothctl('show');
+    const powered = output.includes('Powered: yes');
+    const discovering = output.includes('Discovering: yes');
+    const nameMatch = output.match(/Name:\s*(.+)/);
+
+    res.json({
+      available: true,
+      powered,
+      discovering,
+      adapterName: nameMatch ? nameMatch[1].trim() : 'Unknown'
+    });
+  } catch (e) {
+    console.error('[Bluetooth] Status error:', e.message);
+    res.status(500).json({ error: e.message, available: false });
+  }
+});
+
+// Power on/off Bluetooth adapter
+app.post('/api/bluetooth/power/:state', async (req, res) => {
+  const { state } = req.params;
+  const powerState = state === 'on' ? 'on' : 'off';
+
+  try {
+    const btExists = await commandExists('bluetoothctl');
+    if (!btExists) {
+      return res.status(503).json({ error: 'bluetoothctl not found' });
+    }
+
+    await bluetoothctl(`power ${powerState}`);
+    console.log(`[Bluetooth] Power ${powerState}`);
+    res.json({ success: true, powered: powerState === 'on' });
+  } catch (e) {
+    console.error('[Bluetooth] Power error:', e.message);
+    res.status(500).json({ error: e.message });
+  }
+});
+
+// ============================================
+// SYSTEM CONTROL (RESTART/SHUTDOWN)
+// ============================================
+
+// Restart the kiosk service
+app.post('/api/system/restart-kiosk', (req, res) => {
+  console.log('[System] Restarting kiosk...');
+
+  // Send response before restarting
+  res.json({ success: true, message: 'Restarting kiosk...' });
+
+  // Give the response time to be sent
+  setTimeout(() => {
+    // Try systemctl first (if running as service), then pkill
+    exec('systemctl --user restart kitchen-radio-kiosk 2>/dev/null || pkill -f "node.*server.js"', (error) => {
+      if (error) {
+        console.log('[System] Restart via systemctl failed, trying alternative...');
+        // If that fails, just exit - the service manager should restart us
+        process.exit(0);
+      }
+    });
+  }, 500);
+});
+
+// Reboot the entire system
+app.post('/api/system/reboot', (req, res) => {
+  console.log('[System] Rebooting system...');
+
+  res.json({ success: true, message: 'Rebooting system...' });
+
+  setTimeout(() => {
+    exec('sudo reboot', (error) => {
+      if (error) {
+        console.error('[System] Reboot failed:', error.message);
+      }
+    });
+  }, 500);
+});
+
+// Shutdown the system
+app.post('/api/system/shutdown', (req, res) => {
+  console.log('[System] Shutting down system...');
+
+  res.json({ success: true, message: 'Shutting down...' });
+
+  setTimeout(() => {
+    exec('sudo shutdown -h now', (error) => {
+      if (error) {
+        console.error('[System] Shutdown failed:', error.message);
+      }
+    });
+  }, 500);
 });
 
 const PORT = process.env.PORT || 3001;
 server.listen(PORT, () => {
   console.log(`Backend server running on http://localhost:${PORT}`);
+});
+
+// Get current playback state (for when Web Playback SDK isn't available)
+app.get('/api/spotify/playback-state', async (req, res) => {
+  if (!spotifyTokens.accessToken) {
+    return res.status(401).json({ error: 'Not authenticated' });
+  }
+  try {
+    const response = await fetch('https://api.spotify.com/v1/me/player', {
+      headers: { 'Authorization': `Bearer ${spotifyTokens.accessToken}` }
+    });
+    if (response.status === 204) {
+      return res.json({ is_playing: false, device: null, item: null });
+    }
+    const data = await response.json();
+    res.json(data);
+  } catch (e) {
+    res.status(500).json({ error: e.message });
+  }
 });

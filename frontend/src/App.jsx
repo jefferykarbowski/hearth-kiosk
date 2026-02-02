@@ -1,9 +1,12 @@
 import { RadioProvider, useRadio } from './contexts/RadioContext';
 import { WeatherProvider } from './contexts/WeatherContext';
 import { KioskProvider } from './contexts/KioskContext';
+import { SpotifyPlayerProvider } from './contexts/SpotifyPlayerContext';
+import { useKeyboard } from './contexts/KeyboardContext';
 
 import Navigation from './components/navigation/Navigation';
 import FloatingHomeButton from './components/navigation/FloatingHomeButton';
+import KioskSettings from './components/navigation/KioskSettings';
 import NowPlaying from './components/player/NowPlaying';
 import StationGrid from './components/stations/StationGrid';
 import WeatherBadge from './components/widgets/WeatherBadge';
@@ -11,11 +14,13 @@ import WeatherBackground from './components/widgets/WeatherBackground';
 import VolumeControl from './components/widgets/VolumeControl';
 import NewsTicker from './components/widgets/NewsTicker';
 import MixcloudTab from './components/tabs/MixcloudTab';
+import SpotifyTab from './components/tabs/SpotifyTab';
 import KeyboardToggle from './components/KeyboardToggle';
 import Screensaver from './components/Screensaver';
 
 function AppContent() {
   const { activeTab, showScreensaver, dismissScreensaver, triggerScreensaver } = useRadio();
+  const { isKeyboardOpen } = useKeyboard();
 
   return (
     <div className="min-h-screen relative">
@@ -47,9 +52,10 @@ function AppContent() {
           <Navigation />
         </div>
 
-        {/* Right side - Volume Control */}
-        <div className="flex items-center">
+        {/* Right side - Volume Control & Settings */}
+        <div className="flex items-center gap-2">
           <VolumeControl />
+          <KioskSettings />
         </div>
       </header>
 
@@ -70,12 +76,16 @@ function AppContent() {
         )}
 
         {activeTab === 'mixcloud' && <MixcloudTab />}
+        
+        {activeTab === 'spotify' && <SpotifyTab />}
       </main>
 
-      {/* News Ticker */}
-      <footer className="fixed bottom-0 left-0 right-0 z-10">
-        <NewsTicker />
-      </footer>
+      {/* News Ticker - hidden when keyboard is open */}
+      {!isKeyboardOpen && (
+        <footer className="fixed bottom-0 left-0 right-0 z-10">
+          <NewsTicker />
+        </footer>
+      )}
 
       {/* Floating Home Button for Kiosk Mode */}
       <FloatingHomeButton />
@@ -91,8 +101,10 @@ function App() {
     <WeatherProvider>
       <RadioProvider>
         <KioskProvider>
-          <AppContent />
-          <KeyboardToggle />
+          <SpotifyPlayerProvider>
+            <AppContent />
+            <KeyboardToggle />
+          </SpotifyPlayerProvider>
         </KioskProvider>
       </RadioProvider>
     </WeatherProvider>

@@ -1,128 +1,58 @@
-# Kitchen Radio Kiosk (React Edition)
+# 🔥 Hearth
 
-A modern React-based kitchen radio player with streaming radio stations, Mixcloud, Spotify, weather, and news ticker.
+**The warm center of your smart kitchen.**
 
-## Project Structure
+A touchscreen kiosk for your kitchen that brings together freeform radio, music streaming, weather, and more — all in one beautiful interface.
 
-```
-kitchen-radio-kiosk-react/
-├── frontend/          # React + Vite + Tailwind CSS
-│   ├── src/
-│   │   ├── components/
-│   │   │   ├── navigation/  # Tab navigation
-│   │   │   ├── player/      # Now playing card
-│   │   │   ├── stations/    # Station grid
-│   │   │   └── widgets/     # Weather, news ticker
-│   │   ├── contexts/        # RadioContext (state management)
-│   │   └── App.jsx          # Main application
-│   └── ...
-├── backend/           # Node.js + Express + WebSocket
-│   ├── server.js      # API & WebSocket server
-│   └── config.json    # Weather/news API config
-└── package.json       # Root scripts
-```
+## Features
+
+- 📻 **Freeform Radio** — Curated college and community radio stations (WCBN, KFJC, WFMU, KCRW, NTS, and more)
+- 🎵 **Spotify Connect** — Your music library with full playback control
+- 🎛️ **Mixcloud** — DJ sets and long-form mixes
+- 🌤️ **Weather** — Dynamic backgrounds based on current conditions
+- 📰 **News Ticker** — Stay informed while you cook
+- 🖥️ **Screensaver** — Beautiful ambient mode when idle
+
+## Tech Stack
+
+- **Frontend:** React + Vite
+- **Backend:** Node.js + Express
+- **Audio:** Native browser audio + Spotify Web Playback SDK
+- **Display:** Electron for kiosk mode
 
 ## Quick Start
 
-### Development
-
-1. **Install dependencies:**
-   ```bash
-   npm run install:all
-   ```
-
-2. **Configure APIs (optional):**
-   Edit `backend/config.json` and add your OpenWeatherMap API key.
-
-3. **Start development servers:**
-   ```bash
-   npm run dev
-   ```
-   - Frontend: http://localhost:3000
-   - Backend: http://localhost:3001
-
-### Production Build
-
 ```bash
-npm run build
-npm start
+# Install dependencies
+npm run install:all
+
+# Development mode
+npm run dev
+
+# Production (kiosk mode)
+./start-kiosk-electron.sh
 ```
 
-## Adding 21st.dev Magic Components
+## Configuration
 
-The placeholder components in `frontend/src/components/` are designed to be replaced with 21st.dev Magic-generated components.
+Configure your Hearth at [hearth-at-home.com](https://hearth-at-home.com) (coming soon):
+- Choose which tabs to display
+- Connect your Spotify account
+- Pick your favorite radio stations
+- Set your location for weather
 
-**Example prompts to use in Claude Code with Magic MCP:**
+## Hardware
 
-### Navigation
-```
-"A horizontal pill-style tab navigation with Radio, Mixcloud, and 
-Spotify tabs. Modern, minimal, with smooth animated indicator."
-```
+Runs great on:
+- Microsoft Surface Pro (recommended)
+- Raspberry Pi 4+ with touchscreen
+- Any tablet/computer with a browser
 
-### Now Playing Card
-```
-"A music player card with album artwork, artist name, song title, 
-animated equalizer bars, and play/pause button. Glassmorphism style 
-with blur backdrop."
-```
+## Part of the Hearth Ecosystem
 
-### Station Grid
-```
-"A grid of radio station cards with logo, station name, genre tag, 
-and 'now playing' indicator. Dark theme with subtle hover effects."
-```
+- **This repo:** The kiosk application
+- **hearth-website:** Dashboard and configuration ([GitHub](https://github.com/jefferykarbowski/hearth-website))
 
-### Weather Badge
-```
-"A weather badge showing temperature, icon, and location. 
-Compact, fits in a navbar."
-```
+---
 
-## Integrating Magic Components
-
-1. Generate component with Magic MCP
-2. Copy the component code
-3. Replace the corresponding file in `frontend/src/components/`
-4. Update imports if needed
-5. Connect to RadioContext using the `useRadio()` hook
-
-**Available from useRadio():**
-- `stations` - Array of radio stations
-- `currentStation` - Currently selected station
-- `isPlaying` - Boolean playback state
-- `metadata` - `{ artist, title, artwork }`
-- `volume` / `setVolume()` - Volume control (0-1)
-- `activeTab` / `setActiveTab()` - Navigation state
-- `playStation(station)` - Start playing a station
-- `togglePlay()` - Play/pause
-- `nextStation()` / `prevStation()` - Navigate stations
-- `stop()` - Stop playback
-
-## API Endpoints
-
-- `GET /api/weather` - Current weather data
-- `GET /api/news` - News headlines from RSS
-
-## WebSocket Events
-
-**From Server:**
-- `{ type: 'metadata', artist, title, artwork }` - Track info update
-- `{ type: 'state', metadata }` - Initial state
-
-**To Server:**
-- `{ type: 'play', streamUrl }` - Start ICY metadata tracking
-- `{ type: 'stop' }` - Stop tracking
-
-## Kiosk Mode (Surface Pro)
-
-See INSTALL.md for full Surface Pro kiosk setup instructions.
-
-```bash
-# Build for production
-npm run build
-
-# Set up systemd service (see INSTALL.md)
-sudo systemctl enable kitchen-radio
-sudo reboot
-```
+Made with 🔥 for kitchens everywhere.

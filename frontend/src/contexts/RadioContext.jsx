@@ -340,7 +340,7 @@ export function RadioProvider({ children }) {
   const [currentStation, setCurrentStation] = useState(null);
   const [isPlaying, setIsPlaying] = useState(false);
   const [metadata, setMetadata] = useState({ artist: '', title: '', artwork: null });
-  const [volume, setVolume] = useState(0.8);
+  const [volume, setVolume] = useState(1.0);
   const [activeTab, setActiveTab] = useState('radio');
   const [showScreensaver, setShowScreensaver] = useState(false);
   const [lastActivityTime, setLastActivityTime] = useState(Date.now());
@@ -452,6 +452,37 @@ export function RadioProvider({ children }) {
             });
           } else if (data.type === 'state' && data.metadata) {
             setMetadata(data.metadata);
+          } else if (data.type === 'radio-command') {
+            // Handle remote radio commands
+            if (data.action === 'play' && data.stationId) {
+              const station = DEFAULT_STATIONS.find(s => s.id === data.stationId);
+              if (station && audioRef.current) {
+                console.log('Remote command: playing station', station.name);
+                audioRef.current.pause();
+                audioRef.current.src = station.streamUrl;
+                audioRef.current.play().catch(e => console.error('Play error:', e));
+                setCurrentStation(station);
+                setMetadata({ artist: '', title: '', artwork: null });
+                if (wsRef.current?.readyState === WebSocket.OPEN) {
+                  wsRef.current.send(JSON.stringify({ type: 'play', streamUrl: station.streamUrl }));
+                }
+              }
+            } else if (data.action === 'stop') {
+              console.log('Remote command: stopping playback');
+              if (audioRef.current) {
+                audioRef.current.pause();
+                audioRef.current.src = '';
+              }
+              setCurrentStation(null);
+              setIsPlaying(false);
+              setMetadata({ artist: '', title: '', artwork: null });
+            }
+          } else if (data.type === 'switch-tab') {
+            // Handle remote tab switching
+            console.log('Remote command: switching to tab', data.tab);
+            if (data.tab && ['radio', 'spotify', 'mixcloud'].includes(data.tab)) {
+              setActiveTab(data.tab);
+            }
           }
         } catch (e) {
           console.error('WebSocket message error:', e);
@@ -492,8 +523,15 @@ export function RadioProvider({ children }) {
     }
   }, [volume]);
 
-  const playStation = useCallback((station) => {
+  const playStation = useCallback(async (station) => {
     if (!audioRef.current) return;
+
+    // Pause Spotify before playing radio
+    try {
+      await fetch('/api/spotify/pause', { method: 'PUT' });
+    } catch (e) {
+      console.log('Could not pause Spotify:', e);
+    }
 
     audioRef.current.pause();
     audioRef.current.src = station.streamUrl;
