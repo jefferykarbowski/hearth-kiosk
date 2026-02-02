@@ -278,6 +278,18 @@ wss.on('connection', (ws) => {
   });
 });
 
+// Health check endpoint
+app.get('/api/health', (req, res) => {
+  res.json({
+    status: 'ok',
+    uptime: process.uptime(),
+    timestamp: new Date().toISOString(),
+    version: '1.0.0',
+    spotify: spotifyTokens?.accessToken ? 'connected' : 'disconnected',
+    radio: currentStationUrl ? 'playing' : 'idle'
+  });
+});
+
 // Radio control API - allows external control of radio playback
 app.post('/api/radio/play/:stationId', (req, res) => {
   const { stationId } = req.params;
