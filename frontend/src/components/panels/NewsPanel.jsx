@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Block } from '../marks/Marks';
+import { StationMark } from '../marks/Marks';
 
 function relTime(pubDate) {
   if (!pubDate) return null;
@@ -114,7 +114,9 @@ export default function NewsPanel({ onClose }) {
                     <img src={lead.image} alt="" className="h-full w-full object-cover" loading="lazy" />
                   ) : (
                     <div className="h-full w-full p-4" style={{ color: 'var(--sig-cyan)', opacity: 0.4 }}>
-                      <Block seed={lead.title} rows={6} className="h-full w-full" />
+                      {/* No image in the feed. A mark derived from the headline
+                          beats a stock placeholder and never implies a photo. */}
+                      <StationMark name={lead.title} className="h-full w-full" />
                     </div>
                   )}
                 </div>
@@ -139,7 +141,7 @@ export default function NewsPanel({ onClose }) {
                     <img src={h.image} alt="" className="h-full w-full object-cover" loading="lazy" />
                   ) : (
                     <span className="block h-full w-full p-2" style={{ color: 'var(--sig-cyan)', opacity: 0.35 }}>
-                      <Block seed={h.title} rows={4} className="h-full w-full" />
+                      <StationMark name={h.title} className="h-full w-full" />
                     </span>
                   )}
                 </span>
