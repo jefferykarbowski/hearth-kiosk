@@ -1,5 +1,5 @@
 #!/bin/bash
-# Build Hearth UI for Android embedding
+# Build Sferics UI for Android embedding
 # Outputs a production bundle to be included in the APK assets
 
 set -e
@@ -8,7 +8,7 @@ SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 PROJECT_ROOT="$(dirname "$SCRIPT_DIR")"
 OUTPUT_DIR="$PROJECT_ROOT/../kitchen-kiosk-os/android/app/src/main/assets"
 
-echo "=== Building Hearth UI for Android ==="
+echo "=== Building Sferics UI for Android ==="
 
 cd "$PROJECT_ROOT/frontend"
 

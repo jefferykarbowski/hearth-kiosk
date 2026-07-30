@@ -1,17 +1,19 @@
-# 🔥 Hearth
+# Sferics
 
-**The warm center of your smart kitchen.**
+**Earth's oldest radio station.**
 
-A touchscreen kiosk for your kitchen that brings together freeform radio, music streaming, weather, and more — all in one beautiful interface.
+A *sferic* is the broadband radio pulse thrown off by a lightning discharge — 100 Hz to 10 kHz, propagating for thousands of kilometres through the gap between the ground and the ionosphere. Point a receiver at it and you hear crackle, static, and the occasional *whistler*: a tone sliding down through the spectrum over several seconds. The planet has been broadcasting since long before anyone was listening.
+
+Sferics is a touchscreen listening device built on the same premise — pulling signal out of the air. Freeform radio, long-form DJ sets, and streaming, on one screen, in one room.
 
 ## Features
 
-- 📻 **Freeform Radio** — Curated college and community radio stations (WCBN, KFJC, WFMU, KCRW, NTS, and more)
-- 🎵 **Spotify Connect** — Your music library with full playback control
-- 🎛️ **Mixcloud** — DJ sets and long-form mixes
-- 🌤️ **Weather** — Dynamic backgrounds based on current conditions
-- 📰 **News Ticker** — Stay informed while you cook
-- 🖥️ **Screensaver** — Beautiful ambient mode when idle
+- **Freeform Radio** — College and community stations: WCBN, KFJC, KALX, WFMU, KCRW, NTS
+- **Mixcloud** — DJ sets and long-form mixes
+- **Spotify Connect** — Full playback control
+- **Weather** — Dynamic backgrounds driven by current conditions
+- **News Ticker** — Headlines while you cook
+- **Screensaver** — Ambient mode when idle
 
 ## Tech Stack
 
@@ -23,36 +25,32 @@ A touchscreen kiosk for your kitchen that brings together freeform radio, music 
 ## Quick Start
 
 ```bash
-# Install dependencies
 npm run install:all
-
-# Development mode
 npm run dev
+```
 
-# Production (kiosk mode)
+Production kiosk mode:
+
+```bash
 ./start-kiosk-electron.sh
 ```
 
 ## Configuration
 
-Configure your Hearth at [hearth-at-home.com](https://hearth-at-home.com) (coming soon):
-- Choose which tabs to display
-- Connect your Spotify account
-- Pick your favorite radio stations
-- Set your location for weather
+Copy `backend/config.example.json` to `backend/config.json` and fill in your keys, or supply them as environment variables — `SPOTIFY_CLIENT_ID`, `SPOTIFY_CLIENT_SECRET`, `MIXCLOUD_CLIENT_ID`, `MIXCLOUD_CLIENT_SECRET`, `WEATHER_API_KEY`. Environment variables take precedence.
+
+`backend/config.json` is not tracked in git. Never commit it.
 
 ## Hardware
 
-Runs great on:
-- Microsoft Surface Pro (recommended)
+- Microsoft Surface Pro (current reference device)
+- Allwinner A133 tablet, 7" 1024x600 (target production hardware)
 - Raspberry Pi 4+ with touchscreen
-- Any tablet/computer with a browser
 
-## Part of the Hearth Ecosystem
+## Repository Layout
 
-- **This repo:** The kiosk application
-- **hearth-website:** Dashboard and configuration ([GitHub](https://github.com/jefferykarbowski/hearth-website))
+This repo holds the kiosk application. The cloud dashboard and the Android/AOSP build live alongside it as the monorepo consolidation lands.
 
 ---
 
-Made with 🔥 for kitchens everywhere.
+*"Sound like bacon frying on a griddle."* — the standard description of a sferic heard through a loudspeaker.

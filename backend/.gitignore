@@ -1,2 +1,4 @@
 node_modules/
 tokens.json
+config.json
+data/

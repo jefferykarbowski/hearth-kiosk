@@ -7,7 +7,7 @@ import { parseString } from 'xml2js';
 import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
-import { exec, spawn } from 'child_process';
+import { exec, execFile, spawn } from 'child_process';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -16,13 +16,48 @@ const app = express();
 const server = createServer(app);
 const wss = new WebSocketServer({ server });
 
-// Load config
+// Load config. config.json holds local secrets and is not tracked in git;
+// every secret can also be supplied via environment variable, which wins.
 let config = {};
 try {
   const configPath = path.join(__dirname, 'config.json');
   config = JSON.parse(fs.readFileSync(configPath, 'utf8'));
 } catch (e) {
-  console.error('Error loading config:', e);
+  if (e.code !== 'ENOENT') console.error('Error loading config:', e);
+}
+
+const applyEnvOverrides = (cfg) => {
+  const overrides = {
+    weather: { apiKey: 'WEATHER_API_KEY', zipCode: 'WEATHER_ZIP', country: 'WEATHER_COUNTRY', units: 'WEATHER_UNITS' },
+    news: { rssUrl: 'NEWS_RSS_URL' },
+    lastfm: { apiKey: 'LASTFM_API_KEY' },
+    spotify: { clientId: 'SPOTIFY_CLIENT_ID', clientSecret: 'SPOTIFY_CLIENT_SECRET', redirectUri: 'SPOTIFY_REDIRECT_URI' },
+    mixcloud: { clientId: 'MIXCLOUD_CLIENT_ID', clientSecret: 'MIXCLOUD_CLIENT_SECRET', redirectUri: 'MIXCLOUD_REDIRECT_URI' },
+  };
+
+  for (const [section, keys] of Object.entries(overrides)) {
+    for (const [key, envVar] of Object.entries(keys)) {
+      if (process.env[envVar]) {
+        cfg[section] = cfg[section] || {};
+        cfg[section][key] = process.env[envVar];
+      }
+    }
+  }
+  return cfg;
+};
+
+config = applyEnvOverrides(config);
+
+// Warn loudly at boot rather than failing mysteriously mid-OAuth.
+for (const [service, keys] of Object.entries({
+  weather: ['apiKey'],
+  spotify: ['clientId', 'clientSecret'],
+  mixcloud: ['clientId', 'clientSecret'],
+})) {
+  const missing = keys.filter((k) => !config[service]?.[k]);
+  if (missing.length) {
+    console.warn(`[config] ${service} missing: ${missing.join(', ')} — that feature will be disabled`);
+  }
 }
 
 // Middleware
@@ -2618,10 +2653,17 @@ app.post('/api/volume/mute/toggle', async (req, res) => {
 // BLUETOOTH DEVICE MANAGEMENT
 // ============================================
 
-// Helper: Execute bluetoothctl command
-function bluetoothctl(command) {
+// Bluetooth addresses arrive from the network, so they are validated before
+// they reach any subprocess.
+const BT_ADDRESS = /^[0-9A-F]{2}(:[0-9A-F]{2}){5}$/i;
+const isBluetoothAddress = (address) => typeof address === 'string' && BT_ADDRESS.test(address);
+
+// Helper: Execute bluetoothctl command.
+// Takes discrete arguments and uses execFile, so no shell parses them and a
+// value like "; rm -rf ~" is passed through as a literal argument.
+function bluetoothctl(...args) {
   return new Promise((resolve, reject) => {
-    exec(`bluetoothctl ${command}`, { timeout: 10000 }, (error, stdout, stderr) => {
+    execFile('bluetoothctl', args, { timeout: 10000 }, (error, stdout, stderr) => {
       if (error) {
         reject(new Error(stderr || error.message));
       } else {
@@ -2651,8 +2693,9 @@ function parseDevices(output, type = 'paired') {
 
 // Helper: Get device connection status
 async function getDeviceInfo(address) {
+  if (!isBluetoothAddress(address)) return null;
   try {
-    const output = await bluetoothctl(`info ${address}`);
+    const output = await bluetoothctl('info', address);
     const connected = output.includes('Connected: yes');
     const paired = output.includes('Paired: yes');
     const trusted = output.includes('Trusted: yes');
@@ -2680,7 +2723,7 @@ app.get('/api/bluetooth/devices', async (req, res) => {
     }
 
     // Get paired devices
-    const pairedOutput = await bluetoothctl('devices Paired');
+    const pairedOutput = await bluetoothctl('devices', 'Paired');
     const pairedDevices = parseDevices(pairedOutput, 'paired');
 
     // Get connection status for each paired device
@@ -2735,6 +2778,9 @@ app.post('/api/bluetooth/scan', async (req, res) => {
 // Connect to a device
 app.post('/api/bluetooth/connect/:address', async (req, res) => {
   const { address } = req.params;
+  if (!isBluetoothAddress(address)) {
+    return res.status(400).json({ error: 'Invalid Bluetooth address' });
+  }
   console.log(`[Bluetooth] Connecting to ${address}...`);
 
   try {
@@ -2744,10 +2790,10 @@ app.post('/api/bluetooth/connect/:address', async (req, res) => {
     }
 
     // Trust the device first (for auto-reconnect)
-    await bluetoothctl(`trust ${address}`);
+    await bluetoothctl('trust', address);
 
     // Connect
-    await bluetoothctl(`connect ${address}`);
+    await bluetoothctl('connect', address);
 
     console.log(`[Bluetooth] Connected to ${address}`);
     res.json({ success: true, message: 'Connected' });
@@ -2760,6 +2806,9 @@ app.post('/api/bluetooth/connect/:address', async (req, res) => {
 // Disconnect from a device
 app.post('/api/bluetooth/disconnect/:address', async (req, res) => {
   const { address } = req.params;
+  if (!isBluetoothAddress(address)) {
+    return res.status(400).json({ error: 'Invalid Bluetooth address' });
+  }
   console.log(`[Bluetooth] Disconnecting from ${address}...`);
 
   try {
@@ -2768,7 +2817,7 @@ app.post('/api/bluetooth/disconnect/:address', async (req, res) => {
       return res.status(503).json({ error: 'bluetoothctl not found' });
     }
 
-    await bluetoothctl(`disconnect ${address}`);
+    await bluetoothctl('disconnect', address);
 
     console.log(`[Bluetooth] Disconnected from ${address}`);
     res.json({ success: true, message: 'Disconnected' });
@@ -2787,6 +2836,7 @@ app.get('/api/bluetooth/status', async (req, res) => {
     }
 
     const output = await bluetoothctl('show');
+    // (no user input reaches this call)
     const powered = output.includes('Powered: yes');
     const discovering = output.includes('Discovering: yes');
     const nameMatch = output.match(/Name:\s*(.+)/);
@@ -2814,7 +2864,7 @@ app.post('/api/bluetooth/power/:state', async (req, res) => {
       return res.status(503).json({ error: 'bluetoothctl not found' });
     }
 
-    await bluetoothctl(`power ${powerState}`);
+    await bluetoothctl('power', powerState);
     console.log(`[Bluetooth] Power ${powerState}`);
     res.json({ success: true, powered: powerState === 'on' });
   } catch (e) {
