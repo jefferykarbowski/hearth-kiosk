@@ -1,197 +1,119 @@
-import { useState, useRef, useCallback } from 'react';
-import { Play, Pause, Heart, SkipBack, SkipForward } from 'lucide-react';
 import { useRadio } from '../../contexts/RadioContext';
+import { Arc, Stipple, Comb } from '../marks/Marks';
 
+/** Transport control. Square, hairline-bounded, sized for wet hands. */
+function Transport({ label, onClick, disabled, primary = false, children }) {
+  return (
+    <button
+      onClick={onClick}
+      disabled={disabled}
+      aria-label={label}
+      className="flex items-center justify-center transition-colors duration-150 disabled:opacity-25"
+      style={{
+        width: primary ? 76 : 56,
+        height: primary ? 76 : 56,
+        border: `1px solid ${primary ? 'var(--sig-green)' : 'var(--ink-4)'}`,
+        background: primary ? 'var(--sig-green)' : 'transparent',
+        color: primary ? 'var(--ink)' : 'var(--chalk)',
+      }}
+    >
+      {children}
+    </button>
+  );
+}
+
+/**
+ * The realization — what the score sounds like right now.
+ *
+ * The whistler arc is reserved for this panel alone: it is the one mark that
+ * means "playing". Artwork, when the backend resolves it from iTunes, sits
+ * behind the marks rather than replacing them.
+ */
 export default function NowPlaying() {
-  const {
-    currentStation,
-    isPlaying,
-    metadata,
-    togglePlay,
-    nextStation,
-    prevStation
-  } = useRadio();
+  const { currentStation, isPlaying, metadata, togglePlay, nextStation, prevStation } = useRadio();
 
-  const [isLiked, setIsLiked] = useState(false);
-  const [mousePosition, setMousePosition] = useState({ x: 50, y: 50 });
-  const cardRef = useRef(null);
-  const throttleRef = useRef(null);
-
-  // Throttled mouse move handler - only updates every 50ms to reduce CPU usage
-  const handleMouseMove = useCallback((e) => {
-    if (!cardRef.current || throttleRef.current) return;
-
-    throttleRef.current = true;
-    const rect = cardRef.current.getBoundingClientRect();
-    setMousePosition({
-      x: ((e.clientX - rect.left) / rect.width) * 100,
-      y: ((e.clientY - rect.top) / rect.height) * 100
-    });
-
-    // Throttle to ~20fps (50ms) instead of 60fps
-    setTimeout(() => {
-      throttleRef.current = false;
-    }, 50);
-  }, []);
-
-  const toggleLike = () => {
-    setIsLiked(!isLiked);
-  };
-
-  // Determine what image to show
-  const albumArt = metadata.artwork || currentStation?.logo || null;
-  const title = metadata.title || currentStation?.name || 'Select a station';
-  const artist = metadata.artist || currentStation?.genre || 'Live Radio';
+  const artwork = metadata.artwork || currentStation?.logo || null;
+  const title = metadata.title || currentStation?.name || 'No station';
+  const detail = metadata.artist || currentStation?.genre || 'Choose a station to begin';
 
   return (
-    <div 
-      ref={cardRef}
-      className="w-full max-w-sm rounded-2xl overflow-hidden relative group"
-      style={{
-        background: 'rgba(255, 255, 255, 0.05)',
-        backdropFilter: 'blur(20px)',
-        WebkitBackdropFilter: 'blur(20px)',
-        boxShadow: `0px 1px 0px 0px rgba(255, 255, 255, 0.1) inset, 
-                    0px 0px 30px 5px rgba(255, 255, 255, 0.05), 
-                    0 10px 40px -5px rgba(0, 0, 0, 0.3),
-                    0 0 0 1px rgba(255, 255, 255, 0.08) inset`
-      }}
-      onMouseMove={handleMouseMove}
-    >
-      {/* Mouse tracking glow */}
-      <div 
-        className="absolute w-full h-full pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-700"
-        style={{ 
-          background: `radial-gradient(circle at ${mousePosition.x}% ${mousePosition.y}%, rgba(255, 255, 255, 0.08) 0%, transparent 60%)`,
-          filter: 'blur(25px)',
-        }}
-      />
+    <section className="panel flex w-full flex-col" aria-label="Now playing">
+      {/* The field: artwork behind, marks in front. */}
+      <div className="relative aspect-[4/3] w-full overflow-hidden" style={{ background: 'var(--ink)' }}>
+        {artwork && (
+          <img
+            src={artwork}
+            alt=""
+            className="absolute inset-0 h-full w-full object-cover transition-opacity duration-700"
+            style={{ opacity: isPlaying ? 0.34 : 0.16, filter: 'grayscale(0.4) contrast(1.1)' }}
+          />
+        )}
 
-      <div className="p-6 relative z-10">
-        {/* Album Art */}
-        <div 
-          className="relative w-full aspect-square rounded-xl overflow-hidden mb-6" 
-          style={{ 
-            boxShadow: '0 15px 35px -10px rgba(0, 0, 0, 0.5), 0 0 15px rgba(255, 255, 255, 0.1)',
-            transition: 'all 0.7s cubic-bezier(0.16, 1, 0.3, 1)'
-          }}
-        >
-          {albumArt ? (
-            <img 
-              src={albumArt} 
-              alt="Album Cover" 
-              className="w-full h-full object-cover transition-all duration-700"
-              style={{ 
-                transform: isPlaying ? 'scale(1.05)' : 'scale(1)',
-                filter: isPlaying ? 'brightness(1.1)' : 'brightness(1)',
-              }}
-            />
-          ) : (
-            <div className="w-full h-full bg-gradient-to-br from-indigo-500/30 to-purple-500/30 flex items-center justify-center">
-              <span className="text-6xl opacity-50">📻</span>
-            </div>
-          )}
-          
-          {/* Gradient overlay */}
-          <div className="absolute inset-0 bg-gradient-to-b from-black/10 via-black/30 to-black/60" />
-          
-          {/* Track info overlay */}
-          <div className="absolute bottom-4 left-4 right-4">
-            <h3 className="text-white font-bold text-xl mb-1 drop-shadow-lg truncate">
-              {title}
-            </h3>
-            <p className="text-white/80 text-sm drop-shadow-md truncate">
-              {artist}
-            </p>
-          </div>
-        </div>
-
-        {/* Equalizer */}
-        <div className="flex justify-center gap-1 mb-6 h-8 items-end">
+        {/* Idle: a resting stipple field. Playing: the whistler descends. */}
+        <div className="absolute inset-0" style={{ color: 'var(--sig-green)' }}>
           {isPlaying ? (
-            <>
-              {[1, 2, 3, 4, 5].map((i) => (
-                <div 
-                  key={i}
-                  className={`w-1.5 bg-white/70 rounded-full eq-bar eq-bar-${i}`}
-                  style={{
-                    filter: 'drop-shadow(0 0 2px rgba(255, 255, 255, 0.5))'
-                  }}
-                />
-              ))}
-            </>
-          ) : (
-            <div className="h-8 flex items-center text-white/40 text-xs">
-              {currentStation ? 'Paused' : 'Select a station'}
+            <div className="whistler h-full w-full p-6">
+              <Arc className="h-full w-full" strokeWidth={1.5} />
             </div>
+          ) : (
+            <Stipple seed={currentStation?.name || 'idle'} count={130} className="h-full w-full" />
           )}
         </div>
 
-        {/* Controls */}
-        <div className="flex items-center justify-between">
-          <button 
-            onClick={toggleLike}
-            className="w-10 h-10 rounded-full flex items-center justify-center hover:bg-white/10 transition-all duration-300"
-            style={{
-              transform: isLiked ? 'scale(1.1)' : 'scale(1)'
-            }}
-          >
-            <Heart 
-              size={20} 
-              fill={isLiked ? "white" : "none"} 
-              stroke="white" 
-              className="transition-all duration-300"
-              style={{ 
-                filter: isLiked ? 'drop-shadow(0 0 4px rgba(255, 255, 255, 0.6))' : 'none'
-              }}
-            />
-          </button>
-
-          <div className="flex items-center gap-3">
-            <button 
-              className="w-10 h-10 rounded-full flex items-center justify-center hover:bg-white/10 transition-all duration-300 disabled:opacity-30"
-              onClick={prevStation}
-              disabled={!currentStation}
-            >
-              <SkipBack size={20} className="text-white" />
-            </button>
-            
-            <button 
-              className="w-14 h-14 rounded-full flex items-center justify-center transition-all duration-300 hover:scale-105 disabled:opacity-50"
-              onClick={togglePlay}
-              disabled={!currentStation}
-              style={{
-                background: 'rgba(255, 255, 255, 0.9)',
-                backdropFilter: 'blur(10px)',
-                boxShadow: '0 0 20px rgba(255, 255, 255, 0.3)'
-              }}
-            >
-              {isPlaying ? 
-                <Pause size={24} className="text-black" /> : 
-                <Play size={24} className="text-black ml-1" />
-              }
-            </button>
-            
-            <button 
-              className="w-10 h-10 rounded-full flex items-center justify-center hover:bg-white/10 transition-all duration-300 disabled:opacity-30"
-              onClick={nextStation}
-              disabled={!currentStation}
-            >
-              <SkipForward size={20} className="text-white" />
-            </button>
-          </div>
-
-          <div className="w-10" />
+        {/* Frequency ruler — the score's own axis, not a progress bar. */}
+        <div className="absolute bottom-0 left-0 right-0 flex items-end justify-between px-3 pb-2">
+          {['10k', '5k', '1k', '500', '100'].map((hz) => (
+            <span key={hz} className="font-mono text-[10px] tnum" style={{ color: 'var(--chalk-3)' }}>
+              {hz}
+            </span>
+          ))}
         </div>
       </div>
 
-      {/* Border overlay */}
-      <div 
-        className="absolute inset-0 pointer-events-none rounded-2xl"
-        style={{
-          border: '1px solid rgba(255, 255, 255, 0.15)',
-        }}
-      />
-    </div>
+      {/* Reading */}
+      <div className="seam-t p-4">
+        <p className="stave-label" style={{ color: isPlaying ? 'var(--sig-green)' : 'var(--chalk-3)' }}>
+          {isPlaying ? 'On air' : currentStation ? 'Paused' : 'Idle'}
+        </p>
+        <h2 className="mt-1.5 text-lg font-semibold leading-tight" style={{ color: 'var(--chalk)' }}>
+          {title}
+        </h2>
+        <p className="mt-0.5 text-[13px]" style={{ color: 'var(--chalk-2)' }}>
+          {detail}
+        </p>
+      </div>
+
+      {/* Transport */}
+      <div className="seam-t flex items-center justify-center gap-3 p-4">
+        <Transport label="Previous station" onClick={prevStation} disabled={!currentStation}>
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path d="M6 5h2.5v14H6zM20 5v14L9.5 12z" />
+          </svg>
+        </Transport>
+
+        <Transport label={isPlaying ? 'Pause' : 'Play'} onClick={togglePlay} disabled={!currentStation} primary>
+          {isPlaying ? (
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M7 4h4v16H7zM13 4h4v16h-4z" />
+            </svg>
+          ) : (
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M6 3l16 9-16 9z" />
+            </svg>
+          )}
+        </Transport>
+
+        <Transport label="Next station" onClick={nextStation} disabled={!currentStation}>
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path d="M15.5 5H18v14h-2.5zM4 5l10.5 7L4 19z" />
+          </svg>
+        </Transport>
+      </div>
+
+      {/* Live signal strip — a working level meter, not an ornament. */}
+      <div className="seam-t h-8 px-4 py-2" style={{ color: 'var(--sig-green)', opacity: isPlaying ? 1 : 0.2 }}>
+        <Comb seed={currentStation?.name || 'flat'} bars={28} animated={isPlaying} className="h-full w-full" height={16} />
+      </div>
+    </section>
   );
 }

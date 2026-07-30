@@ -390,6 +390,60 @@ app.get('/api/weather', async (req, res) => {
   }
 });
 
+// Forecast: 5 day / 3 hour, condensed to one entry per day plus the next hours.
+app.get('/api/weather/forecast', async (req, res) => {
+  if (!config.weather?.apiKey) {
+    return res.status(503).json({ error: 'Weather not configured' });
+  }
+
+  try {
+    const { apiKey, zipCode, country, units } = config.weather;
+    const url = `https://api.openweathermap.org/data/2.5/forecast?zip=${zipCode},${country}&units=${units}&appid=${apiKey}`;
+
+    const response = await fetch(url);
+    const data = await response.json();
+
+    if (!data.list) {
+      return res.status(502).json({ error: data.message || 'Invalid forecast data' });
+    }
+
+    const hourly = data.list.slice(0, 8).map((e) => ({
+      time: e.dt * 1000,
+      temp: Math.round(e.main.temp),
+      icon: e.weather?.[0]?.icon,
+      description: e.weather?.[0]?.description,
+      pop: Math.round((e.pop || 0) * 100),
+    }));
+
+    // Group by local calendar day, then reduce each day to a min/max.
+    const days = new Map();
+    for (const e of data.list) {
+      const key = new Date(e.dt * 1000).toDateString();
+      const day = days.get(key) || { date: e.dt * 1000, min: Infinity, max: -Infinity, icons: {}, pop: 0 };
+      day.min = Math.min(day.min, e.main.temp_min);
+      day.max = Math.max(day.max, e.main.temp_max);
+      day.pop = Math.max(day.pop, Math.round((e.pop || 0) * 100));
+      const ic = e.weather?.[0]?.icon;
+      if (ic) day.icons[ic] = (day.icons[ic] || 0) + 1;
+      days.set(key, day);
+    }
+
+    const daily = [...days.values()].map((d) => ({
+      date: d.date,
+      min: Math.round(d.min),
+      max: Math.round(d.max),
+      pop: d.pop,
+      // Most frequent icon that day, preferring daytime variants.
+      icon: Object.entries(d.icons).sort((a, b) => b[1] - a[1])[0]?.[0] || '01d',
+    }));
+
+    res.json({ city: data.city?.name || null, hourly, daily });
+  } catch (e) {
+    console.error('Forecast fetch error:', e.message);
+    res.status(500).json({ error: 'Failed to fetch forecast' });
+  }
+});
+
 // News API (RSS)
 app.get('/api/news', async (req, res) => {
   const rssUrl = config.news?.rssUrl || 'https://feeds.npr.org/1001/rss.xml';
@@ -405,12 +459,33 @@ app.get('/api/news', async (req, res) => {
       }
       
       const items = result?.rss?.channel?.[0]?.item || [];
-      const headlines = items.slice(0, 10).map(item => ({
-        title: item.title?.[0] || '',
-        link: item.link?.[0] || ''
+
+      // Strip tags and collapse whitespace — RSS descriptions carry markup.
+      const clean = (s) =>
+        String(s || '')
+          .replace(/<[^>]*>/g, '')
+          .replace(/&(nbsp|amp|quot|#39|lt|gt);/g, (m) =>
+            ({ '&nbsp;': ' ', '&amp;': '&', '&quot;': '"', '&#39;': "'", '&lt;': '<', '&gt;': '>' }[m] || ' '))
+          .replace(/\s+/g, ' ')
+          .trim();
+
+      // Feeds place images in several different places; take the first that exists.
+      const imageOf = (item) =>
+        item['media:content']?.[0]?.$?.url ||
+        item['media:thumbnail']?.[0]?.$?.url ||
+        (item.enclosure?.[0]?.$?.type?.startsWith('image/') ? item.enclosure[0].$.url : null) ||
+        null;
+
+      const headlines = items.slice(0, 24).map((item) => ({
+        title: clean(item.title?.[0]),
+        link: item.link?.[0] || '',
+        description: clean(item.description?.[0]).slice(0, 400),
+        pubDate: item.pubDate?.[0] || null,
+        author: clean(item['dc:creator']?.[0]) || null,
+        image: imageOf(item),
       }));
-      
-      res.json({ headlines });
+
+      res.json({ headlines, source: result?.rss?.channel?.[0]?.title?.[0] || null });
     });
   } catch (e) {
     console.error('News fetch error:', e.message);

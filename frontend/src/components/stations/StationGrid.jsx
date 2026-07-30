@@ -1,151 +1,117 @@
 import { useState } from 'react';
-import { motion } from 'framer-motion';
-import { Radio, Volume2 } from 'lucide-react';
 import { useRadio } from '../../contexts/RadioContext';
+import { StationMark } from '../marks/Marks';
 
-// Generate a consistent color from station name for fallback
-function getStationColor(name) {
-  let hash = 0;
-  for (let i = 0; i < name.length; i++) {
-    hash = name.charCodeAt(i) + ((hash << 5) - hash);
-  }
-  const h = hash % 360;
-  return `hsl(${h}, 60%, 40%)`;
-}
-
+/**
+ * The station index — every station is a cell in the score carrying its own
+ * mark. The live cell is identified by the source colour on its left seam and
+ * by its mark moving, never by a fill or a glow.
+ */
 export default function StationGrid() {
   const { stations, currentStation, isPlaying, metadata, playStation } = useRadio();
   const [imageErrors, setImageErrors] = useState({});
 
-  const handleImageError = (stationId) => {
-    setImageErrors(prev => ({ ...prev, [stationId]: true }));
-  };
+  const handleImageError = (id) => setImageErrors((prev) => ({ ...prev, [id]: true }));
+
+  if (!stations.length) {
+    return (
+      <div className="panel p-8 text-center">
+        <p className="stave-label">No stations</p>
+        <p className="mt-2 text-sm text-chalk-2">
+          The station list could not be loaded. Check the backend connection.
+        </p>
+      </div>
+    );
+  }
 
   return (
-    <div className="space-y-4">
-      <div className="flex items-center justify-between">
-        <h2 className="text-lg font-semibold text-white/80">Stations</h2>
-        <span className="text-sm text-white/40">{stations.length} stations</span>
-      </div>
-      
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
-        {stations.map((station, index) => {
-          const isActive = currentStation?.id === station.id;
-          const showMetadata = isActive && isPlaying && (metadata.title || metadata.artist);
-          const showFallback = !station.logo || imageErrors[station.id];
-          const fallbackColor = getStationColor(station.name);
-          
+    <section aria-label="Stations">
+      <header className="mb-3 flex items-baseline justify-between">
+        <h2 className="stave-label">Stations</h2>
+        <span className="font-mono text-xs text-chalk-3 tnum">{stations.length}</span>
+      </header>
+
+      <div className="grid grid-cols-2 gap-px xl:grid-cols-3" style={{ background: 'var(--ink-3)' }}>
+        {stations.map((station) => {
+          const active = currentStation?.id === station.id;
+          const live = active && isPlaying;
+          const showMeta = live && (metadata.title || metadata.artist);
+          const useFallback = !station.logo || imageErrors[station.id];
+
           return (
-            <motion.button
+            <button
               key={station.id}
               onClick={() => playStation(station)}
-              className="relative group text-left"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: index * 0.03 }}
-              whileHover={{ scale: 1.02 }}
-              whileTap={{ scale: 0.98 }}
+              aria-current={active ? 'true' : undefined}
+              className="group relative flex min-h-[92px] items-start gap-3 p-3 text-left transition-colors duration-200"
+              style={{ background: active ? 'var(--ink-3)' : 'var(--ink-2)' }}
             >
-              <div 
-                className={`
-                  relative overflow-hidden rounded-xl p-4 transition-all duration-300
-                  ${isActive 
-                    ? 'ring-2 ring-indigo-500 bg-indigo-500/20' 
-                    : 'bg-white/5 hover:bg-white/10'
-                  }
-                `}
-                style={{
-                  backdropFilter: 'blur(10px)',
-                  border: '1px solid rgba(255, 255, 255, 0.1)',
-                }}
+              {/* Live seam — the only place the source colour appears in a cell. */}
+              <span
+                aria-hidden="true"
+                className="absolute bottom-0 left-0 top-0 transition-all duration-300"
+                style={{ width: active ? 3 : 0, background: 'var(--sig-green)' }}
+              />
+
+              {/* Station identity: real logo where one exists, its mark otherwise. */}
+              <span
+                className="flex h-11 w-11 flex-shrink-0 items-center justify-center overflow-hidden"
+                style={{ border: '1px solid var(--ink-4)' }}
               >
-                {/* Background glow when active */}
-                {isActive && isPlaying && (
-                  <div 
-                    className="absolute inset-0 opacity-30"
-                    style={{
-                      background: 'radial-gradient(circle at 50% 50%, rgba(99, 102, 241, 0.4) 0%, transparent 70%)',
-                      animation: 'pulse 2s ease-in-out infinite',
-                    }}
+                {!useFallback ? (
+                  <img
+                    src={station.logo}
+                    alt=""
+                    className="h-full w-full object-contain p-0.5"
+                    loading="lazy"
+                    onError={() => handleImageError(station.id)}
                   />
+                ) : (
+                  <span className="block h-6 w-8" style={{ color: 'var(--sig-green)' }}>
+                    <StationMark name={station.name} playing={live} className="h-full w-full" />
+                  </span>
                 )}
+              </span>
 
-                <div className="relative z-10 flex items-start gap-4">
-                  {/* Station Logo */}
-                  <div className="relative flex-shrink-0">
-                    <div 
-                      className={`
-                        w-14 h-14 rounded-lg overflow-hidden flex items-center justify-center
-                        ${isActive ? 'ring-2 ring-indigo-400' : ''}
-                      `}
-                      style={{ 
-                        backgroundColor: showFallback ? fallbackColor : 'rgba(255,255,255,0.1)'
-                      }}
-                    >
-                      {!showFallback ? (
-                        <img 
-                          src={station.logo} 
-                          alt={station.name}
-                          className="w-full h-full object-contain p-1"
-                          onError={() => handleImageError(station.id)}
-                        />
-                      ) : (
-                        <span className="text-white font-bold text-lg">
-                          {station.name.substring(0, 2).toUpperCase()}
-                        </span>
-                      )}
-                    </div>
-                    
-                    {/* Playing indicator */}
-                    {isActive && isPlaying && (
-                      <div className="absolute -bottom-1 -right-1 w-5 h-5 bg-green-500 rounded-full flex items-center justify-center shadow-lg shadow-green-500/50">
-                        <Volume2 className="w-3 h-3 text-white" />
-                      </div>
+              <span className="min-w-0 flex-1">
+                <span
+                  className="block truncate text-[15px] font-semibold leading-tight"
+                  style={{ color: active ? 'var(--chalk)' : 'var(--chalk)' }}
+                >
+                  {station.name}
+                </span>
+                <span className="mt-0.5 block truncate text-[13px]" style={{ color: 'var(--chalk-3)' }}>
+                  {station.genre}
+                </span>
+
+                {showMeta && (
+                  <span className="mt-1.5 block seam-t pt-1.5">
+                    <span className="block truncate text-[13px]" style={{ color: 'var(--sig-green)' }}>
+                      {metadata.title}
+                    </span>
+                    {metadata.artist && (
+                      <span className="block truncate text-xs" style={{ color: 'var(--chalk-2)' }}>
+                        {metadata.artist}
+                      </span>
                     )}
-                  </div>
+                  </span>
+                )}
+              </span>
 
-                  {/* Station Info */}
-                  <div className="flex-1 min-w-0">
-                    <h3 className="font-semibold text-white truncate">{station.name}</h3>
-                    <p className="text-sm text-white/50 truncate">{station.genre}</p>
-                    
-                    {/* Now Playing metadata */}
-                    {showMetadata && (
-                      <motion.div 
-                        className="mt-2 pt-2 border-t border-white/10"
-                        initial={{ opacity: 0, height: 0 }}
-                        animate={{ opacity: 1, height: 'auto' }}
-                        transition={{ duration: 0.3 }}
-                      >
-                        <p className="text-xs text-indigo-300 truncate">
-                          {metadata.title}
-                        </p>
-                        {metadata.artist && (
-                          <p className="text-xs text-white/40 truncate">
-                            {metadata.artist}
-                          </p>
-                        )}
-                      </motion.div>
-                    )}
-                  </div>
-
-                  {/* Equalizer animation when playing */}
-                  {isActive && isPlaying && (
-                    <div className="flex items-end gap-0.5 h-6 flex-shrink-0">
-                      {[1, 2, 3, 4].map((i) => (
-                        <div 
-                          key={i}
-                          className={`w-1 bg-indigo-400 rounded-full eq-bar-${i}`}
-                        />
-                      ))}
-                    </div>
-                  )}
-                </div>
-              </div>
-            </motion.button>
+              {/* Playing: a small live comb rather than an icon badge. */}
+              {live && (
+                <span
+                  aria-label="Playing"
+                  className="block h-5 w-6 flex-shrink-0"
+                  style={{ color: 'var(--sig-green)' }}
+                >
+                  <StationMark name={station.name} playing className="h-full w-full" />
+                </span>
+              )}
+            </button>
           );
         })}
       </div>
-    </div>
+    </section>
   );
 }
