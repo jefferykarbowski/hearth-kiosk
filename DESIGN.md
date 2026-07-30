@@ -62,6 +62,30 @@ Drawn in SVG in the score's own grammar. Never icon-font glyphs, never generic r
 6. **Motion is drawing.** Marks appear by being drawn (`stroke-dashoffset`), not by fading or sliding. One orchestrated behaviour, not scattered transitions. All motion respects `prefers-reduced-motion`.
 7. **Idle is designed.** The screensaver is a score at rest, not a blank screen.
 
+## Conversion status
+
+The world is not yet applied to the whole surface. This section states exactly
+where it is and is not, so the document never claims more than the build
+delivers.
+
+**Converted** — `App.jsx` shell, `Navigation` (stave rail), `NowPlaying`,
+`StationGrid`, `Marks`, `NewsPanel`, `WeatherPanel`, `SourcesPanel`,
+`SplashScreen`, `Screensaver`, `NewsTicker`, `FloatingHomeButton`.
+
+**Still carrying the pre-redesign look** — `MixcloudTab`, `SpotifyTab`,
+`KioskSettings`, `BluetoothManager`, `VolumeControl`, `WeatherBadge`,
+`SpotifyOverlay`. These keep rounded cards, `bg-white/10`, indigo accents, and
+lucide glyphs.
+
+Two consequences worth naming:
+
+1. Tapping Mixcloud or Spotify leaves the score. The stave rail promises a
+   system the destination does not keep.
+2. `MixcloudTab` and `SpotifyTab` hide controls behind `group-hover`. **On a
+   touch-only device hover never fires**, so those play buttons are unreachable
+   on the target hardware. This is a functional defect, not only a stylistic
+   one, and it is the highest-priority remaining work.
+
 ## Prohibitions
 
 - No indigo/purple gradient (the incumbent's signature — this world's anti-reference).

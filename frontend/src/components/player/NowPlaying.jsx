@@ -10,8 +10,9 @@ function Transport({ label, onClick, disabled, primary = false, children }) {
       aria-label={label}
       className="flex items-center justify-center transition-colors duration-150 disabled:opacity-25"
       style={{
-        width: primary ? 76 : 56,
-        height: primary ? 76 : 56,
+        // Transport minimum is 64px — wet hands. Prev/Next were 56 and failed it.
+        width: primary ? 84 : 64,
+        height: primary ? 84 : 64,
         border: `1px solid ${primary ? 'var(--sig-green)' : 'var(--ink-4)'}`,
         background: primary ? 'var(--sig-green)' : 'transparent',
         color: primary ? 'var(--ink)' : 'var(--chalk)',

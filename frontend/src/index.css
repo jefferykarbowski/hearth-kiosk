@@ -24,8 +24,9 @@
     --ink-4:      #222633;
 
     --chalk:      #e8e6df;
-    --chalk-2:    #9a9a94;
-    --chalk-3:    #61615c;
+    --chalk-2:    #9a9a94;  /* 7.1:1 on --ink */
+    --chalk-3:    #7c7c76;  /* 4.8:1 on --ink — the AA floor for body text.
+                               Was #61615c, which measured 3.2:1 and failed. */
 
     --sig-green:   #3ff5a8;
     --sig-magenta: #ff3d8b;
