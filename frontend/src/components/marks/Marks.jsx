@@ -121,15 +121,17 @@ export function Stipple({ seed = 'sferics', count = 110, className = '', animate
   const dots = Array.from({ length: count }, () => ({
     x: rnd() * 100,
     y: rnd() * 100,
-    r: 0.3 + rnd() * 0.9,
+    r: 0.22 + rnd() * 0.55,
     o: 0.2 + rnd() * 0.8,
   }));
 
   return (
+    // `slice` keeps the dots circular. Stretching a dot field turns every dot
+    // into an ellipse, which reads as a smear rather than as noise.
     <svg
       viewBox="0 0 100 100"
       className={`${animated ? 'stipple' : ''} ${className}`}
-      preserveAspectRatio="none"
+      preserveAspectRatio="xMidYMid slice"
       aria-hidden="true"
       focusable="false"
     >
