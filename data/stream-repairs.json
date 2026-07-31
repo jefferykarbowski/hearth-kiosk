@@ -1,0 +1,102 @@
+{
+ "kcrw": {
+  "id": "kcrw",
+  "name": "KCRW",
+  "old": "http://kcrw.streamguys1.com/kcrw_192k_mp3_on_air",
+  "new": "https://streams.kcrw.com/kcrw_aac",
+  "rb_name": "KCRW Live 89.9 FM (AAC)",
+  "codec": "AAC",
+  "bitrate": 256,
+  "country": "The United States Of America"
+ },
+ "kxci": {
+  "id": "kxci",
+  "name": "KXCI",
+  "old": "https://ais-sa1.streamon.fm/7005_48k.aac",
+  "new": "https://kxci.broadcasttool.stream:80/play",
+  "rb_name": "KXCI 91.3",
+  "codec": "AAC",
+  "bitrate": 96,
+  "country": "The United States Of America"
+ },
+ "chirp": {
+  "id": "chirp",
+  "name": "CHIRP Radio",
+  "old": "http://chirpradio.org/stream",
+  "new": "https://peridot.streamguys1.com:5185/live",
+  "rb_name": "CHIRP Radio (WCXP-LP)",
+  "codec": "MP3",
+  "bitrate": 128,
+  "country": "The United States Of America"
+ },
+ "kfai": {
+  "id": "kfai",
+  "name": "KFAI-FM",
+  "old": "http://stream.kfai.org:8080/kfai-1",
+  "new": "https://kfai.broadcasttool.stream/kfai-1",
+  "rb_name": "KFAI",
+  "codec": "MP3",
+  "bitrate": 192,
+  "country": "The United States Of America"
+ },
+ "wluw": {
+  "id": "wluw",
+  "name": "WLUW-FM",
+  "old": "https://wluw.streamguys1.com/stream.mp3",
+  "new": "https://ice26.securenetsystems.net/WLUW?playSessionID=AD47E8CB-E610-56AC-09E96DB77F17E09B",
+  "rb_name": "WLUW 88.7 FM, Chicago Sound Alliance",
+  "codec": "AAC+",
+  "bitrate": 64,
+  "country": "The United States Of America"
+ },
+ "wras": {
+  "id": "wras",
+  "name": "WRAS",
+  "old": "http://22113.live.streamtheworld.com/WRASFM_SC",
+  "new": "https://gpb.streamguys1.com/gpb-atlanta-aac-website",
+  "rb_name": "88.5 WRAS FM GPB",
+  "codec": "AAC+",
+  "bitrate": 256,
+  "country": "The United States Of America"
+ },
+ "kspc": {
+  "id": "kspc",
+  "name": "KSPC",
+  "old": "http://nebula.shoutca.st:8160/stream128",
+  "new": "https://kspc.radioca.st/stream?type=http&nocache=41177",
+  "rb_name": "KSPC",
+  "codec": "MP3",
+  "bitrate": 192,
+  "country": "The United States Of America"
+ },
+ "wtul": {
+  "id": "wtul",
+  "name": "WTUL",
+  "old": "http://129.81.255.83:8000/stream",
+  "new": "https://stream.wtulneworleans.com/",
+  "rb_name": "WTUL New Orleans",
+  "codec": "MP3",
+  "bitrate": 160,
+  "country": "The United States Of America"
+ },
+ "radio-free-brooklyn": {
+  "id": "radio-free-brooklyn",
+  "name": "Radio Free Brooklyn",
+  "old": "http://192.111.140.6:9300/stream",
+  "new": "https://patmos.cdnstream.com/proxy/ttenney1/?mp=/listen&esPlayer&cb=239941.mp3",
+  "rb_name": "Radio Free Brooklyn",
+  "codec": "MP3",
+  "bitrate": 192,
+  "country": "The United States Of America"
+ },
+ "wknc": {
+  "id": "wknc",
+  "name": "WKNC",
+  "old": "http://173.193.205.96:7430/stream",
+  "new": "https://streaming.live365.com/a45877",
+  "rb_name": "WKNC 88.1 HD1",
+  "codec": "MP3",
+  "bitrate": 192,
+  "country": "The United States Of America"
+ }
+}

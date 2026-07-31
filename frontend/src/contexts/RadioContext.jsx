@@ -35,7 +35,7 @@ const DEFAULT_STATIONS = [
   {
     id: 'kcrw',
     name: 'KCRW',
-    streamUrl: 'http://kcrw.streamguys1.com/kcrw_192k_mp3_on_air',
+    streamUrl: 'https://streams.kcrw.com/kcrw_aac',
     logo: '/logos/kcrw.png',
     genre: 'Always on LA'
   },
@@ -56,7 +56,7 @@ const DEFAULT_STATIONS = [
   {
     id: 'wtul',
     name: 'WTUL',
-    streamUrl: 'http://129.81.255.83:8000/stream',
+    streamUrl: 'https://stream.wtulneworleans.com/',
     logo: '/logos/wtul.png',
     genre: 'New Orleans'
   },
@@ -82,13 +82,6 @@ const DEFAULT_STATIONS = [
     genre: 'Santa Cruz • 88.1 FM'
   },
   {
-    id: 'kusf',
-    name: 'KUSF',
-    streamUrl: 'http://104.236.145.45:8000/stream',
-    logo: '/logos/kusf.png',
-    genre: 'San Francisco Since 1977'
-  },
-  {
     id: 'freeform-portland',
     name: 'Freeform Portland',
     streamUrl: 'http://listen.freeformportland.org:8000/stream',
@@ -98,7 +91,7 @@ const DEFAULT_STATIONS = [
   {
     id: 'kxci',
     name: 'KXCI',
-    streamUrl: 'https://ais-sa1.streamon.fm/7005_48k.aac',
+    streamUrl: 'https://kxci.broadcasttool.stream:80/play',
     logo: '/logos/kxci.png',
     genre: "Tucson's Community Radio"
   },
@@ -112,14 +105,14 @@ const DEFAULT_STATIONS = [
   {
     id: 'radio-free-brooklyn',
     name: 'Radio Free Brooklyn',
-    streamUrl: 'http://192.111.140.6:9300/stream',
+    streamUrl: 'https://patmos.cdnstream.com/proxy/ttenney1/?mp=/listen&esPlayer&cb=239941.mp3',
     logo: '/logos/radio-free-brooklyn.png',
     genre: 'What Brooklyn Sounds Like'
   },
   {
     id: 'chirp',
     name: 'CHIRP Radio',
-    streamUrl: 'http://chirpradio.org/stream',
+    streamUrl: 'https://peridot.streamguys1.com:5185/live',
     logo: '/logos/chirp.png',
     genre: 'Chicago Independent Radio'
   },
@@ -131,16 +124,9 @@ const DEFAULT_STATIONS = [
     genre: 'University of Idaho'
   },
   {
-    id: 'kbga',
-    name: 'KBGA',
-    streamUrl: 'http://edge.mixlr.com/channel/veouw',
-    logo: '/logos/kbga.png',
-    genre: 'Missoula • Real DJs, Live Music'
-  },
-  {
     id: 'wluw',
     name: 'WLUW-FM',
-    streamUrl: 'https://wluw.streamguys1.com/stream.mp3',
+    streamUrl: 'https://ice26.securenetsystems.net/WLUW?playSessionID=AD47E8CB-E610-56AC-09E96DB77F17E09B',
     logo: '/logos/wluw.png',
     genre: 'Loyola University Chicago'
   },
@@ -189,7 +175,7 @@ const DEFAULT_STATIONS = [
   {
     id: 'kspc',
     name: 'KSPC',
-    streamUrl: 'http://nebula.shoutca.st:8160/stream128',
+    streamUrl: 'https://kspc.radioca.st/stream?type=http&nocache=41177',
     logo: '/logos/kspc.png',
     genre: 'College Radio • Los Angeles'
   },
@@ -210,7 +196,7 @@ const DEFAULT_STATIONS = [
   {
     id: 'kfai',
     name: 'KFAI-FM',
-    streamUrl: 'http://stream.kfai.org:8080/kfai-1',
+    streamUrl: 'https://kfai.broadcasttool.stream/kfai-1',
     logo: '/logos/kfai.png',
     genre: 'Minneapolis + St. Paul'
   },
@@ -231,7 +217,7 @@ const DEFAULT_STATIONS = [
   {
     id: 'wknc',
     name: 'WKNC',
-    streamUrl: 'http://173.193.205.96:7430/stream',
+    streamUrl: 'https://streaming.live365.com/a45877',
     logo: '/logos/wknc.png',
     genre: 'NC State College Radio'
   },
@@ -278,13 +264,6 @@ const DEFAULT_STATIONS = [
     genre: 'Freeform • Humboldt County'
   },
   {
-    id: 'wojb',
-    name: 'WOJB',
-    streamUrl: 'https://wojb.streamguys1.com/live',
-    logo: '/logos/wojb.png',
-    genre: 'Woodland Community Radio'
-  },
-  {
     id: 'kups',
     name: 'KUPS',
     streamUrl: 'https://streamingv2.shoutcast.com/kupsfm',
@@ -294,7 +273,7 @@ const DEFAULT_STATIONS = [
   {
     id: 'wras',
     name: 'WRAS',
-    streamUrl: 'http://22113.live.streamtheworld.com/WRASFM_SC',
+    streamUrl: 'https://gpb.streamguys1.com/gpb-atlanta-aac-website',
     logo: '/logos/wras.png',
     genre: 'Album 88 • Georgia State'
   },
@@ -304,13 +283,6 @@ const DEFAULT_STATIONS = [
     streamUrl: 'https://streamer.kuci.org:8088/web',
     logo: '/logos/kuci.png',
     genre: 'KUCI 88.9 FM • UC Irvine'
-  },
-  {
-    id: 'ktru',
-    name: 'KTRU',
-    streamUrl: 'http://stream.ktru.org:8000/ktru-hd',
-    logo: '/logos/ktru.png',
-    genre: 'Rice Radio • Houston'
   },
   {
     id: 'citr',
@@ -346,132 +318,154 @@ const DEFAULT_STATIONS = [
     id: '1431am',
     name: '1431AM',
     streamUrl: 'https://www.1431am.org:8001/1431high',
+    logo: '/logos/1431am.png',
     genre: 'Thessaloniki, Greece'
   },
   {
     id: '4zzz',
     name: '4ZZZ',
     streamUrl: 'https://iheart.4zzz.org.au/4zzz',
+    logo: '/logos/4zzz.svg',
     genre: 'Brisbane • Australia'
   },
   {
     id: 'cfru',
     name: 'CFRU',
     streamUrl: 'https://listen.cfru.ca/',
+    logo: '/logos/cfru.png',
     genre: 'Canada'
   },
   {
     id: 'chirp2',
     name: 'CHIRP',
     streamUrl: 'https://peridot.streamguys1.com:5185/live',
+    logo: '/logos/chirp2.png',
     genre: 'Independent Radio • USA'
   },
   {
     id: 'cixx',
     name: 'CIXX',
     streamUrl: 'https://ice23.securenetsystems.net/CIXXFM',
+    logo: '/logos/cixx.png',
     genre: 'Campus Radio • Canada'
   },
   {
     id: 'cjsf',
     name: 'CJSF',
     streamUrl: 'https://www.cjsf.ca/streaming',
+    logo: '/logos/cjsf.png',
     genre: 'College Radio • Canada'
   },
   {
     id: 'cjsw',
     name: 'CJSW',
     streamUrl: 'http://stream.cjsw.com/cjsw.mp3',
+    logo: '/logos/cjsw.png',
     genre: 'Campus Radio • Canada'
   },
   {
     id: 'ckcu',
     name: 'CKCU',
     streamUrl: 'https://stream2.statsradio.com:8124/stream',
+    logo: '/logos/ckcu.jpg',
     genre: 'College Radio • Canada'
   },
   {
     id: 'ckms',
     name: 'CKMS',
     streamUrl: 'https://radiowaterloo.ca/stream2',
+    logo: '/logos/ckms.png',
     genre: 'Community Radio • Canada'
   },
   {
     id: 'infowars',
     name: 'InfoWars',
     streamUrl: 'http://stream-mp3.infowars.com/',
+    logo: '/logos/infowars.jpg',
     genre: 'USA'
   },
   {
     id: 'kcsu',
     name: 'KCSU',
     streamUrl: 'https://listen.kcsufm.com/stream?nocache=1770828530774',
+    logo: '/logos/kcsu.png',
     genre: 'University Radio • USA'
   },
   {
     id: 'kdfc',
     name: 'KDFC',
     streamUrl: 'https://playerservices.streamtheworld.com/api/livestream-redirect/KDFCFMAAC.aac',
+    logo: '/logos/kdfc.png',
     genre: 'The United States Minor Outlying Islands'
   },
   {
     id: 'kexp',
     name: 'KEXP',
     streamUrl: 'https://kexp-mp3-128.streamguys1.com/kexp128.mp3',
+    logo: '/logos/kexp.png',
     genre: 'USA'
   },
   {
     id: 'kgnu',
     name: 'KGNU',
     streamUrl: 'https://kgnu.streamguys1.com/kgnu',
+    logo: '/logos/kgnu.png',
     genre: 'Community Radio • USA'
   },
   {
     id: 'khsu',
     name: 'KHSU',
     streamUrl: 'https://playerservices.streamtheworld.com/api/livestream-redirect/KHSUFM.mp3',
+    logo: '/logos/khsu.webp',
     genre: 'Variety • USA'
   },
   {
     id: 'kmrd2',
     name: 'KMRD',
     streamUrl: 'https://kmrd.broadcasttool.stream/listen',
+    logo: '/logos/kmrd2.png',
     genre: 'Community Radio • USA'
   },
   {
     id: 'kntu',
     name: 'KNTU',
     streamUrl: 'https://ice41.securenetsystems.net/KNTU',
+    logo: '/logos/kntu.png',
     genre: 'Alternative • USA'
   },
   {
     id: 'kpov',
     name: 'KPOV',
     streamUrl: 'https://kpov-ice.streamguys1.com/live',
+    logo: '/logos/kpov.png',
     genre: 'USA'
   },
   {
     id: 'kqed',
     name: 'KQED',
     streamUrl: 'https://hls.kqed.org/hls/kqed_app/playlist.m3u8',
+    logo: '/logos/kqed.png',
     genre: 'Cultural News • USA'
   },
   {
     id: 'krcc',
     name: 'KRCC',
     streamUrl: 'https://streams.krcc.org/krcc_mp3',
+    logo: '/logos/krcc.ico',
     genre: 'Local News • USA'
   },
   {
     id: 'krnu',
     name: 'KRNU',
     streamUrl: 'https://s8.yesstreaming.net:17004/krnu',
+    logo: '/logos/krnu.png',
     genre: 'Alternative • USA'
   },
   {
     id: 'ksdp',
     name: 'KSDP',
     streamUrl: 'https://stream.apradio.org/stream.aac',
+    logo: '/logos/ksdp.png',
     genre: 'Community Radio • USA'
   },
   {
@@ -484,18 +478,21 @@ const DEFAULT_STATIONS = [
     id: 'ktcu',
     name: 'KTCU',
     streamUrl: 'https://ktcustream.tcu.edu/',
+    logo: '/logos/ktcu.png',
     genre: 'College • USA'
   },
   {
     id: 'kunm',
     name: 'KUNM',
     streamUrl: 'https://playerservices.streamtheworld.com/api/livestream-redirect/KUNMFM_128.mp3',
+    logo: '/logos/kunm.png',
     genre: 'USA'
   },
   {
     id: 'kvmr',
     name: 'KVMR',
     streamUrl: 'http://live.kvmr.org:8000/aac96',
+    logo: '/logos/kvmr.png',
     genre: 'Comunity • USA'
   },
   {
@@ -508,54 +505,63 @@ const DEFAULT_STATIONS = [
     id: 'luxuriamusic',
     name: 'Luxuria Music',
     streamUrl: 'http://ice10.securenetsystems.net/LUXOMP3',
+    logo: '/logos/luxuriamusic.png',
     genre: 'Electronic • USA'
   },
   {
     id: 'radiodio',
     name: 'Radio Dio',
     streamUrl: 'https://live.aurafm.org/RadioDio',
+    logo: '/logos/radiodio.ico',
     genre: 'Dub • France'
   },
   {
     id: 'radionova',
     name: 'Radio Nova',
     streamUrl: 'https://novazz.ice.infomaniak.ch/novazz-128.mp3',
+    logo: '/logos/radionova.png',
     genre: 'France'
   },
   {
     id: 'radioone91fm',
     name: 'Radio One 91FM',
     streamUrl: 'https://play.r1.co.nz/live',
+    logo: '/logos/radioone91fm.png',
     genre: 'Community Radio • New Zealand'
   },
   {
     id: 'radiok',
     name: 'RadioK',
     streamUrl: 'https://radiok.broadcasttool.stream/play_256',
+    logo: '/logos/radiok.gif',
     genre: 'Campus • USA'
   },
   {
     id: 'radiostadmontfoort',
     name: 'RadioStadMontfoort',
     streamUrl: 'http://stream001.digiplay.nl:9038/stream',
+    logo: '/logos/radiostadmontfoort.png',
     genre: '24/7 • Netherlands'
   },
   {
     id: 'radyoeksen',
     name: 'Radyo Eksen',
     streamUrl: 'https://dygedge.radyotvonline.net/radyoeksen/playlist.m3u8',
+    logo: '/logos/radyoeksen.png',
     genre: 'Alternative • Türkiye'
   },
   {
     id: 'sohoradio',
     name: 'Soho Radio',
     streamUrl: 'http://sohoradiomusic.doughunt.co.uk:8000/320mp3',
+    logo: '/logos/sohoradio.jpg',
     genre: 'Culture • UK'
   },
   {
     id: 'thelotradio',
     name: 'The Lot Radio',
     streamUrl: 'https://livepeercdn.studio/hls/85c28sa2o8wppm58/index.m3u8',
+    logo: '/logos/thelotradio.png',
     genre: 'Dance • USA'
   },
   {
@@ -568,174 +574,203 @@ const DEFAULT_STATIONS = [
     id: 'wbny',
     name: 'WBNY',
     streamUrl: 'http://136.183.9.38:3307/;',
+    logo: '/logos/wbny.png',
     genre: 'College Radio • USA'
   },
   {
     id: 'wbor',
     name: 'WBOR',
     streamUrl: 'https://listen.wbor.org/',
+    logo: '/logos/wbor.png',
     genre: 'College • USA'
   },
   {
     id: 'wcdb',
     name: 'WCDB',
     streamUrl: 'https://streams.wcdb.fm/stream',
+    logo: '/logos/wcdb.jpg',
     genre: '24/7 • USA'
   },
   {
     id: 'wchc',
     name: 'WCHC',
     streamUrl: 'https://s2.radio.co/sc161fe4c9/listen',
+    logo: '/logos/wchc.png',
     genre: 'Alternative • USA'
   },
   {
     id: 'wcuw',
     name: 'WCUW',
     streamUrl: 'http://peridot.streamguys.com:5490/live',
+    logo: '/logos/wcuw.png',
     genre: 'Americana • USA'
   },
   {
     id: 'wdbm',
     name: 'WDBM',
     streamUrl: 'https://play.impact89fm.org:8000/impact89fm',
+    logo: '/logos/wdbm.png',
     genre: 'Alternative • USA'
   },
   {
     id: 'weft',
     name: 'WEFT',
     streamUrl: 'https://weft.broadcasttool.stream/stream',
+    logo: '/logos/weft.jpg',
     genre: 'USA'
   },
   {
     id: 'wers',
     name: 'WERS',
     streamUrl: 'http://marconi.emerson.edu:8000/wers',
+    logo: '/logos/wers.png',
     genre: 'Alternative • USA'
   },
   {
     id: 'wfuv',
     name: 'WFUV',
     streamUrl: 'https://onair.wfuv.org/onair-aacplus',
+    logo: '/logos/wfuv.ico',
     genre: 'Adult Album Alternative • USA'
   },
   {
     id: 'whrv',
     name: 'WHRV',
     streamUrl: 'http://whrv.mediaplayer.whro.org/128',
+    logo: '/logos/whrv.png',
     genre: 'Jazz • USA'
   },
   {
     id: 'whrw',
     name: 'WHRW',
     streamUrl: 'http://stream.whrwfm.org/new',
+    logo: '/logos/whrw.png',
     genre: 'Classical • USA'
   },
   {
     id: 'widr',
     name: 'WIDR',
     streamUrl: 'http://widrfm.net/stream',
+    logo: '/logos/widr.png',
     genre: 'USA'
   },
   {
     id: 'witr',
     name: 'WITR',
     streamUrl: 'https://streaming.witr.rit.edu/live-aac-96',
+    logo: '/logos/witr.jpg',
     genre: 'College Radio • USA'
   },
   {
     id: 'wluw2',
     name: 'WLUW',
     streamUrl: 'https://ice26.securenetsystems.net/WLUW?playSessionID=AD47E8CB-E610-56AC-09E96DB77F17E09B',
+    logo: '/logos/wluw2.webp',
     genre: 'Independent Radio • USA'
   },
   {
     id: 'wmnf',
     name: 'WMNF',
     streamUrl: 'https://stream.wmnf.org/wmnf_high_quality',
+    logo: '/logos/wmnf.png',
     genre: 'Community Radio • USA'
   },
   {
     id: 'wmtu',
     name: 'WMTU',
     streamUrl: 'https://stream.wmtu.fm/wmtu-live',
+    logo: '/logos/wmtu.webp',
     genre: 'USA'
   },
   {
     id: 'wnyc',
     name: 'WNYC',
     streamUrl: 'http://fm939.wnyc.org/wnycfm.aac',
+    logo: '/logos/wnyc.png',
     genre: 'News • USA'
   },
   {
     id: 'worldmusicradio',
     name: 'World Music Radio',
     streamUrl: 'http://stream.wlmm.dk:8010/wmrmp3',
+    logo: '/logos/worldmusicradio.png',
     genre: 'Denmark'
   },
   {
     id: 'wort',
     name: 'WORT',
     streamUrl: 'https://stream.wortfm.org:8443/high.mp3',
+    logo: '/logos/wort.png',
     genre: 'USA'
   },
   {
     id: 'wprk',
     name: 'WPRK',
     streamUrl: 'https://wprk.broadcasttool.stream:80/stream',
+    logo: '/logos/wprk.png',
     genre: 'USA'
   },
   {
     id: 'wpts',
     name: 'WPTS',
     streamUrl: 'http://audio.wpts.pitt.edu:8000/wpts_live_128s.mp3',
+    logo: '/logos/wpts.png',
     genre: 'Alternative • USA'
   },
   {
     id: 'wrbb',
     name: 'WRBB',
     streamUrl: 'https://audio-edge-qse4n.yyz.g.radiomast.io/dafd1179-5404-4939-9c1c-a014c6964254',
+    logo: '/logos/wrbb.png',
     genre: 'College Radio • USA'
   },
   {
     id: 'wrct',
     name: 'WRCT',
     streamUrl: 'http://stream.wrct.org/wrct-hi.mp3',
+    logo: '/logos/wrct.png',
     genre: 'Freeform • USA'
   },
   {
     id: 'wrpi',
     name: 'WRPI',
     streamUrl: 'https://stream.wrpi.org/mp3-320.mp3',
+    logo: '/logos/wrpi.png',
     genre: 'College • USA'
   },
   {
     id: 'wruw',
     name: 'WRUW',
     streamUrl: 'https://wruw-stream.wruw.org/hls/stream.m3u8',
+    logo: '/logos/wruw.ico',
     genre: 'Alternative • USA'
   },
   {
     id: 'wsoe',
     name: 'WSOE',
     streamUrl: 'https://audio-mp3.ibiblio.org/wsoe.mp3',
+    logo: '/logos/wsoe.webp',
     genre: 'Alternative • USA'
   },
   {
     id: 'wtip',
     name: 'WTIP',
     streamUrl: 'https://wtip.broadcasttool.stream/stream',
+    logo: '/logos/wtip.png',
     genre: 'Community Radio • USA'
   },
   {
     id: 'wumm',
     name: 'WUMM',
     streamUrl: 'http://wumm.machias.edu:8000/wumm',
+    logo: '/logos/wumm.png',
     genre: 'University • USA'
   },
   {
     id: 'wvbr',
     name: 'WVBR',
     streamUrl: 'https://ais-edge07-live365-dal02.cdnstream.com/a25496',
+    logo: '/logos/wvbr.ico',
     genre: 'College Radio • USA'
   },
   {
@@ -748,30 +783,35 @@ const DEFAULT_STATIONS = [
     id: 'wvud',
     name: 'WVUD',
     streamUrl: 'http://142.44.160.109/s1bc6bf517/listen',
+    logo: '/logos/wvud.png',
     genre: 'USA'
   },
   {
     id: 'wxdu',
     name: 'WXDU',
     streamUrl: 'http://152.3.0.231:8000/wxdu128.mp3',
+    logo: '/logos/wxdu.ico',
     genre: 'Duke • USA'
   },
   {
     id: 'wxou',
     name: 'WXOU',
     streamUrl: 'https://a8.asurahosting.com/listen/wxou/radio.mp3',
+    logo: '/logos/wxou.png',
     genre: 'College Radio • USA'
   },
   {
     id: 'wxox',
     name: 'WXOX',
     streamUrl: 'https://patmos.cdnstream.com/proxy/artfmin1/?mp=/stream',
+    logo: '/logos/wxox.jpg',
     genre: 'Variety • USA'
   },
   {
     id: 'wxyc',
     name: 'WXYC',
     streamUrl: 'https://audio-mp3.ibiblio.org/wxyc.mp3',
+    logo: '/logos/wxyc.png',
     genre: 'Freeform • USA'
   },
   {
