@@ -8,7 +8,7 @@ import { StationMark } from '../marks/Marks';
  * by its mark moving, never by a fill or a glow.
  */
 export default function StationGrid() {
-  const { stations, currentStation, isPlaying, metadata, playStation } = useRadio();
+  const { stations, currentStation, isPlaying, playStation } = useRadio();
   const [imageErrors, setImageErrors] = useState({});
 
   const handleImageError = (id) => setImageErrors((prev) => ({ ...prev, [id]: true }));
@@ -35,7 +35,8 @@ export default function StationGrid() {
         {stations.map((station) => {
           const active = currentStation?.id === station.id;
           const live = active && isPlaying;
-          const showMeta = live && (metadata.title || metadata.artist);
+          // Track and artist deliberately live only in the realization panel:
+          // repeating them here made the active cell grow and shove the grid.
           const useFallback = !station.logo || imageErrors[station.id];
 
           return (
@@ -83,19 +84,6 @@ export default function StationGrid() {
                 <span className="mt-0.5 block truncate text-[13px]" style={{ color: 'var(--chalk-3)' }}>
                   {station.genre}
                 </span>
-
-                {showMeta && (
-                  <span className="mt-1.5 block seam-t pt-1.5">
-                    <span className="block truncate text-[13px]" style={{ color: 'var(--sig-green)' }}>
-                      {metadata.title}
-                    </span>
-                    {metadata.artist && (
-                      <span className="block truncate text-xs" style={{ color: 'var(--chalk-2)' }}>
-                        {metadata.artist}
-                      </span>
-                    )}
-                  </span>
-                )}
               </span>
 
               {/* Playing: a small live comb rather than an icon badge. */}
