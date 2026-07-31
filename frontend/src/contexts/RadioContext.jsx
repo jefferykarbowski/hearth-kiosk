@@ -780,6 +780,151 @@ const DEFAULT_STATIONS = [
     streamUrl: 'https://live.streamguys1.com:3181/hd2',
     genre: 'Classical • USA'
   },
+
+  // ---------------------------------------------------------------------
+  // Medium-confidence SoundTap matches. Radio Browser holds no coordinates
+  // for these, so the 150km position check that validated the block above
+  // was unavailable. Three substitutes were required instead: an exact name
+  // match, a stream that returned audio bytes, and station artwork that
+  // downloaded and decoded as a real image. Country was cross-checked by
+  // inferring each one from SoundTap's coordinates - that step caught four
+  // wrong matches (ExpressFM, Radio Valencia, Radio 90.5fm, Radio Caroline)
+  // which are excluded, along with three name-containment guesses.
+  // Artwork is served locally: the kiosk must render with no network.
+  // ---------------------------------------------------------------------
+  {
+    id: 'bagelradio',
+    name: 'Bagel Radio',
+    streamUrl: 'https://ais-sa3.cdnstream1.com/2606_128.aac',
+    logo: '/logos/bagelradio.jpg',
+    genre: 'USA'
+  },
+  {
+    id: 'bailriggfm',
+    name: 'Bailrigg FM',
+    streamUrl: 'https://stream.bailriggfm.co.uk/listen/bfm/128.mp3',
+    logo: '/logos/bailriggfm.png',
+    genre: 'UK'
+  },
+  {
+    id: 'bfffm',
+    name: 'BFF.fm',
+    streamUrl: 'http://stream.bff.fm/1/BFF.fm.mp3',
+    logo: '/logos/bfffm.png',
+    genre: 'USA'
+  },
+  {
+    id: 'bushradio',
+    name: 'Bushradio',
+    streamUrl: 'https://zas4.ndx.co.za:9100/stream',
+    logo: '/logos/bushradio.png',
+    genre: 'South Africa'
+  },
+  {
+    id: 'coyoteradio',
+    name: 'Coyote Radio',
+    streamUrl: 'https://crbroadcast.csusb.edu/cr_live',
+    logo: '/logos/coyoteradio.png',
+    genre: 'USA'
+  },
+  {
+    id: 'dublindigitalradio',
+    name: 'Dublin Digital Radio',
+    streamUrl: 'https://dublin-digital-radio.radiocult.fm/stream',
+    logo: '/logos/dublindigitalradio.jpg',
+    genre: 'Ireland'
+  },
+  {
+    id: 'lemellotron',
+    name: 'LeMellotron',
+    streamUrl: 'https://listen.radioking.com/radio/477719/stream/534044',
+    logo: '/logos/lemellotron.png',
+    genre: 'France'
+  },
+  {
+    id: 'nessradio',
+    name: 'Ness Radio',
+    streamUrl: 'https://radio.nessradio.net:8212/nessradio-hd',
+    logo: '/logos/nessradio.jpg',
+    genre: 'Morocco'
+  },
+  {
+    id: 'newtownradio',
+    name: 'Newtown Radio',
+    streamUrl: 'https://streaming.radio.co/s0d090ee43/listen',
+    logo: '/logos/newtownradio.ico',
+    genre: 'USA'
+  },
+  {
+    id: 'radio6023',
+    name: 'Radio 6023',
+    streamUrl: 'http://stream12.top-ix.org/radio6023',
+    logo: '/logos/radio6023.jpg',
+    genre: 'Italy'
+  },
+  {
+    id: 'radioactive2',
+    name: 'Radio Active',
+    streamUrl: 'https://streamyourdream.org:8050/radioactive',
+    logo: '/logos/radioactive2.png',
+    genre: 'Greece'
+  },
+  {
+    id: 'radiocampuslille',
+    name: 'Radio Campus Lille',
+    streamUrl: 'http://radiocampuslille.ice.infomaniak.ch/radiocampuslille-96.aac',
+    logo: '/logos/radiocampuslille.png',
+    genre: 'France'
+  },
+  {
+    id: 'radiocentraal',
+    name: 'Radio Centraal',
+    streamUrl: 'http://streams.movemedia.eu/centraal',
+    logo: '/logos/radiocentraal.ico',
+    genre: 'Belgium'
+  },
+  {
+    id: 'radioparadise',
+    name: 'Radio Paradise',
+    streamUrl: 'http://stream.radioparadise.com/flac',
+    logo: '/logos/radioparadise.png',
+    genre: 'Community radio'
+  },
+  {
+    id: 'rtrfm',
+    name: 'RTRfm',
+    streamUrl: 'https://live.rtrfm.com.au/stream1',
+    logo: '/logos/rtrfm.webp',
+    genre: 'Australia'
+  },
+  {
+    id: 'uclaradio',
+    name: 'UCLAradio',
+    streamUrl: 'https://live.uclaradio.com/listen/ucla_radio/radio.mp3',
+    logo: '/logos/uclaradio.png',
+    genre: 'USA'
+  },
+  {
+    id: 'wbcrlp',
+    name: 'WBCR-lp',
+    streamUrl: 'https://s3.citrus3.com:8114/stream',
+    logo: '/logos/wbcrlp.png',
+    genre: 'USA'
+  },
+  {
+    id: 'xrayfm',
+    name: 'XRAY FM',
+    streamUrl: 'https://listen.xray.fm/stream',
+    logo: '/logos/xrayfm.png',
+    genre: 'USA'
+  },
+  {
+    id: 'ynotradio',
+    name: 'YNOT Radio',
+    streamUrl: 'https://ais-edge104-live365-dal02.cdnstream.com/a54553',
+    logo: '/logos/ynotradio.ico',
+    genre: 'USA'
+  },
 ];
 
 export function RadioProvider({ children }) {
