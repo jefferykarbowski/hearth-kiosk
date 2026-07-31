@@ -36,12 +36,13 @@ export default function SpotifyOverlay() {
             exit={{ opacity: 0, x: -20 }}
             transition={{ delay: 0.3 }}
             onClick={handleBackToRadio}
-            className="absolute left-2 top-1/2 -translate-y-1/2 pointer-events-auto flex flex-col items-center gap-3 px-3 py-6 rounded-2xl font-medium shadow-2xl text-white"
+            /* Centred with auto margins, not -translate-y-1/2: Framer writes an
+               inline transform for the x animation and would override it. */
+            className="pointer-events-auto absolute bottom-0 left-2 top-0 my-auto flex h-fit flex-col items-center gap-3 px-3 py-6 font-medium"
             style={{
-              background: 'linear-gradient(135deg, rgba(99, 102, 241, 0.95), rgba(79, 70, 229, 0.95))',
-              backdropFilter: 'blur(10px)',
-              border: '2px solid rgba(255, 255, 255, 0.3)',
-              boxShadow: '0 8px 32px rgba(99, 102, 241, 0.4)',
+              background: 'var(--sig-green)',
+              color: 'var(--ink)',
+              border: '1px solid var(--sig-green)',
             }}
             whileHover={{ scale: 1.05, x: 5 }}
             whileTap={{ scale: 0.95 }}
