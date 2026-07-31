@@ -333,6 +333,453 @@ const DEFAULT_STATIONS = [
     logo: '/logos/kmrd.png',
     genre: 'Madrid Community Radio'
   },
+
+  // ---------------------------------------------------------------------
+  // Recovered from soundtap.com (defunct) via the Internet Archive, then
+  // matched against Radio Browser for current stream URLs. Every entry below
+  // matched by name AND by position (within 150km of SoundTap's recorded
+  // coordinates), and returned audio bytes when checked on 2026-07-31.
+  // See data/soundtap-stations.json and scripts/.
+  // No logo field: StationGrid draws a notation mark derived from the name.
+  // ---------------------------------------------------------------------
+  {
+    id: '1431am',
+    name: '1431AM',
+    streamUrl: 'https://www.1431am.org:8001/1431high',
+    genre: 'Thessaloniki, Greece'
+  },
+  {
+    id: '4zzz',
+    name: '4ZZZ',
+    streamUrl: 'https://iheart.4zzz.org.au/4zzz',
+    genre: 'Brisbane • Australia'
+  },
+  {
+    id: 'cfru',
+    name: 'CFRU',
+    streamUrl: 'https://listen.cfru.ca/',
+    genre: 'Canada'
+  },
+  {
+    id: 'chirp2',
+    name: 'CHIRP',
+    streamUrl: 'https://peridot.streamguys1.com:5185/live',
+    genre: 'Independent Radio • USA'
+  },
+  {
+    id: 'cixx',
+    name: 'CIXX',
+    streamUrl: 'https://ice23.securenetsystems.net/CIXXFM',
+    genre: 'Campus Radio • Canada'
+  },
+  {
+    id: 'cjsf',
+    name: 'CJSF',
+    streamUrl: 'https://www.cjsf.ca/streaming',
+    genre: 'College Radio • Canada'
+  },
+  {
+    id: 'cjsw',
+    name: 'CJSW',
+    streamUrl: 'http://stream.cjsw.com/cjsw.mp3',
+    genre: 'Campus Radio • Canada'
+  },
+  {
+    id: 'ckcu',
+    name: 'CKCU',
+    streamUrl: 'https://stream2.statsradio.com:8124/stream',
+    genre: 'College Radio • Canada'
+  },
+  {
+    id: 'ckms',
+    name: 'CKMS',
+    streamUrl: 'https://radiowaterloo.ca/stream2',
+    genre: 'Community Radio • Canada'
+  },
+  {
+    id: 'infowars',
+    name: 'InfoWars',
+    streamUrl: 'http://stream-mp3.infowars.com/',
+    genre: 'USA'
+  },
+  {
+    id: 'kcsu',
+    name: 'KCSU',
+    streamUrl: 'https://listen.kcsufm.com/stream?nocache=1770828530774',
+    genre: 'University Radio • USA'
+  },
+  {
+    id: 'kdfc',
+    name: 'KDFC',
+    streamUrl: 'https://playerservices.streamtheworld.com/api/livestream-redirect/KDFCFMAAC.aac',
+    genre: 'The United States Minor Outlying Islands'
+  },
+  {
+    id: 'kexp',
+    name: 'KEXP',
+    streamUrl: 'https://kexp-mp3-128.streamguys1.com/kexp128.mp3',
+    genre: 'USA'
+  },
+  {
+    id: 'kgnu',
+    name: 'KGNU',
+    streamUrl: 'https://kgnu.streamguys1.com/kgnu',
+    genre: 'Community Radio • USA'
+  },
+  {
+    id: 'khsu',
+    name: 'KHSU',
+    streamUrl: 'https://playerservices.streamtheworld.com/api/livestream-redirect/KHSUFM.mp3',
+    genre: 'Variety • USA'
+  },
+  {
+    id: 'kmrd2',
+    name: 'KMRD',
+    streamUrl: 'https://kmrd.broadcasttool.stream/listen',
+    genre: 'Community Radio • USA'
+  },
+  {
+    id: 'kntu',
+    name: 'KNTU',
+    streamUrl: 'https://ice41.securenetsystems.net/KNTU',
+    genre: 'Alternative • USA'
+  },
+  {
+    id: 'kpov',
+    name: 'KPOV',
+    streamUrl: 'https://kpov-ice.streamguys1.com/live',
+    genre: 'USA'
+  },
+  {
+    id: 'kqed',
+    name: 'KQED',
+    streamUrl: 'https://hls.kqed.org/hls/kqed_app/playlist.m3u8',
+    genre: 'Cultural News • USA'
+  },
+  {
+    id: 'krcc',
+    name: 'KRCC',
+    streamUrl: 'https://streams.krcc.org/krcc_mp3',
+    genre: 'Local News • USA'
+  },
+  {
+    id: 'krnu',
+    name: 'KRNU',
+    streamUrl: 'https://s8.yesstreaming.net:17004/krnu',
+    genre: 'Alternative • USA'
+  },
+  {
+    id: 'ksdp',
+    name: 'KSDP',
+    streamUrl: 'https://stream.apradio.org/stream.aac',
+    genre: 'Community Radio • USA'
+  },
+  {
+    id: 'ksdt',
+    name: 'KSDT',
+    streamUrl: 'https://s4.radio.co/s2c33c7adb/listen',
+    genre: 'College Radio • USA'
+  },
+  {
+    id: 'ktcu',
+    name: 'KTCU',
+    streamUrl: 'https://ktcustream.tcu.edu/',
+    genre: 'College • USA'
+  },
+  {
+    id: 'kunm',
+    name: 'KUNM',
+    streamUrl: 'https://playerservices.streamtheworld.com/api/livestream-redirect/KUNMFM_128.mp3',
+    genre: 'USA'
+  },
+  {
+    id: 'kvmr',
+    name: 'KVMR',
+    streamUrl: 'http://live.kvmr.org:8000/aac96',
+    genre: 'Comunity • USA'
+  },
+  {
+    id: 'kzmu',
+    name: 'KZMU',
+    streamUrl: 'https://kzmu.streamguys1.com/live',
+    genre: 'USA'
+  },
+  {
+    id: 'luxuriamusic',
+    name: 'Luxuria Music',
+    streamUrl: 'http://ice10.securenetsystems.net/LUXOMP3',
+    genre: 'Electronic • USA'
+  },
+  {
+    id: 'radiodio',
+    name: 'Radio Dio',
+    streamUrl: 'https://live.aurafm.org/RadioDio',
+    genre: 'Dub • France'
+  },
+  {
+    id: 'radionova',
+    name: 'Radio Nova',
+    streamUrl: 'https://novazz.ice.infomaniak.ch/novazz-128.mp3',
+    genre: 'France'
+  },
+  {
+    id: 'radioone91fm',
+    name: 'Radio One 91FM',
+    streamUrl: 'https://play.r1.co.nz/live',
+    genre: 'Community Radio • New Zealand'
+  },
+  {
+    id: 'radiok',
+    name: 'RadioK',
+    streamUrl: 'https://radiok.broadcasttool.stream/play_256',
+    genre: 'Campus • USA'
+  },
+  {
+    id: 'radiostadmontfoort',
+    name: 'RadioStadMontfoort',
+    streamUrl: 'http://stream001.digiplay.nl:9038/stream',
+    genre: '24/7 • Netherlands'
+  },
+  {
+    id: 'radyoeksen',
+    name: 'Radyo Eksen',
+    streamUrl: 'https://dygedge.radyotvonline.net/radyoeksen/playlist.m3u8',
+    genre: 'Alternative • Türkiye'
+  },
+  {
+    id: 'sohoradio',
+    name: 'Soho Radio',
+    streamUrl: 'http://sohoradiomusic.doughunt.co.uk:8000/320mp3',
+    genre: 'Culture • UK'
+  },
+  {
+    id: 'thelotradio',
+    name: 'The Lot Radio',
+    streamUrl: 'https://livepeercdn.studio/hls/85c28sa2o8wppm58/index.m3u8',
+    genre: 'Dance • USA'
+  },
+  {
+    id: 'wber',
+    name: 'WBER',
+    streamUrl: 'https://radio.monroe.edu/wber.mp3',
+    genre: 'Alternative Rock • USA'
+  },
+  {
+    id: 'wbny',
+    name: 'WBNY',
+    streamUrl: 'http://136.183.9.38:3307/;',
+    genre: 'College Radio • USA'
+  },
+  {
+    id: 'wbor',
+    name: 'WBOR',
+    streamUrl: 'https://listen.wbor.org/',
+    genre: 'College • USA'
+  },
+  {
+    id: 'wcdb',
+    name: 'WCDB',
+    streamUrl: 'https://streams.wcdb.fm/stream',
+    genre: '24/7 • USA'
+  },
+  {
+    id: 'wchc',
+    name: 'WCHC',
+    streamUrl: 'https://s2.radio.co/sc161fe4c9/listen',
+    genre: 'Alternative • USA'
+  },
+  {
+    id: 'wcuw',
+    name: 'WCUW',
+    streamUrl: 'http://peridot.streamguys.com:5490/live',
+    genre: 'Americana • USA'
+  },
+  {
+    id: 'wdbm',
+    name: 'WDBM',
+    streamUrl: 'https://play.impact89fm.org:8000/impact89fm',
+    genre: 'Alternative • USA'
+  },
+  {
+    id: 'weft',
+    name: 'WEFT',
+    streamUrl: 'https://weft.broadcasttool.stream/stream',
+    genre: 'USA'
+  },
+  {
+    id: 'wers',
+    name: 'WERS',
+    streamUrl: 'http://marconi.emerson.edu:8000/wers',
+    genre: 'Alternative • USA'
+  },
+  {
+    id: 'wfuv',
+    name: 'WFUV',
+    streamUrl: 'https://onair.wfuv.org/onair-aacplus',
+    genre: 'Adult Album Alternative • USA'
+  },
+  {
+    id: 'whrv',
+    name: 'WHRV',
+    streamUrl: 'http://whrv.mediaplayer.whro.org/128',
+    genre: 'Jazz • USA'
+  },
+  {
+    id: 'whrw',
+    name: 'WHRW',
+    streamUrl: 'http://stream.whrwfm.org/new',
+    genre: 'Classical • USA'
+  },
+  {
+    id: 'widr',
+    name: 'WIDR',
+    streamUrl: 'http://widrfm.net/stream',
+    genre: 'USA'
+  },
+  {
+    id: 'witr',
+    name: 'WITR',
+    streamUrl: 'https://streaming.witr.rit.edu/live-aac-96',
+    genre: 'College Radio • USA'
+  },
+  {
+    id: 'wluw2',
+    name: 'WLUW',
+    streamUrl: 'https://ice26.securenetsystems.net/WLUW?playSessionID=AD47E8CB-E610-56AC-09E96DB77F17E09B',
+    genre: 'Independent Radio • USA'
+  },
+  {
+    id: 'wmnf',
+    name: 'WMNF',
+    streamUrl: 'https://stream.wmnf.org/wmnf_high_quality',
+    genre: 'Community Radio • USA'
+  },
+  {
+    id: 'wmtu',
+    name: 'WMTU',
+    streamUrl: 'https://stream.wmtu.fm/wmtu-live',
+    genre: 'USA'
+  },
+  {
+    id: 'wnyc',
+    name: 'WNYC',
+    streamUrl: 'http://fm939.wnyc.org/wnycfm.aac',
+    genre: 'News • USA'
+  },
+  {
+    id: 'worldmusicradio',
+    name: 'World Music Radio',
+    streamUrl: 'http://stream.wlmm.dk:8010/wmrmp3',
+    genre: 'Denmark'
+  },
+  {
+    id: 'wort',
+    name: 'WORT',
+    streamUrl: 'https://stream.wortfm.org:8443/high.mp3',
+    genre: 'USA'
+  },
+  {
+    id: 'wprk',
+    name: 'WPRK',
+    streamUrl: 'https://wprk.broadcasttool.stream:80/stream',
+    genre: 'USA'
+  },
+  {
+    id: 'wpts',
+    name: 'WPTS',
+    streamUrl: 'http://audio.wpts.pitt.edu:8000/wpts_live_128s.mp3',
+    genre: 'Alternative • USA'
+  },
+  {
+    id: 'wrbb',
+    name: 'WRBB',
+    streamUrl: 'https://audio-edge-qse4n.yyz.g.radiomast.io/dafd1179-5404-4939-9c1c-a014c6964254',
+    genre: 'College Radio • USA'
+  },
+  {
+    id: 'wrct',
+    name: 'WRCT',
+    streamUrl: 'http://stream.wrct.org/wrct-hi.mp3',
+    genre: 'Freeform • USA'
+  },
+  {
+    id: 'wrpi',
+    name: 'WRPI',
+    streamUrl: 'https://stream.wrpi.org/mp3-320.mp3',
+    genre: 'College • USA'
+  },
+  {
+    id: 'wruw',
+    name: 'WRUW',
+    streamUrl: 'https://wruw-stream.wruw.org/hls/stream.m3u8',
+    genre: 'Alternative • USA'
+  },
+  {
+    id: 'wsoe',
+    name: 'WSOE',
+    streamUrl: 'https://audio-mp3.ibiblio.org/wsoe.mp3',
+    genre: 'Alternative • USA'
+  },
+  {
+    id: 'wtip',
+    name: 'WTIP',
+    streamUrl: 'https://wtip.broadcasttool.stream/stream',
+    genre: 'Community Radio • USA'
+  },
+  {
+    id: 'wumm',
+    name: 'WUMM',
+    streamUrl: 'http://wumm.machias.edu:8000/wumm',
+    genre: 'University • USA'
+  },
+  {
+    id: 'wvbr',
+    name: 'WVBR',
+    streamUrl: 'https://ais-edge07-live365-dal02.cdnstream.com/a25496',
+    genre: 'College Radio • USA'
+  },
+  {
+    id: 'wvkr',
+    name: 'WVKR',
+    streamUrl: 'https://26733.live.streamtheworld.com/WVKRFM.mp3',
+    genre: 'College • USA'
+  },
+  {
+    id: 'wvud',
+    name: 'WVUD',
+    streamUrl: 'http://142.44.160.109/s1bc6bf517/listen',
+    genre: 'USA'
+  },
+  {
+    id: 'wxdu',
+    name: 'WXDU',
+    streamUrl: 'http://152.3.0.231:8000/wxdu128.mp3',
+    genre: 'Duke • USA'
+  },
+  {
+    id: 'wxou',
+    name: 'WXOU',
+    streamUrl: 'https://a8.asurahosting.com/listen/wxou/radio.mp3',
+    genre: 'College Radio • USA'
+  },
+  {
+    id: 'wxox',
+    name: 'WXOX',
+    streamUrl: 'https://patmos.cdnstream.com/proxy/artfmin1/?mp=/stream',
+    genre: 'Variety • USA'
+  },
+  {
+    id: 'wxyc',
+    name: 'WXYC',
+    streamUrl: 'https://audio-mp3.ibiblio.org/wxyc.mp3',
+    genre: 'Freeform • USA'
+  },
+  {
+    id: 'wysu',
+    name: 'WYSU',
+    streamUrl: 'https://live.streamguys1.com:3181/hd2',
+    genre: 'Classical • USA'
+  },
 ];
 
 export function RadioProvider({ children }) {
