@@ -58,7 +58,7 @@ export const SOURCES = [
   },
 ];
 
-const STORAGE_KEY = 'sferics.sources.v1';
+const STORAGE_KEY = 'lyrapod.sources.v1';
 
 /** Default layout: live sources on, planned sources off, declaration order. */
 function defaults() {

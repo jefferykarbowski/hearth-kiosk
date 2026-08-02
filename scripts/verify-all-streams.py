@@ -12,7 +12,7 @@ import urllib.request, urllib.error, urllib.parse
 sys.stdout.reconfigure(encoding='utf-8', errors='replace')
 
 STATIONS = json.load(open('all-stations.json', encoding='utf-8'))
-UA = 'Mozilla/5.0 (compatible; sferics-kiosk/1.0)'
+UA = 'Mozilla/5.0 (compatible; lyrapod-kiosk/1.0)'
 TIMEOUT = 12
 WORKERS = 8
 

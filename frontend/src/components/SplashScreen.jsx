@@ -53,13 +53,13 @@ export default function SplashScreen({ duration = 2200 }) {
             color: 'var(--chalk)',
           }}
         >
-          Sferics
+          LyraPod
         </h1>
         <p
           className="mt-3 max-w-[46ch] text-[13px] md:text-[15px]"
           style={{ color: 'var(--chalk-2)', letterSpacing: '0.04em' }}
         >
-          Radio atmospherics — the broadband pulse of a lightning discharge, 100&nbsp;Hz to 10&nbsp;kHz.
+          Freeform and community radio, long-form sets, and streaming — on one screen.
         </p>
       </div>
     </div>

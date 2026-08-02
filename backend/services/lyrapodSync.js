@@ -1,6 +1,6 @@
 /**
- * Sferics Sync Service
- * Syncs kiosk configuration from the Sferics cloud dashboard.
+ * LyraPod Sync Service
+ * Syncs kiosk configuration from the LyraPod cloud dashboard.
  *
  * Not yet wired into server.js — the dashboard API it talks to does not exist
  * yet. Kept in ESM so it loads cleanly once the endpoints are live.
@@ -13,10 +13,10 @@ import { fileURLToPath } from 'url';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-const CONFIG_FILE = path.join(__dirname, '../data/sferics-config.json');
+const CONFIG_FILE = path.join(__dirname, '../data/lyrapod-config.json');
 const DEFAULT_CONFIG = {
   kioskId: null,
-  apiUrl: process.env.SFERICS_API_URL || 'https://sferics.fm/api',
+  apiUrl: process.env.LYRAPOD_API_URL || 'https://lyrapod.fm/api',
   location: null,
   timezone: 'America/Detroit',
   tabs: {
@@ -38,7 +38,7 @@ const DEFAULT_CONFIG = {
   lastSync: null,
 };
 
-class SfericsSync {
+class LyraPodSync {
   constructor() {
     this.config = this.loadConfig();
     this.syncInterval = null;
@@ -51,7 +51,7 @@ class SfericsSync {
         return { ...DEFAULT_CONFIG, ...JSON.parse(data) };
       }
     } catch (error) {
-      console.error('Error loading Sferics config:', error);
+      console.error('Error loading LyraPod config:', error);
     }
     return { ...DEFAULT_CONFIG };
   }
@@ -64,7 +64,7 @@ class SfericsSync {
       }
       fs.writeFileSync(CONFIG_FILE, JSON.stringify(this.config, null, 2));
     } catch (error) {
-      console.error('Error saving Sferics config:', error);
+      console.error('Error saving LyraPod config:', error);
     }
   }
 
@@ -92,12 +92,12 @@ class SfericsSync {
           lastSync: new Date().toISOString(),
         };
         this.saveConfig();
-        console.log('Synced config from Sferics cloud');
+        console.log('Synced config from LyraPod cloud');
       }
 
       return this.config;
     } catch (error) {
-      console.error('Error syncing from Sferics cloud:', error);
+      console.error('Error syncing from LyraPod cloud:', error);
       return null;
     }
   }
@@ -140,6 +140,6 @@ class SfericsSync {
 }
 
 // Singleton instance
-const sfericsSync = new SfericsSync();
+const lyrapodSync = new LyraPodSync();
 
-export default sfericsSync;
+export default lyrapodSync;

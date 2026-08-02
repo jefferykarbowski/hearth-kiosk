@@ -16,7 +16,7 @@ CURRENT = None
 
 TIMEOUT = 8
 WORKERS = 6
-UA = 'Mozilla/5.0 (compatible; sferics-kiosk/1.0)'
+UA = 'Mozilla/5.0 (compatible; lyrapod-kiosk/1.0)'
 
 targets = [r for r in MATCHED if r.get('match', {}).get('confidence') == 'high']
 print(f'verifying {len(targets)} high-confidence streams')

@@ -27,7 +27,7 @@ export function seedFrom(str) {
  * Comb — a cluster of vertical rules. Broadband static; the radio mark.
  * `animated` makes the rules flicker at uneven intervals so it reads as noise.
  */
-export function Comb({ seed = 'sferics', bars = 9, animated = false, className = '', height = 28 }) {
+export function Comb({ seed = 'lyrapod', bars = 9, animated = false, className = '', height = 28 }) {
   const rnd = seedFrom(seed);
   const rules = Array.from({ length: bars }, (_, i) => ({
     x: i * (100 / bars) + 100 / bars / 2,
@@ -88,7 +88,7 @@ export function Arc({ className = '', strokeWidth = 2, animated = true }) {
 /**
  * Block — a sustained bar. A mix, a set, a long-form show.
  */
-export function Block({ seed = 'sferics', className = '', rows = 4 }) {
+export function Block({ seed = 'lyrapod', className = '', rows = 4 }) {
   const rnd = seedFrom(seed);
   const bars = Array.from({ length: rows }, (_, i) => ({
     y: i * (100 / rows) + 2,
@@ -116,7 +116,7 @@ export function Block({ seed = 'sferics', className = '', rows = 4 }) {
 /**
  * Stipple — a dot field. Noise, idle, the resting score.
  */
-export function Stipple({ seed = 'sferics', count = 110, className = '', animated = true }) {
+export function Stipple({ seed = 'lyrapod', count = 110, className = '', animated = true }) {
   const rnd = seedFrom(seed);
   const dots = Array.from({ length: count }, () => ({
     x: rnd() * 100,

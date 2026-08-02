@@ -1,10 +1,10 @@
-# Sferics
+# LyraPod
 
-**Earth's oldest radio station.**
+**Freeform radio, on one screen, in one room.**
 
-A *sferic* is the broadband radio pulse thrown off by a lightning discharge — 100 Hz to 10 kHz, propagating for thousands of kilometres through the gap between the ground and the ionosphere. Point a receiver at it and you hear crackle, static, and the occasional *whistler*: a tone sliding down through the spectrum over several seconds. The planet has been broadcasting since long before anyone was listening.
+A touchscreen listening device for college and community radio, long-form DJ sets, and streaming. Built to sit on a counter and stay on: one glance, one tap, no phone.
 
-Sferics is a touchscreen listening device built on the same premise — pulling signal out of the air. Freeform radio, long-form DJ sets, and streaming, on one screen, in one room.
+135 curated stations, every stream verified.
 
 ## Features
 
@@ -51,6 +51,6 @@ Copy `backend/config.example.json` to `backend/config.json` and fill in your key
 
 This repo holds the kiosk application. The cloud dashboard and the Android/AOSP build live alongside it as the monorepo consolidation lands.
 
----
+## Station data
 
-*"Sound like bacon frying on a griddle."* — the standard description of a sferic heard through a loudspeaker.
+`data/` holds the reconstructed SoundTap directory — 622 non-commercial stations recovered from the Internet Archive and joined to Radio Browser for current streams. `scripts/` holds the harvest, match, verify and artwork pipeline; streams rot, so re-run `verify-all-streams.py` and `repair-streams.py` periodically.

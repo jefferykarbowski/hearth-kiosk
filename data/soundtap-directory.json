@@ -17,7 +17,7 @@
    "stream_verified=true means the URL returned actual audio bytes on 2026-07-31, not that it works today.",
    "match_kind=\"substring\" is a name-containment guess, not an identity match. Treat as unverified.",
    "country_crosscheck=false marks a station whose SoundTap coordinates disagree with the Radio Browser country. Those joins are wrong.",
-   "Artwork paths refer to frontend/public/logos/ in the sferics kiosk repo, not to this file."
+   "Artwork paths refer to frontend/public/logos/ in the lyrapod kiosk repo, not to this file."
   ],
   "related_files": {
    "data/soundtap-cdx-index.txt": "13,926 archived soundtap.com URLs (path, timestamp, HTTP status) for rebuilding the rest of the site",
@@ -47,7 +47,7 @@
    "match_kind": "exact-nogeo",
    "match_distance_km": null,
    "stream_verified": true,
-   "in_sferics_kiosk": true,
+   "in_lyrapod_kiosk": true,
    "artwork_file": "/logos/bushradio.png",
    "artwork_source": null,
    "country_crosscheck": true
@@ -73,7 +73,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -98,7 +98,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -123,7 +123,7 @@
    "match_kind": "exact-nogeo",
    "match_distance_km": null,
    "stream_verified": true,
-   "in_sferics_kiosk": true,
+   "in_lyrapod_kiosk": true,
    "artwork_file": "/logos/nessradio.jpg",
    "artwork_source": null,
    "country_crosscheck": true
@@ -149,7 +149,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -174,7 +174,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -199,7 +199,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -224,7 +224,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -249,7 +249,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -274,7 +274,7 @@
    "match_kind": "exact",
    "match_distance_km": 2.0,
    "stream_verified": true,
-   "in_sferics_kiosk": true,
+   "in_lyrapod_kiosk": true,
    "artwork_file": "/logos/1431am.png",
    "artwork_source": "radiobrowser"
   },
@@ -299,7 +299,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -324,7 +324,7 @@
    "match_kind": "substring",
    "match_distance_km": 2.1,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null,
    "country_crosscheck": true
@@ -350,7 +350,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -375,7 +375,7 @@
    "match_kind": "exact-nogeo",
    "match_distance_km": null,
    "stream_verified": true,
-   "in_sferics_kiosk": true,
+   "in_lyrapod_kiosk": true,
    "artwork_file": "/logos/bailriggfm.png",
    "artwork_source": null,
    "country_crosscheck": true
@@ -401,7 +401,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -426,7 +426,7 @@
    "match_kind": "exact-nogeo",
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -451,7 +451,7 @@
    "match_kind": "substring",
    "match_distance_km": 0.3,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null,
    "country_crosscheck": true
@@ -477,7 +477,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -502,7 +502,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -527,7 +527,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -552,7 +552,7 @@
    "match_kind": "exact-nogeo",
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -577,7 +577,7 @@
    "match_kind": "exact-nogeo",
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -602,7 +602,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -627,7 +627,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -652,7 +652,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -677,7 +677,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -702,7 +702,7 @@
    "match_kind": "exact-nogeo",
    "match_distance_km": null,
    "stream_verified": true,
-   "in_sferics_kiosk": true,
+   "in_lyrapod_kiosk": true,
    "artwork_file": "/logos/dublindigitalradio.jpg",
    "artwork_source": null,
    "country_crosscheck": true
@@ -728,7 +728,7 @@
    "match_kind": "exact-nogeo",
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null,
    "country_crosscheck": false
@@ -754,7 +754,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -779,7 +779,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -804,7 +804,7 @@
    "match_kind": "exact-nogeo",
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -829,7 +829,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -854,7 +854,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -879,7 +879,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -904,7 +904,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -929,7 +929,7 @@
    "match_kind": "exact-nogeo",
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -954,7 +954,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -979,7 +979,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -1004,7 +1004,7 @@
    "match_kind": "exact-nogeo",
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -1029,7 +1029,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -1054,7 +1054,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -1079,7 +1079,7 @@
    "match_kind": "exact-nogeo",
    "match_distance_km": null,
    "stream_verified": true,
-   "in_sferics_kiosk": true,
+   "in_lyrapod_kiosk": true,
    "artwork_file": "/logos/lemellotron.png",
    "artwork_source": null,
    "country_crosscheck": true
@@ -1105,7 +1105,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -1130,7 +1130,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -1155,7 +1155,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -1180,7 +1180,7 @@
    "match_kind": "exact",
    "match_distance_km": 2.1,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -1205,7 +1205,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -1230,7 +1230,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -1255,7 +1255,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -1280,7 +1280,7 @@
    "match_kind": "exact-nogeo",
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -1305,7 +1305,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -1330,7 +1330,7 @@
    "match_kind": "exact-nogeo",
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -1355,7 +1355,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -1380,7 +1380,7 @@
    "match_kind": "exact-nogeo",
    "match_distance_km": null,
    "stream_verified": true,
-   "in_sferics_kiosk": true,
+   "in_lyrapod_kiosk": true,
    "artwork_file": "/logos/radio6023.jpg",
    "artwork_source": null,
    "country_crosscheck": true
@@ -1406,7 +1406,7 @@
    "match_kind": "exact-nogeo",
    "match_distance_km": null,
    "stream_verified": true,
-   "in_sferics_kiosk": true,
+   "in_lyrapod_kiosk": true,
    "artwork_file": "/logos/radioactive2.png",
    "artwork_source": null,
    "country_crosscheck": true
@@ -1432,7 +1432,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -1457,7 +1457,7 @@
    "match_kind": "substring",
    "match_distance_km": 0.4,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null,
    "country_crosscheck": true
@@ -1483,7 +1483,7 @@
    "match_kind": "exact-nogeo",
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -1508,7 +1508,7 @@
    "match_kind": "exact-nogeo",
    "match_distance_km": null,
    "stream_verified": true,
-   "in_sferics_kiosk": true,
+   "in_lyrapod_kiosk": true,
    "artwork_file": "/logos/radiocampuslille.png",
    "artwork_source": null,
    "country_crosscheck": true
@@ -1534,7 +1534,7 @@
    "match_kind": "exact-nogeo",
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -1559,7 +1559,7 @@
    "match_kind": "exact-nogeo",
    "match_distance_km": null,
    "stream_verified": true,
-   "in_sferics_kiosk": true,
+   "in_lyrapod_kiosk": true,
    "artwork_file": "/logos/radiocentraal.ico",
    "artwork_source": null,
    "country_crosscheck": true
@@ -1585,7 +1585,7 @@
    "match_kind": "exact",
    "match_distance_km": 0.5,
    "stream_verified": true,
-   "in_sferics_kiosk": true,
+   "in_lyrapod_kiosk": true,
    "artwork_file": "/logos/radiodio.ico",
    "artwork_source": "radiobrowser"
   },
@@ -1610,7 +1610,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -1635,7 +1635,7 @@
    "match_kind": "exact",
    "match_distance_km": 5.4,
    "stream_verified": true,
-   "in_sferics_kiosk": true,
+   "in_lyrapod_kiosk": true,
    "artwork_file": "/logos/radionova.png",
    "artwork_source": "radiobrowser"
   },
@@ -1660,7 +1660,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -1685,7 +1685,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -1710,7 +1710,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -1735,7 +1735,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -1760,7 +1760,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -1785,7 +1785,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -1810,7 +1810,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -1835,7 +1835,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -1860,7 +1860,7 @@
    "match_kind": "exact-nogeo",
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -1885,7 +1885,7 @@
    "match_kind": "exact",
    "match_distance_km": 1.0,
    "stream_verified": true,
-   "in_sferics_kiosk": true,
+   "in_lyrapod_kiosk": true,
    "artwork_file": "/logos/radiostadmontfoort.png",
    "artwork_source": "radiobrowser"
   },
@@ -1910,7 +1910,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -1935,7 +1935,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -1960,7 +1960,7 @@
    "match_kind": "exact-nogeo",
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -1985,7 +1985,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -2010,7 +2010,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -2035,7 +2035,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -2060,7 +2060,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -2085,7 +2085,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -2110,7 +2110,7 @@
    "match_kind": "exact",
    "match_distance_km": 6.7,
    "stream_verified": true,
-   "in_sferics_kiosk": true,
+   "in_lyrapod_kiosk": true,
    "artwork_file": "/logos/radyoeksen.png",
    "artwork_source": "radiobrowser"
   },
@@ -2135,7 +2135,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -2160,7 +2160,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -2185,7 +2185,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -2210,7 +2210,7 @@
    "match_kind": "exact-nogeo",
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -2235,7 +2235,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -2260,7 +2260,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -2285,7 +2285,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -2310,7 +2310,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -2335,7 +2335,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -2360,7 +2360,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -2385,7 +2385,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -2410,7 +2410,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -2435,7 +2435,7 @@
    "match_kind": "exact-nogeo",
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -2460,7 +2460,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -2485,7 +2485,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -2510,7 +2510,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -2535,7 +2535,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -2560,7 +2560,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -2585,7 +2585,7 @@
    "match_kind": "exact",
    "match_distance_km": 0.9,
    "stream_verified": true,
-   "in_sferics_kiosk": true,
+   "in_lyrapod_kiosk": true,
    "artwork_file": "/logos/sohoradio.jpg",
    "artwork_source": "radiobrowser"
   },
@@ -2610,7 +2610,7 @@
    "match_kind": "exact-nogeo",
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -2635,7 +2635,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -2660,7 +2660,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -2685,7 +2685,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -2710,7 +2710,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -2735,7 +2735,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -2760,7 +2760,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -2785,7 +2785,7 @@
    "match_kind": "exact",
    "match_distance_km": 86.6,
    "stream_verified": true,
-   "in_sferics_kiosk": true,
+   "in_lyrapod_kiosk": true,
    "artwork_file": "/logos/worldmusicradio.png",
    "artwork_source": "radiobrowser"
   },
@@ -2810,7 +2810,7 @@
    "match_kind": "exact-nogeo",
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -2835,7 +2835,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -2860,7 +2860,7 @@
    "match_kind": "exact-nogeo",
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null,
    "country_crosscheck": false
@@ -2886,7 +2886,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -2911,7 +2911,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -2936,7 +2936,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -2961,7 +2961,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -2986,7 +2986,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -3011,7 +3011,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -3036,7 +3036,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -3061,7 +3061,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -3086,7 +3086,7 @@
    "match_kind": "exact-nogeo",
    "match_distance_km": null,
    "stream_verified": true,
-   "in_sferics_kiosk": true,
+   "in_lyrapod_kiosk": true,
    "artwork_file": "/logos/bagelradio.jpg",
    "artwork_source": null,
    "country_crosscheck": true
@@ -3112,7 +3112,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -3137,7 +3137,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -3162,7 +3162,7 @@
    "match_kind": "exact-nogeo",
    "match_distance_km": null,
    "stream_verified": true,
-   "in_sferics_kiosk": true,
+   "in_lyrapod_kiosk": true,
    "artwork_file": "/logos/bfffm.png",
    "artwork_source": null,
    "country_crosscheck": true
@@ -3188,7 +3188,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -3213,7 +3213,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -3238,7 +3238,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -3263,7 +3263,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -3288,7 +3288,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -3313,7 +3313,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -3338,7 +3338,7 @@
    "match_kind": "callsign-token",
    "match_distance_km": 2.7,
    "stream_verified": true,
-   "in_sferics_kiosk": true,
+   "in_lyrapod_kiosk": true,
    "artwork_file": "/logos/cfru.png",
    "artwork_source": "homepage"
   },
@@ -3363,7 +3363,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -3388,7 +3388,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -3413,7 +3413,7 @@
    "match_kind": "callsign-token",
    "match_distance_km": 36.0,
    "stream_verified": true,
-   "in_sferics_kiosk": true,
+   "in_lyrapod_kiosk": true,
    "artwork_file": "/logos/chirp.png",
    "artwork_source": null
   },
@@ -3438,7 +3438,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -3463,7 +3463,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -3488,7 +3488,7 @@
    "match_kind": "callsign-token",
    "match_distance_km": 1.1,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -3513,7 +3513,7 @@
    "match_kind": "callsign-token",
    "match_distance_km": 1.0,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -3538,7 +3538,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -3563,7 +3563,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -3588,7 +3588,7 @@
    "match_kind": "callsign-token",
    "match_distance_km": 0.2,
    "stream_verified": true,
-   "in_sferics_kiosk": true,
+   "in_lyrapod_kiosk": true,
    "artwork_file": "/logos/citr.png",
    "artwork_source": null
   },
@@ -3613,7 +3613,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -3638,7 +3638,7 @@
    "match_kind": "callsign-token",
    "match_distance_km": 0.1,
    "stream_verified": true,
-   "in_sferics_kiosk": true,
+   "in_lyrapod_kiosk": true,
    "artwork_file": "/logos/cixx.png",
    "artwork_source": "radiobrowser"
   },
@@ -3663,7 +3663,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -3688,7 +3688,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -3713,7 +3713,7 @@
    "match_kind": "exact",
    "match_distance_km": 0.2,
    "stream_verified": true,
-   "in_sferics_kiosk": true,
+   "in_lyrapod_kiosk": true,
    "artwork_file": "/logos/cjsf.png",
    "artwork_source": "homepage"
   },
@@ -3738,7 +3738,7 @@
    "match_kind": "callsign-token",
    "match_distance_km": 0.3,
    "stream_verified": true,
-   "in_sferics_kiosk": true,
+   "in_lyrapod_kiosk": true,
    "artwork_file": "/logos/cjsw.png",
    "artwork_source": "homepage"
   },
@@ -3763,7 +3763,7 @@
    "match_kind": "callsign-token",
    "match_distance_km": 3.0,
    "stream_verified": true,
-   "in_sferics_kiosk": true,
+   "in_lyrapod_kiosk": true,
    "artwork_file": "/logos/ckcu.jpg",
    "artwork_source": "radiobrowser"
   },
@@ -3788,7 +3788,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -3813,7 +3813,7 @@
    "match_kind": "callsign-token",
    "match_distance_km": 5.0,
    "stream_verified": true,
-   "in_sferics_kiosk": true,
+   "in_lyrapod_kiosk": true,
    "artwork_file": "/logos/ckms.png",
    "artwork_source": "radiobrowser"
   },
@@ -3838,7 +3838,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -3863,7 +3863,7 @@
    "match_kind": "callsign-token",
    "match_distance_km": 0.4,
    "stream_verified": true,
-   "in_sferics_kiosk": true,
+   "in_lyrapod_kiosk": true,
    "artwork_file": "/logos/ckut.png",
    "artwork_source": null
   },
@@ -3888,7 +3888,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -3913,7 +3913,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -3938,7 +3938,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -3963,7 +3963,7 @@
    "match_kind": "exact-nogeo",
    "match_distance_km": null,
    "stream_verified": true,
-   "in_sferics_kiosk": true,
+   "in_lyrapod_kiosk": true,
    "artwork_file": "/logos/coyoteradio.png",
    "artwork_source": null,
    "country_crosscheck": true
@@ -3989,7 +3989,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -4014,7 +4014,7 @@
    "match_kind": "exact-nogeo",
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -4039,7 +4039,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -4064,7 +4064,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -4089,7 +4089,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -4114,7 +4114,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -4139,7 +4139,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -4164,7 +4164,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -4189,7 +4189,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -4214,7 +4214,7 @@
    "match_kind": "exact-nogeo",
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -4239,7 +4239,7 @@
    "match_kind": "exact",
    "match_distance_km": 1.7,
    "stream_verified": true,
-   "in_sferics_kiosk": true,
+   "in_lyrapod_kiosk": true,
    "artwork_file": "/logos/infowars.jpg",
    "artwork_source": "soundtap-archive"
   },
@@ -4264,7 +4264,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -4289,7 +4289,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -4314,7 +4314,7 @@
    "match_kind": "callsign-token",
    "match_distance_km": 0.0,
    "stream_verified": true,
-   "in_sferics_kiosk": true,
+   "in_lyrapod_kiosk": true,
    "artwork_file": "/logos/kalx.png",
    "artwork_source": null
   },
@@ -4339,7 +4339,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -4364,7 +4364,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -4389,7 +4389,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -4414,7 +4414,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -4439,7 +4439,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -4464,7 +4464,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -4489,7 +4489,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -4514,7 +4514,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -4539,7 +4539,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -4564,7 +4564,7 @@
    "match_kind": "exact",
    "match_distance_km": 2.1,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -4589,7 +4589,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -4614,7 +4614,7 @@
    "match_kind": "callsign-token",
    "match_distance_km": 0.3,
    "stream_verified": true,
-   "in_sferics_kiosk": true,
+   "in_lyrapod_kiosk": true,
    "artwork_file": "/logos/kcpr.png",
    "artwork_source": null
   },
@@ -4639,7 +4639,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -4664,7 +4664,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -4689,7 +4689,7 @@
    "match_kind": "callsign-token",
    "match_distance_km": 2.5,
    "stream_verified": true,
-   "in_sferics_kiosk": true,
+   "in_lyrapod_kiosk": true,
    "artwork_file": "/logos/kcrw.png",
    "artwork_source": null
   },
@@ -4714,7 +4714,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -4739,7 +4739,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -4764,7 +4764,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -4789,7 +4789,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -4814,7 +4814,7 @@
    "match_kind": "exact",
    "match_distance_km": 6.7,
    "stream_verified": true,
-   "in_sferics_kiosk": true,
+   "in_lyrapod_kiosk": true,
    "artwork_file": "/logos/kcsu.png",
    "artwork_source": "radiobrowser"
   },
@@ -4839,7 +4839,7 @@
    "match_kind": "callsign-token",
    "match_distance_km": 9.9,
    "stream_verified": true,
-   "in_sferics_kiosk": true,
+   "in_lyrapod_kiosk": true,
    "artwork_file": "/logos/kdfc.png",
    "artwork_source": "homepage"
   },
@@ -4864,7 +4864,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -4889,7 +4889,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -4914,7 +4914,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -4939,7 +4939,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -4964,7 +4964,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -4989,7 +4989,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": true,
-   "in_sferics_kiosk": true,
+   "in_lyrapod_kiosk": true,
    "artwork_file": "/logos/kdvs.png",
    "artwork_source": null
   },
@@ -5014,7 +5014,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -5039,7 +5039,7 @@
    "match_kind": "exact",
    "match_distance_km": 2.6,
    "stream_verified": true,
-   "in_sferics_kiosk": true,
+   "in_lyrapod_kiosk": true,
    "artwork_file": "/logos/kexp.png",
    "artwork_source": "homepage"
   },
@@ -5064,7 +5064,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -5089,7 +5089,7 @@
    "match_kind": "exact",
    "match_distance_km": 0.0,
    "stream_verified": true,
-   "in_sferics_kiosk": true,
+   "in_lyrapod_kiosk": true,
    "artwork_file": "/logos/kfjc.gif",
    "artwork_source": null
   },
@@ -5114,7 +5114,7 @@
    "match_kind": "exact",
    "match_distance_km": 2.4,
    "stream_verified": true,
-   "in_sferics_kiosk": true,
+   "in_lyrapod_kiosk": true,
    "artwork_file": "/logos/kgnu.png",
    "artwork_source": "homepage"
   },
@@ -5139,7 +5139,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": true,
-   "in_sferics_kiosk": true,
+   "in_lyrapod_kiosk": true,
    "artwork_file": "/logos/khdx.png",
    "artwork_source": null
   },
@@ -5164,7 +5164,7 @@
    "match_kind": "exact",
    "match_distance_km": 1.6,
    "stream_verified": true,
-   "in_sferics_kiosk": true,
+   "in_lyrapod_kiosk": true,
    "artwork_file": "/logos/khsu.webp",
    "artwork_source": "radiobrowser"
   },
@@ -5189,7 +5189,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -5214,7 +5214,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -5239,7 +5239,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -5264,7 +5264,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -5289,7 +5289,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -5314,7 +5314,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -5339,7 +5339,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -5364,7 +5364,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -5389,7 +5389,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -5414,7 +5414,7 @@
    "match_kind": "exact",
    "match_distance_km": 17.1,
    "stream_verified": true,
-   "in_sferics_kiosk": true,
+   "in_lyrapod_kiosk": true,
    "artwork_file": "/logos/kmrd.png",
    "artwork_source": null
   },
@@ -5439,7 +5439,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -5464,7 +5464,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": true,
-   "in_sferics_kiosk": true,
+   "in_lyrapod_kiosk": true,
    "artwork_file": "/logos/kmud.png",
    "artwork_source": null
   },
@@ -5489,7 +5489,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -5514,7 +5514,7 @@
    "match_kind": "callsign-token",
    "match_distance_km": 2.0,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -5539,7 +5539,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -5564,7 +5564,7 @@
    "match_kind": "callsign-token",
    "match_distance_km": 0.0,
    "stream_verified": true,
-   "in_sferics_kiosk": true,
+   "in_lyrapod_kiosk": true,
    "artwork_file": "/logos/kntu.png",
    "artwork_source": "homepage"
   },
@@ -5589,7 +5589,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -5614,7 +5614,7 @@
    "match_kind": "exact",
    "match_distance_km": 1.8,
    "stream_verified": true,
-   "in_sferics_kiosk": true,
+   "in_lyrapod_kiosk": true,
    "artwork_file": "/logos/koto.png",
    "artwork_source": null
   },
@@ -5639,7 +5639,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -5664,7 +5664,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": true,
-   "in_sferics_kiosk": true,
+   "in_lyrapod_kiosk": true,
    "artwork_file": "/logos/kpfa.png",
    "artwork_source": null
   },
@@ -5689,7 +5689,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -5714,7 +5714,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -5739,7 +5739,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -5764,7 +5764,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -5789,7 +5789,7 @@
    "match_kind": "exact",
    "match_distance_km": 0.7,
    "stream_verified": true,
-   "in_sferics_kiosk": true,
+   "in_lyrapod_kiosk": true,
    "artwork_file": "/logos/kpov.png",
    "artwork_source": "radiobrowser"
   },
@@ -5814,7 +5814,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -5839,7 +5839,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -5864,7 +5864,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -5889,7 +5889,7 @@
    "match_kind": "callsign-token",
    "match_distance_km": 3.0,
    "stream_verified": true,
-   "in_sferics_kiosk": true,
+   "in_lyrapod_kiosk": true,
    "artwork_file": "/logos/kqed.png",
    "artwork_source": "radiobrowser"
   },
@@ -5914,7 +5914,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -5939,7 +5939,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": true,
-   "in_sferics_kiosk": true,
+   "in_lyrapod_kiosk": true,
    "artwork_file": "/logos/krbx.png",
    "artwork_source": null
   },
@@ -5964,7 +5964,7 @@
    "match_kind": "callsign-token",
    "match_distance_km": 0.4,
    "stream_verified": true,
-   "in_sferics_kiosk": true,
+   "in_lyrapod_kiosk": true,
    "artwork_file": "/logos/krcc.ico",
    "artwork_source": "radiobrowser"
   },
@@ -5989,7 +5989,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -6014,7 +6014,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -6039,7 +6039,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -6064,7 +6064,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -6089,7 +6089,7 @@
    "match_kind": "callsign-token",
    "match_distance_km": 2.3,
    "stream_verified": true,
-   "in_sferics_kiosk": true,
+   "in_lyrapod_kiosk": true,
    "artwork_file": "/logos/krnu.png",
    "artwork_source": "radiobrowser"
   },
@@ -6114,7 +6114,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -6139,7 +6139,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -6164,7 +6164,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -6189,7 +6189,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -6214,7 +6214,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -6239,7 +6239,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -6264,7 +6264,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -6289,7 +6289,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -6314,7 +6314,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -6339,7 +6339,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -6364,7 +6364,7 @@
    "match_kind": "callsign-token",
    "match_distance_km": 3.0,
    "stream_verified": true,
-   "in_sferics_kiosk": true,
+   "in_lyrapod_kiosk": true,
    "artwork_file": "/logos/ksdp.png",
    "artwork_source": "homepage"
   },
@@ -6389,7 +6389,7 @@
    "match_kind": "exact",
    "match_distance_km": 5.1,
    "stream_verified": true,
-   "in_sferics_kiosk": true,
+   "in_lyrapod_kiosk": true,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -6414,7 +6414,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -6439,7 +6439,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -6464,7 +6464,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -6489,7 +6489,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": true,
-   "in_sferics_kiosk": true,
+   "in_lyrapod_kiosk": true,
    "artwork_file": "/logos/ksjs.png",
    "artwork_source": null
   },
@@ -6514,7 +6514,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -6539,7 +6539,7 @@
    "match_kind": "exact",
    "match_distance_km": 0.5,
    "stream_verified": true,
-   "in_sferics_kiosk": true,
+   "in_lyrapod_kiosk": true,
    "artwork_file": "/logos/kspc.png",
    "artwork_source": null
   },
@@ -6564,7 +6564,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -6589,7 +6589,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -6614,7 +6614,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -6639,7 +6639,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -6664,7 +6664,7 @@
    "match_kind": "exact",
    "match_distance_km": 0.1,
    "stream_verified": true,
-   "in_sferics_kiosk": true,
+   "in_lyrapod_kiosk": true,
    "artwork_file": "/logos/ktcu.png",
    "artwork_source": "radiobrowser"
   },
@@ -6689,7 +6689,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -6714,7 +6714,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -6739,7 +6739,7 @@
    "match_kind": "callsign-token",
    "match_distance_km": 0.1,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -6764,7 +6764,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": true,
-   "in_sferics_kiosk": true,
+   "in_lyrapod_kiosk": true,
    "artwork_file": "/logos/kuci.png",
    "artwork_source": null
   },
@@ -6789,7 +6789,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -6814,7 +6814,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -6839,7 +6839,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -6864,7 +6864,7 @@
    "match_kind": "callsign-token",
    "match_distance_km": 2.5,
    "stream_verified": true,
-   "in_sferics_kiosk": true,
+   "in_lyrapod_kiosk": true,
    "artwork_file": "/logos/kunm.png",
    "artwork_source": "radiobrowser"
   },
@@ -6889,7 +6889,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -6914,7 +6914,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": true,
-   "in_sferics_kiosk": true,
+   "in_lyrapod_kiosk": true,
    "artwork_file": "/logos/kuoi.png",
    "artwork_source": null
   },
@@ -6939,7 +6939,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": true,
-   "in_sferics_kiosk": true,
+   "in_lyrapod_kiosk": true,
    "artwork_file": "/logos/kups.png",
    "artwork_source": null
   },
@@ -6964,7 +6964,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -6989,7 +6989,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -7014,7 +7014,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -7039,7 +7039,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -7064,7 +7064,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -7089,7 +7089,7 @@
    "match_kind": "exact",
    "match_distance_km": 0.0,
    "stream_verified": true,
-   "in_sferics_kiosk": true,
+   "in_lyrapod_kiosk": true,
    "artwork_file": "/logos/kvmr.png",
    "artwork_source": "homepage-constructed"
   },
@@ -7114,7 +7114,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -7139,7 +7139,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -7164,7 +7164,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -7189,7 +7189,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -7214,7 +7214,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -7239,7 +7239,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -7264,7 +7264,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -7289,7 +7289,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -7314,7 +7314,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -7339,7 +7339,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -7364,7 +7364,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -7389,7 +7389,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -7414,7 +7414,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -7439,7 +7439,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -7464,7 +7464,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -7489,7 +7489,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -7514,7 +7514,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -7539,7 +7539,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -7564,7 +7564,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -7589,7 +7589,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -7614,7 +7614,7 @@
    "match_kind": "exact",
    "match_distance_km": 0.1,
    "stream_verified": true,
-   "in_sferics_kiosk": true,
+   "in_lyrapod_kiosk": true,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -7639,7 +7639,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": true,
-   "in_sferics_kiosk": true,
+   "in_lyrapod_kiosk": true,
    "artwork_file": "/logos/kzsc.png",
    "artwork_source": null
   },
@@ -7664,7 +7664,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -7689,7 +7689,7 @@
    "match_kind": "callsign-token",
    "match_distance_km": 3.5,
    "stream_verified": true,
-   "in_sferics_kiosk": true,
+   "in_lyrapod_kiosk": true,
    "artwork_file": "/logos/kzum.png",
    "artwork_source": null
   },
@@ -7714,7 +7714,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -7739,7 +7739,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -7764,7 +7764,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -7789,7 +7789,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -7814,7 +7814,7 @@
    "match_kind": "exact",
    "match_distance_km": 3.8,
    "stream_verified": true,
-   "in_sferics_kiosk": true,
+   "in_lyrapod_kiosk": true,
    "artwork_file": "/logos/luxuriamusic.png",
    "artwork_source": "radiobrowser"
   },
@@ -7839,7 +7839,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -7864,7 +7864,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -7889,7 +7889,7 @@
    "match_kind": "exact-nogeo",
    "match_distance_km": null,
    "stream_verified": true,
-   "in_sferics_kiosk": true,
+   "in_lyrapod_kiosk": true,
    "artwork_file": "/logos/newtownradio.ico",
    "artwork_source": null,
    "country_crosscheck": true
@@ -7915,7 +7915,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -7940,7 +7940,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -7965,7 +7965,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -7990,7 +7990,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -8015,7 +8015,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -8040,7 +8040,7 @@
    "match_kind": "exact-nogeo",
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -8065,7 +8065,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -8090,7 +8090,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -8115,7 +8115,7 @@
    "match_kind": "exact-nogeo",
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null,
    "country_crosscheck": false
@@ -8141,7 +8141,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -8166,7 +8166,7 @@
    "match_kind": "exact-nogeo",
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -8191,7 +8191,7 @@
    "match_kind": "exact-nogeo",
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -8216,7 +8216,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -8241,7 +8241,7 @@
    "match_kind": "exact-nogeo",
    "match_distance_km": null,
    "stream_verified": true,
-   "in_sferics_kiosk": true,
+   "in_lyrapod_kiosk": true,
    "artwork_file": "/logos/radioparadise.png",
    "artwork_source": null,
    "country_crosscheck": null
@@ -8267,7 +8267,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -8292,7 +8292,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -8317,7 +8317,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -8342,7 +8342,7 @@
    "match_kind": "exact-nogeo",
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null,
    "country_crosscheck": false
@@ -8368,7 +8368,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -8393,7 +8393,7 @@
    "match_kind": "exact",
    "match_distance_km": 0.0,
    "stream_verified": true,
-   "in_sferics_kiosk": true,
+   "in_lyrapod_kiosk": true,
    "artwork_file": "/logos/radiok.gif",
    "artwork_source": "radiobrowser"
   },
@@ -8418,7 +8418,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -8443,7 +8443,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -8468,7 +8468,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -8493,7 +8493,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -8518,7 +8518,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -8543,7 +8543,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -8568,7 +8568,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -8593,7 +8593,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -8618,7 +8618,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -8643,7 +8643,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -8668,7 +8668,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -8693,7 +8693,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -8718,7 +8718,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -8743,7 +8743,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -8768,7 +8768,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -8793,7 +8793,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -8818,7 +8818,7 @@
    "match_kind": "exact",
    "match_distance_km": 5.0,
    "stream_verified": true,
-   "in_sferics_kiosk": true,
+   "in_lyrapod_kiosk": true,
    "artwork_file": "/logos/thelotradio.png",
    "artwork_source": "radiobrowser"
   },
@@ -8843,7 +8843,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -8868,7 +8868,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -8893,7 +8893,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -8918,7 +8918,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -8943,7 +8943,7 @@
    "match_kind": "exact-nogeo",
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -8968,7 +8968,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -8993,7 +8993,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -9018,7 +9018,7 @@
    "match_kind": "exact-nogeo",
    "match_distance_km": null,
    "stream_verified": true,
-   "in_sferics_kiosk": true,
+   "in_lyrapod_kiosk": true,
    "artwork_file": "/logos/uclaradio.png",
    "artwork_source": null,
    "country_crosscheck": true
@@ -9044,7 +9044,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -9069,7 +9069,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -9094,7 +9094,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -9119,7 +9119,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -9144,7 +9144,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -9169,7 +9169,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -9194,7 +9194,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -9219,7 +9219,7 @@
    "match_kind": "exact-nogeo",
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -9244,7 +9244,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -9269,7 +9269,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -9294,7 +9294,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -9319,7 +9319,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -9344,7 +9344,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -9369,7 +9369,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -9394,7 +9394,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -9419,7 +9419,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -9444,7 +9444,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -9469,7 +9469,7 @@
    "match_kind": "exact-nogeo",
    "match_distance_km": null,
    "stream_verified": true,
-   "in_sferics_kiosk": true,
+   "in_lyrapod_kiosk": true,
    "artwork_file": "/logos/wbcrlp.png",
    "artwork_source": null,
    "country_crosscheck": true
@@ -9495,7 +9495,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -9520,7 +9520,7 @@
    "match_kind": "callsign-token",
    "match_distance_km": 0.0,
    "stream_verified": true,
-   "in_sferics_kiosk": true,
+   "in_lyrapod_kiosk": true,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -9545,7 +9545,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -9570,7 +9570,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -9595,7 +9595,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -9620,7 +9620,7 @@
    "match_kind": "callsign-token",
    "match_distance_km": 0.3,
    "stream_verified": true,
-   "in_sferics_kiosk": true,
+   "in_lyrapod_kiosk": true,
    "artwork_file": "/logos/wbny.png",
    "artwork_source": "homepage"
   },
@@ -9645,7 +9645,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -9670,7 +9670,7 @@
    "match_kind": "callsign-token",
    "match_distance_km": 0.3,
    "stream_verified": true,
-   "in_sferics_kiosk": true,
+   "in_lyrapod_kiosk": true,
    "artwork_file": "/logos/wbor.png",
    "artwork_source": "radiobrowser"
   },
@@ -9695,7 +9695,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -9720,7 +9720,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -9745,7 +9745,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -9770,7 +9770,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -9795,7 +9795,7 @@
    "match_kind": "callsign-token",
    "match_distance_km": 0.5,
    "stream_verified": true,
-   "in_sferics_kiosk": true,
+   "in_lyrapod_kiosk": true,
    "artwork_file": "/logos/wcbn.png",
    "artwork_source": null
   },
@@ -9820,7 +9820,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -9845,7 +9845,7 @@
    "match_kind": "callsign-token",
    "match_distance_km": 0.4,
    "stream_verified": true,
-   "in_sferics_kiosk": true,
+   "in_lyrapod_kiosk": true,
    "artwork_file": "/logos/wcdb.jpg",
    "artwork_source": "homepage"
   },
@@ -9870,7 +9870,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -9895,7 +9895,7 @@
    "match_kind": "callsign-token",
    "match_distance_km": 0.0,
    "stream_verified": true,
-   "in_sferics_kiosk": true,
+   "in_lyrapod_kiosk": true,
    "artwork_file": "/logos/wchc.png",
    "artwork_source": "radiobrowser"
   },
@@ -9920,7 +9920,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -9945,7 +9945,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -9970,7 +9970,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -9995,7 +9995,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -10020,7 +10020,7 @@
    "match_kind": "exact",
    "match_distance_km": 0.0,
    "stream_verified": true,
-   "in_sferics_kiosk": true,
+   "in_lyrapod_kiosk": true,
    "artwork_file": "/logos/wcuw.png",
    "artwork_source": "radiobrowser"
   },
@@ -10045,7 +10045,7 @@
    "match_kind": "callsign-token",
    "match_distance_km": 1.4,
    "stream_verified": true,
-   "in_sferics_kiosk": true,
+   "in_lyrapod_kiosk": true,
    "artwork_file": "/logos/wdbm.png",
    "artwork_source": "homepage"
   },
@@ -10070,7 +10070,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -10095,7 +10095,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -10120,7 +10120,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": true,
-   "in_sferics_kiosk": true,
+   "in_lyrapod_kiosk": true,
    "artwork_file": "/logos/wdcv.png",
    "artwork_source": null
   },
@@ -10145,7 +10145,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -10170,7 +10170,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -10195,7 +10195,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -10220,7 +10220,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -10245,7 +10245,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -10270,7 +10270,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -10295,7 +10295,7 @@
    "match_kind": "callsign-token",
    "match_distance_km": 0.0,
    "stream_verified": true,
-   "in_sferics_kiosk": true,
+   "in_lyrapod_kiosk": true,
    "artwork_file": "/logos/weft.jpg",
    "artwork_source": "radiobrowser"
   },
@@ -10320,7 +10320,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -10345,7 +10345,7 @@
    "match_kind": "exact",
    "match_distance_km": 0.0,
    "stream_verified": true,
-   "in_sferics_kiosk": true,
+   "in_lyrapod_kiosk": true,
    "artwork_file": "/logos/wers.png",
    "artwork_source": "homepage"
   },
@@ -10370,7 +10370,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -10395,7 +10395,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -10420,7 +10420,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -10445,7 +10445,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -10470,7 +10470,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -10495,7 +10495,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -10520,7 +10520,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -10545,7 +10545,7 @@
    "match_kind": "exact",
    "match_distance_km": 1.1,
    "stream_verified": true,
-   "in_sferics_kiosk": true,
+   "in_lyrapod_kiosk": true,
    "artwork_file": "/logos/wfmu.svg",
    "artwork_source": null
   },
@@ -10570,7 +10570,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -10595,7 +10595,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -10620,7 +10620,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -10645,7 +10645,7 @@
    "match_kind": "callsign-token",
    "match_distance_km": 0.0,
    "stream_verified": true,
-   "in_sferics_kiosk": true,
+   "in_lyrapod_kiosk": true,
    "artwork_file": "/logos/wfuv.ico",
    "artwork_source": "radiobrowser"
   },
@@ -10670,7 +10670,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -10695,7 +10695,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -10720,7 +10720,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -10745,7 +10745,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -10770,7 +10770,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -10795,7 +10795,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -10820,7 +10820,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -10845,7 +10845,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -10870,7 +10870,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -10895,7 +10895,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -10920,7 +10920,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -10945,7 +10945,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -10970,7 +10970,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -10995,7 +10995,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -11020,7 +11020,7 @@
    "match_kind": "callsign-token",
    "match_distance_km": 4.6,
    "stream_verified": true,
-   "in_sferics_kiosk": true,
+   "in_lyrapod_kiosk": true,
    "artwork_file": "/logos/whrv.png",
    "artwork_source": "homepage"
   },
@@ -11045,7 +11045,7 @@
    "match_kind": "callsign-token",
    "match_distance_km": 4.2,
    "stream_verified": true,
-   "in_sferics_kiosk": true,
+   "in_lyrapod_kiosk": true,
    "artwork_file": "/logos/whrw.png",
    "artwork_source": "radiobrowser"
   },
@@ -11070,7 +11070,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -11095,7 +11095,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -11120,7 +11120,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -11145,7 +11145,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -11170,7 +11170,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -11195,7 +11195,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -11220,7 +11220,7 @@
    "match_kind": "callsign-token",
    "match_distance_km": 3.6,
    "stream_verified": true,
-   "in_sferics_kiosk": true,
+   "in_lyrapod_kiosk": true,
    "artwork_file": "/logos/widr.png",
    "artwork_source": "radiobrowser"
   },
@@ -11245,7 +11245,7 @@
    "match_kind": "exact",
    "match_distance_km": 0.6,
    "stream_verified": true,
-   "in_sferics_kiosk": true,
+   "in_lyrapod_kiosk": true,
    "artwork_file": "/logos/witr.jpg",
    "artwork_source": "radiobrowser"
   },
@@ -11270,7 +11270,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -11295,7 +11295,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -11320,7 +11320,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -11345,7 +11345,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -11370,7 +11370,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -11395,7 +11395,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -11420,7 +11420,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -11445,7 +11445,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -11470,7 +11470,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -11495,7 +11495,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -11520,7 +11520,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -11545,7 +11545,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -11570,7 +11570,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -11595,7 +11595,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -11620,7 +11620,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -11645,7 +11645,7 @@
    "match_kind": "callsign-token",
    "match_distance_km": 3.0,
    "stream_verified": true,
-   "in_sferics_kiosk": true,
+   "in_lyrapod_kiosk": true,
    "artwork_file": "/logos/wknc.png",
    "artwork_source": null
   },
@@ -11670,7 +11670,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -11695,7 +11695,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -11720,7 +11720,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -11745,7 +11745,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -11770,7 +11770,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -11795,7 +11795,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -11820,7 +11820,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -11845,7 +11845,7 @@
    "match_kind": "callsign-token",
    "match_distance_km": 11.7,
    "stream_verified": true,
-   "in_sferics_kiosk": true,
+   "in_lyrapod_kiosk": true,
    "artwork_file": "/logos/wluw.png",
    "artwork_source": null
   },
@@ -11870,7 +11870,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -11895,7 +11895,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -11920,7 +11920,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": true,
-   "in_sferics_kiosk": true,
+   "in_lyrapod_kiosk": true,
    "artwork_file": "/logos/wmbr.png",
    "artwork_source": null
   },
@@ -11945,7 +11945,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -11970,7 +11970,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -11995,7 +11995,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -12020,7 +12020,7 @@
    "match_kind": "callsign-token",
    "match_distance_km": 1.9,
    "stream_verified": true,
-   "in_sferics_kiosk": true,
+   "in_lyrapod_kiosk": true,
    "artwork_file": "/logos/wmnf.png",
    "artwork_source": "homepage"
   },
@@ -12045,7 +12045,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -12070,7 +12070,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -12095,7 +12095,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -12120,7 +12120,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -12145,7 +12145,7 @@
    "match_kind": "callsign-token",
    "match_distance_km": 0.1,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -12170,7 +12170,7 @@
    "match_kind": "callsign-token",
    "match_distance_km": 0.5,
    "stream_verified": true,
-   "in_sferics_kiosk": true,
+   "in_lyrapod_kiosk": true,
    "artwork_file": "/logos/wmtu.webp",
    "artwork_source": "homepage"
   },
@@ -12195,7 +12195,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -12220,7 +12220,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -12245,7 +12245,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -12270,7 +12270,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -12295,7 +12295,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -12320,7 +12320,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -12345,7 +12345,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -12370,7 +12370,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -12395,7 +12395,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -12420,7 +12420,7 @@
    "match_kind": "callsign-token",
    "match_distance_km": 9.0,
    "stream_verified": true,
-   "in_sferics_kiosk": true,
+   "in_lyrapod_kiosk": true,
    "artwork_file": "/logos/wnyc.png",
    "artwork_source": "radiobrowser"
   },
@@ -12445,7 +12445,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -12470,7 +12470,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -12495,7 +12495,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -12520,7 +12520,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -12545,7 +12545,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -12570,7 +12570,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -12595,7 +12595,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -12620,7 +12620,7 @@
    "match_kind": "callsign-token",
    "match_distance_km": 2.3,
    "stream_verified": true,
-   "in_sferics_kiosk": true,
+   "in_lyrapod_kiosk": true,
    "artwork_file": "/logos/wort.png",
    "artwork_source": "homepage"
   },
@@ -12645,7 +12645,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -12670,7 +12670,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -12695,7 +12695,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -12720,7 +12720,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -12745,7 +12745,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -12770,7 +12770,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -12795,7 +12795,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -12820,7 +12820,7 @@
    "match_kind": "callsign-token",
    "match_distance_km": 1.4,
    "stream_verified": true,
-   "in_sferics_kiosk": true,
+   "in_lyrapod_kiosk": true,
    "artwork_file": "/logos/wprk.png",
    "artwork_source": "radiobrowser"
   },
@@ -12845,7 +12845,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -12870,7 +12870,7 @@
    "match_kind": "exact",
    "match_distance_km": 0.2,
    "stream_verified": true,
-   "in_sferics_kiosk": true,
+   "in_lyrapod_kiosk": true,
    "artwork_file": "/logos/wpts.png",
    "artwork_source": "radiobrowser"
   },
@@ -12895,7 +12895,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -12920,7 +12920,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -12945,7 +12945,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -12970,7 +12970,7 @@
    "match_kind": "callsign-token",
    "match_distance_km": 0.2,
    "stream_verified": true,
-   "in_sferics_kiosk": true,
+   "in_lyrapod_kiosk": true,
    "artwork_file": "/logos/wras.png",
    "artwork_source": null
   },
@@ -12995,7 +12995,7 @@
    "match_kind": "exact",
    "match_distance_km": 0.1,
    "stream_verified": true,
-   "in_sferics_kiosk": true,
+   "in_lyrapod_kiosk": true,
    "artwork_file": "/logos/wrbb.png",
    "artwork_source": "homepage"
   },
@@ -13020,7 +13020,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -13045,7 +13045,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -13070,7 +13070,7 @@
    "match_kind": "exact",
    "match_distance_km": 0.1,
    "stream_verified": true,
-   "in_sferics_kiosk": true,
+   "in_lyrapod_kiosk": true,
    "artwork_file": "/logos/wrct.png",
    "artwork_source": "radiobrowser"
   },
@@ -13095,7 +13095,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -13120,7 +13120,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -13145,7 +13145,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -13170,7 +13170,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -13195,7 +13195,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -13220,7 +13220,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": true,
-   "in_sferics_kiosk": true,
+   "in_lyrapod_kiosk": true,
    "artwork_file": "/logos/wrir.png",
    "artwork_source": null
   },
@@ -13245,7 +13245,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -13270,7 +13270,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -13295,7 +13295,7 @@
    "match_kind": "callsign-token",
    "match_distance_km": 4.9,
    "stream_verified": true,
-   "in_sferics_kiosk": true,
+   "in_lyrapod_kiosk": true,
    "artwork_file": "/logos/wrpi.png",
    "artwork_source": "radiobrowser"
   },
@@ -13320,7 +13320,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -13345,7 +13345,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -13370,7 +13370,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -13395,7 +13395,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -13420,7 +13420,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -13445,7 +13445,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -13470,7 +13470,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -13495,7 +13495,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": true,
-   "in_sferics_kiosk": true,
+   "in_lyrapod_kiosk": true,
    "artwork_file": "/logos/wruv.png",
    "artwork_source": null
   },
@@ -13520,7 +13520,7 @@
    "match_kind": "callsign-token",
    "match_distance_km": 7.4,
    "stream_verified": true,
-   "in_sferics_kiosk": true,
+   "in_lyrapod_kiosk": true,
    "artwork_file": "/logos/wruw.ico",
    "artwork_source": "radiobrowser"
   },
@@ -13545,7 +13545,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -13570,7 +13570,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -13595,7 +13595,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -13620,7 +13620,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -13645,7 +13645,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -13670,7 +13670,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -13695,7 +13695,7 @@
    "match_kind": "exact",
    "match_distance_km": 0.2,
    "stream_verified": true,
-   "in_sferics_kiosk": true,
+   "in_lyrapod_kiosk": true,
    "artwork_file": "/logos/wsoe.webp",
    "artwork_source": "radiobrowser"
   },
@@ -13720,7 +13720,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -13745,7 +13745,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -13770,7 +13770,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -13795,7 +13795,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -13820,7 +13820,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -13845,7 +13845,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -13870,7 +13870,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -13895,7 +13895,7 @@
    "match_kind": "exact",
    "match_distance_km": 18.9,
    "stream_verified": true,
-   "in_sferics_kiosk": true,
+   "in_lyrapod_kiosk": true,
    "artwork_file": "/logos/wtip.png",
    "artwork_source": "radiobrowser"
   },
@@ -13920,7 +13920,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -13945,7 +13945,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -13970,7 +13970,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -13995,7 +13995,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -14020,7 +14020,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -14045,7 +14045,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": true,
-   "in_sferics_kiosk": true,
+   "in_lyrapod_kiosk": true,
    "artwork_file": "/logos/wtul.png",
    "artwork_source": null
   },
@@ -14070,7 +14070,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -14095,7 +14095,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -14120,7 +14120,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -14145,7 +14145,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -14170,7 +14170,7 @@
    "match_kind": "callsign-token",
    "match_distance_km": 0.9,
    "stream_verified": true,
-   "in_sferics_kiosk": true,
+   "in_lyrapod_kiosk": true,
    "artwork_file": "/logos/wumm.png",
    "artwork_source": "radiobrowser"
   },
@@ -14195,7 +14195,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -14220,7 +14220,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -14245,7 +14245,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -14270,7 +14270,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -14295,7 +14295,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -14320,7 +14320,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -14345,7 +14345,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -14370,7 +14370,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -14395,7 +14395,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -14420,7 +14420,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -14445,7 +14445,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -14470,7 +14470,7 @@
    "match_kind": "callsign-token",
    "match_distance_km": 1.0,
    "stream_verified": true,
-   "in_sferics_kiosk": true,
+   "in_lyrapod_kiosk": true,
    "artwork_file": "/logos/wvbr.ico",
    "artwork_source": "homepage"
   },
@@ -14495,7 +14495,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -14520,7 +14520,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -14545,7 +14545,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -14570,7 +14570,7 @@
    "match_kind": "callsign-token",
    "match_distance_km": 2.6,
    "stream_verified": true,
-   "in_sferics_kiosk": true,
+   "in_lyrapod_kiosk": true,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -14595,7 +14595,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -14620,7 +14620,7 @@
    "match_kind": "callsign-token",
    "match_distance_km": 0.0,
    "stream_verified": true,
-   "in_sferics_kiosk": true,
+   "in_lyrapod_kiosk": true,
    "artwork_file": "/logos/wvud.png",
    "artwork_source": "radiobrowser"
   },
@@ -14645,7 +14645,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -14670,7 +14670,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -14695,7 +14695,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -14720,7 +14720,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -14745,7 +14745,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -14770,7 +14770,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -14795,7 +14795,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -14820,7 +14820,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -14845,7 +14845,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -14870,7 +14870,7 @@
    "match_kind": "callsign-token",
    "match_distance_km": 1.5,
    "stream_verified": true,
-   "in_sferics_kiosk": true,
+   "in_lyrapod_kiosk": true,
    "artwork_file": "/logos/wxdu.ico",
    "artwork_source": "homepage"
   },
@@ -14895,7 +14895,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -14920,7 +14920,7 @@
    "match_kind": "exact",
    "match_distance_km": 10.2,
    "stream_verified": true,
-   "in_sferics_kiosk": true,
+   "in_lyrapod_kiosk": true,
    "artwork_file": "/logos/wxou.png",
    "artwork_source": "radiobrowser"
   },
@@ -14945,7 +14945,7 @@
    "match_kind": "callsign-token",
    "match_distance_km": 1.2,
    "stream_verified": true,
-   "in_sferics_kiosk": true,
+   "in_lyrapod_kiosk": true,
    "artwork_file": "/logos/wxox.jpg",
    "artwork_source": "radiobrowser"
   },
@@ -14970,7 +14970,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -14995,7 +14995,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -15020,7 +15020,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -15045,7 +15045,7 @@
    "match_kind": "exact",
    "match_distance_km": 0.1,
    "stream_verified": true,
-   "in_sferics_kiosk": true,
+   "in_lyrapod_kiosk": true,
    "artwork_file": "/logos/wxyc.png",
    "artwork_source": "radiobrowser"
   },
@@ -15070,7 +15070,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -15095,7 +15095,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -15120,7 +15120,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -15145,7 +15145,7 @@
    "match_kind": "callsign-token",
    "match_distance_km": 0.6,
    "stream_verified": true,
-   "in_sferics_kiosk": true,
+   "in_lyrapod_kiosk": true,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -15170,7 +15170,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": true,
-   "in_sferics_kiosk": true,
+   "in_lyrapod_kiosk": true,
    "artwork_file": "/logos/wzbc.png",
    "artwork_source": null
   },
@@ -15195,7 +15195,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": true,
-   "in_sferics_kiosk": true,
+   "in_lyrapod_kiosk": true,
    "artwork_file": "/logos/wzbt.png",
    "artwork_source": null
   },
@@ -15220,7 +15220,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -15245,7 +15245,7 @@
    "match_kind": "exact-nogeo",
    "match_distance_km": null,
    "stream_verified": true,
-   "in_sferics_kiosk": true,
+   "in_lyrapod_kiosk": true,
    "artwork_file": "/logos/xrayfm.png",
    "artwork_source": null,
    "country_crosscheck": true
@@ -15271,7 +15271,7 @@
    "match_kind": "exact-nogeo",
    "match_distance_km": null,
    "stream_verified": true,
-   "in_sferics_kiosk": true,
+   "in_lyrapod_kiosk": true,
    "artwork_file": "/logos/ynotradio.ico",
    "artwork_source": null,
    "country_crosscheck": true
@@ -15297,7 +15297,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -15322,7 +15322,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -15347,7 +15347,7 @@
    "match_kind": "exact",
    "match_distance_km": 0.4,
    "stream_verified": true,
-   "in_sferics_kiosk": true,
+   "in_lyrapod_kiosk": true,
    "artwork_file": "/logos/4zzz.svg",
    "artwork_source": "homepage"
   },
@@ -15372,7 +15372,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -15397,7 +15397,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -15422,7 +15422,7 @@
    "match_kind": "exact-nogeo",
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -15447,7 +15447,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -15472,7 +15472,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -15497,7 +15497,7 @@
    "match_kind": null,
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -15522,7 +15522,7 @@
    "match_kind": "exact-nogeo",
    "match_distance_km": null,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   },
@@ -15547,7 +15547,7 @@
    "match_kind": "exact",
    "match_distance_km": 1.6,
    "stream_verified": true,
-   "in_sferics_kiosk": true,
+   "in_lyrapod_kiosk": true,
    "artwork_file": "/logos/radioone91fm.png",
    "artwork_source": "radiobrowser"
   },
@@ -15572,7 +15572,7 @@
    "match_kind": "exact-nogeo",
    "match_distance_km": null,
    "stream_verified": true,
-   "in_sferics_kiosk": true,
+   "in_lyrapod_kiosk": true,
    "artwork_file": "/logos/rtrfm.webp",
    "artwork_source": null,
    "country_crosscheck": true
@@ -15598,7 +15598,7 @@
    "match_kind": "substring",
    "match_distance_km": 15.5,
    "stream_verified": null,
-   "in_sferics_kiosk": false,
+   "in_lyrapod_kiosk": false,
    "artwork_file": null,
    "artwork_source": null
   }

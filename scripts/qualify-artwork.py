@@ -17,7 +17,7 @@ sys.stdout.reconfigure(encoding='utf-8', errors='replace')
 
 OUTDIR = 'artwork'
 os.makedirs(OUTDIR, exist_ok=True)
-UA = 'Mozilla/5.0 (compatible; sferics-kiosk/1.0)'
+UA = 'Mozilla/5.0 (compatible; lyrapod-kiosk/1.0)'
 TIMEOUT = 10
 
 matched = json.load(open('soundtap-matched.json', encoding='utf-8'))

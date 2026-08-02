@@ -55,7 +55,7 @@ for r in matched:
 
         # --- what we actually proved ---
         'stream_verified': bool(v.get('ok')) if v else None,
-        'in_sferics_kiosk': sid in kiosk_ids,
+        'in_lyrapod_kiosk': sid in kiosk_ids,
         'artwork_file': (kiosk_logo.get(sid) or (f"/logos/{sid}.{lg['ext']}" if lg.get('source') else None)),
         'artwork_source': lg.get('source'),
     }
@@ -92,7 +92,7 @@ doc = {
             'stream_verified=true means the URL returned actual audio bytes on 2026-07-31, not that it works today.',
             'match_kind="substring" is a name-containment guess, not an identity match. Treat as unverified.',
             'country_crosscheck=false marks a station whose SoundTap coordinates disagree with the Radio Browser country. Those joins are wrong.',
-            'Artwork paths refer to frontend/public/logos/ in the sferics kiosk repo, not to this file.',
+            'Artwork paths refer to frontend/public/logos/ in the lyrapod kiosk repo, not to this file.',
         ],
         'related_files': {
             'data/soundtap-cdx-index.txt': '13,926 archived soundtap.com URLs (path, timestamp, HTTP status) for rebuilding the rest of the site',
@@ -110,6 +110,6 @@ print(f'exported {len(out)} stations')
 print('  confidence :', dict(c))
 print('  with stream:', sum(1 for x in out if x['stream_url']))
 print('  verified   :', sum(1 for x in out if x['stream_verified']))
-print('  in kiosk   :', sum(1 for x in out if x['in_sferics_kiosk']))
+print('  in kiosk   :', sum(1 for x in out if x['in_lyrapod_kiosk']))
 print('  w/ artwork :', sum(1 for x in out if x['artwork_file']))
 print('  homepages  :', sum(1 for x in out if x['homepage']))

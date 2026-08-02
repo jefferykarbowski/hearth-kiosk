@@ -20,9 +20,9 @@ Success is that the screen is the fastest path to sound in that room, and that i
 
 ## Positioning
 
-Sferics is a *listening instrument*, not a kitchen dashboard. Its center of gravity is freeform and community radio — the unpredictable, human-curated end of the spectrum — with commercial streaming as a supporting source rather than the main event. A smart display from a large platform cannot credibly carry that catalog or that point of view.
+LyraPod is a *listening instrument*, not a kitchen dashboard. Its center of gravity is freeform and community radio — the unpredictable, human-curated end of the spectrum — with commercial streaming as a supporting source rather than the main event. A smart display from a large platform cannot credibly carry that catalog or that point of view.
 
-The name is literal: a **sferic** is the broadband radio pulse emitted by a lightning discharge (100 Hz–10 kHz), propagating through the Earth–ionosphere waveguide. Related phenomena, used as product vocabulary: **whistlers** (tones descending over seconds) and the **dawn chorus**.
+**The name carries no product story yet.** The previous name, Sferics, was literal — a sferic is the radio pulse of a lightning discharge — and the visual world was derived from it. LyraPod was chosen on 2026-07-31 without a stated rationale, so nothing in the copy should claim one. Any brand narrative is the owner's to write.
 
 ## Operating Context
 
@@ -51,8 +51,9 @@ Undecided:
 
 ## Brand Commitments
 
-- Product name is **Sferics**, chosen 2026-07-30, replacing "Hearth" — which was rejected as too domestic. Do not reintroduce hearth/kitchen/warmth framing.
-- Domains identified as available at decision time: `sferics.fm`, `sferics.audio`, `playsferics.com`. **Not yet registered.**
+- Product name is **LyraPod**, chosen 2026-07-31. It replaced *Sferics* (2026-07-30), which had itself replaced *Hearth* — Hearth was rejected as too domestic. Do not reintroduce hearth/kitchen/warmth framing.
+- Domains verified available on 2026-07-31: **`lyrapod.com`**, `lyrapod.fm`, `lyrapod.audio`, `getlyrapod.com`, `lyrapodaudio.com`. **None registered yet.** The `.com` being free is a real improvement over Sferics, where it was taken.
+- No USPTO clearance has been done for LyraPod. Worth doing before tooling or packaging.
 - Owner's stated direction for the interface: *psychedelic, avant-garde, instrumentation-derived*. Explicitly "not housewives."
 - Generated splash artwork on hand at `frontend/public/brand/` (`splash-01.png`, `splash-02.png`).
 
