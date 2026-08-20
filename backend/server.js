@@ -526,6 +526,12 @@ function saveTokens() {
 // Load persisted tokens
 const savedTokens = loadTokens();
 
+// Device names the kiosk may appear under in Spotify Connect. The first entry
+// must match the `name` the Web Playback SDK registers with in
+// frontend/src/contexts/SpotifyPlayerContext.jsx; the rest are earlier names
+// kept so an already-paired device is still recognised.
+const KIOSK_DEVICE_NAMES = ['Kitchen Kiosk', 'Kitchen Computer'];
+
 // Spotify OAuth & API
 let spotifyTokens = savedTokens.spotify || {
   accessToken: null,
@@ -1435,14 +1441,21 @@ app.put('/api/spotify/play', async (req, res) => {
     return res.status(401).json({ error: 'Not authenticated', needsAuth: true });
   }
 
-  // Helper to find Kitchen Computer device
-  const findKitchenDevice = async () => {
+  // Pick a device to play on. Prefers the in-app Web Playback SDK player, then
+  // whatever is already active, then anything at all. The SDK registers itself
+  // under the first KIOSK_DEVICE_NAMES entry; matching a single hardcoded name
+  // that no device used left the request with no device_id, which Spotify
+  // rejects with NO_ACTIVE_DEVICE, so nothing played.
+  const findTargetDevice = async () => {
     const devRes = await fetch('https://api.spotify.com/v1/me/player/devices', {
       headers: { 'Authorization': `Bearer ${spotifyTokens.accessToken}` }
     });
     if (!devRes.ok) return null;
     const { devices } = await devRes.json();
-    return devices?.find(d => d.name === 'Kitchen Computer');
+    if (!devices?.length) return null;
+    return devices.find(d => KIOSK_DEVICE_NAMES.includes(d.name))
+      || devices.find(d => d.is_active)
+      || devices[0];
   };
 
   // Helper to transfer playback
@@ -1461,16 +1474,22 @@ app.put('/api/spotify/play', async (req, res) => {
 
   try {
     let targetDeviceId = device_id;
-    
-    // If no device specified, check if we have an active device
+
+    // If no device specified, resolve one and hand playback to it if needed
     if (!targetDeviceId) {
-      const kitchenDevice = await findKitchenDevice();
-      if (kitchenDevice && !kitchenDevice.is_active) {
-        console.log('[Spotify] No active device, transferring to Kitchen Computer...');
-        await transferToDevice(kitchenDevice.id);
-        targetDeviceId = kitchenDevice.id;
-      } else if (kitchenDevice?.is_active) {
-        targetDeviceId = kitchenDevice.id;
+      const target = await findTargetDevice();
+      if (target) {
+        if (!target.is_active) {
+          console.log(`[Spotify] No active device, transferring to "${target.name}"...`);
+          await transferToDevice(target.id);
+        }
+        targetDeviceId = target.id;
+      } else {
+        console.warn('[Spotify] No available Spotify devices to play on');
+        return res.status(404).json({
+          error: 'No available Spotify device. Open Spotify on this device, or check that the in-app player started (it needs Spotify Premium).',
+          noDevice: true
+        });
       }
     }
 
