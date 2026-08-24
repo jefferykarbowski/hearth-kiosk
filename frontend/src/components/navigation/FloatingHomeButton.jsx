@@ -46,11 +46,11 @@ export default function FloatingHomeButton() {
               {/* Return to Radio button */}
               <motion.button
                 onClick={handleReturnHome}
-                className="flex items-center gap-3 px-4 py-3 rounded-full font-medium shadow-lg"
+                className="tap flex items-center gap-3 px-4 py-3 font-medium"
                 style={{
-                  background: 'rgba(99, 102, 241, 0.95)',
-                  backdropFilter: 'blur(10px)',
-                  border: '1px solid rgba(255, 255, 255, 0.2)',
+                  background: 'var(--sig-green)',
+                  color: 'var(--ink)',
+                  border: '1px solid var(--sig-green)',
                 }}
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
@@ -63,11 +63,11 @@ export default function FloatingHomeButton() {
               {launchedApp && (
                 <motion.button
                   onClick={handleCloseApp}
-                  className="flex items-center gap-3 px-4 py-3 rounded-full font-medium shadow-lg"
+                  className="tap flex items-center gap-3 px-4 py-3 font-medium"
                   style={{
-                    background: 'rgba(239, 68, 68, 0.95)',
-                    backdropFilter: 'blur(10px)',
-                    border: '1px solid rgba(255, 255, 255, 0.2)',
+                    background: 'var(--ink-2)',
+                    color: 'var(--chalk)',
+                    border: '1px solid var(--ink-4)',
                   }}
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
@@ -83,14 +83,11 @@ export default function FloatingHomeButton() {
         {/* Main floating button */}
         <motion.button
           onClick={() => setExpanded(!expanded)}
-          className="w-14 h-14 rounded-full flex items-center justify-center shadow-lg"
+          className="tap-lg flex items-center justify-center"
           style={{
-            background: expanded 
-              ? 'rgba(239, 68, 68, 0.95)' 
-              : 'rgba(99, 102, 241, 0.95)',
-            backdropFilter: 'blur(10px)',
-            border: '1px solid rgba(255, 255, 255, 0.2)',
-            boxShadow: '0 4px 20px rgba(0, 0, 0, 0.3)',
+            background: expanded ? 'var(--ink-2)' : 'var(--sig-green)',
+            color: expanded ? 'var(--chalk)' : 'var(--ink)',
+            border: `1px solid ${expanded ? 'var(--ink-4)' : 'var(--sig-green)'}`,
           }}
           whileHover={{ scale: 1.1 }}
           whileTap={{ scale: 0.9 }}
@@ -105,16 +102,16 @@ export default function FloatingHomeButton() {
           )}
         </motion.button>
 
-        {/* Pulse animation when app is launched */}
+        {/* An external app is running: the stave rule breathes rather than a halo. */}
         {launchedApp && !expanded && (
           <motion.div
-            className="absolute inset-0 rounded-full pointer-events-none"
+            className="pointer-events-none absolute inset-x-0 -top-1"
             style={{
-              background: 'rgba(99, 102, 241, 0.5)',
+              height: 3,
+              background: 'var(--sig-green)',
             }}
             animate={{
-              scale: [1, 1.5, 1],
-              opacity: [0.5, 0, 0.5],
+              opacity: [1, 0.25, 1],
             }}
             transition={{
               duration: 2,

@@ -1,7 +1,9 @@
+import { useState } from 'react';
 import { RadioProvider, useRadio } from './contexts/RadioContext';
-import { WeatherProvider } from './contexts/WeatherContext';
+import { WeatherProvider, useWeather } from './contexts/WeatherContext';
 import { KioskProvider } from './contexts/KioskContext';
 import { SpotifyPlayerProvider } from './contexts/SpotifyPlayerContext';
+import { SourcesProvider } from './contexts/SourcesContext';
 import { useKeyboard } from './contexts/KeyboardContext';
 
 import Navigation from './components/navigation/Navigation';
@@ -9,89 +11,129 @@ import FloatingHomeButton from './components/navigation/FloatingHomeButton';
 import KioskSettings from './components/navigation/KioskSettings';
 import NowPlaying from './components/player/NowPlaying';
 import StationGrid from './components/stations/StationGrid';
-import WeatherBadge from './components/widgets/WeatherBadge';
-import WeatherBackground from './components/widgets/WeatherBackground';
 import VolumeControl from './components/widgets/VolumeControl';
 import NewsTicker from './components/widgets/NewsTicker';
 import MixcloudTab from './components/tabs/MixcloudTab';
 import SpotifyTab from './components/tabs/SpotifyTab';
 import KeyboardToggle from './components/KeyboardToggle';
 import Screensaver from './components/Screensaver';
+import SplashScreen from './components/SplashScreen';
+import NewsPanel from './components/panels/NewsPanel';
+import WeatherPanel from './components/panels/WeatherPanel';
+import SourcesPanel from './components/panels/SourcesPanel';
+
+/** Weather, reduced to a readable glance. Tapping opens the full reading. */
+function WeatherGlance({ onOpen }) {
+  const { weather } = useWeather();
+
+  return (
+    <button
+      onClick={onOpen}
+      className="tap flex items-center gap-2.5 px-3 seam-r"
+      aria-label="Open weather"
+    >
+      <span className="font-mono text-lg tnum leading-none" style={{ color: 'var(--sig-cyan)' }}>
+        {weather ? `${weather.temp}°` : '––'}
+      </span>
+      <span className="hidden text-left sm:block">
+        <span className="block stave-label" style={{ fontSize: 11 }}>
+          {weather?.city || 'Weather'}
+        </span>
+        <span className="block truncate text-[12px] capitalize" style={{ color: 'var(--chalk-3)', maxWidth: 128 }}>
+          {weather?.description || '—'}
+        </span>
+      </span>
+    </button>
+  );
+}
 
 function AppContent() {
   const { activeTab, showScreensaver, dismissScreensaver, triggerScreensaver } = useRadio();
   const { isKeyboardOpen } = useKeyboard();
+  const [panel, setPanel] = useState(null);
 
   return (
-    <div className="min-h-screen relative">
-      {/* Dynamic weather background */}
-      <WeatherBackground />
+    <div className="flex h-full flex-col" style={{ background: 'var(--ink)' }}>
+      {/* ---- Stave rail ---------------------------------------------------- */}
+      <header className="flex flex-shrink-0 items-stretch seam-b" style={{ background: 'var(--ink)' }}>
+        <WeatherGlance onOpen={() => setPanel('weather')} />
 
-      {/* Sticky Header - Always visible */}
-      <header
-        className="sticky top-0 z-50 flex items-center justify-between p-4 border-b border-white/10"
-        style={{
-          background: 'rgba(10, 10, 15, 0.8)',
-          backdropFilter: 'blur(20px)',
-          WebkitBackdropFilter: 'blur(20px)',
-        }}
-      >
-        {/* Left side - Screensaver button, Weather & Navigation */}
-        <div className="flex items-center gap-2">
-          <button
-            onClick={triggerScreensaver}
-            className="p-2 rounded-full text-white/20 hover:text-white/40 hover:bg-white/5 transition-colors"
-            title="Screensaver"
-          >
-            <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-              <circle cx="12" cy="12" r="4" />
-              <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41" />
-            </svg>
-          </button>
-          <WeatherBadge />
+        <div className="flex-1 overflow-x-auto">
           <Navigation />
         </div>
 
-        {/* Right side - Volume Control & Settings */}
-        <div className="flex items-center gap-2">
+        <div className="flex items-center gap-px pl-px">
           <VolumeControl />
+
+          <button
+            onClick={() => setPanel('sources')}
+            className="tap flex items-center justify-center seam-l"
+            aria-label="Arrange sources"
+            style={{ color: 'var(--chalk-2)' }}
+          >
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M3 5h18v2H3zM3 11h12v2H3zM3 17h7v2H3z" />
+            </svg>
+          </button>
+
+          <button
+            onClick={triggerScreensaver}
+            className="tap flex items-center justify-center seam-l"
+            aria-label="Rest the screen"
+            style={{ color: 'var(--chalk-3)' }}
+          >
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" aria-hidden="true">
+              <circle cx="12" cy="12" r="4" />
+              <path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M6.3 17.7l-1.4 1.4M19.1 4.9l-1.4 1.4" />
+            </svg>
+          </button>
+
           <KioskSettings />
         </div>
       </header>
 
-      {/* Main Content */}
-      <main className="p-6 pb-20 relative z-10">
+      {/* ---- Score --------------------------------------------------------- */}
+      <main className="min-h-0 flex-1 overflow-y-auto">
         {activeTab === 'radio' && (
-          <div className="flex flex-col lg:flex-row gap-6 max-w-6xl mx-auto">
-            {/* Now Playing Card */}
-            <div className="flex justify-center lg:justify-start">
+          <div className="grid gap-px lg:grid-cols-[minmax(300px,26%)_1fr]" style={{ background: 'var(--ink-3)' }}>
+            <div style={{ background: 'var(--ink)' }}>
               <NowPlaying />
             </div>
-            
-            {/* Station Grid */}
-            <div className="flex-1">
+            <div className="p-4" style={{ background: 'var(--ink)' }}>
               <StationGrid />
             </div>
           </div>
         )}
 
         {activeTab === 'mixcloud' && <MixcloudTab />}
-        
         {activeTab === 'spotify' && <SpotifyTab />}
       </main>
 
-      {/* News Ticker - hidden when keyboard is open */}
+      {/* ---- Ticker -------------------------------------------------------- */}
       {!isKeyboardOpen && (
-        <footer className="fixed bottom-0 left-0 right-0 z-10">
-          <NewsTicker />
+        <footer className="flex flex-shrink-0 items-stretch seam-t" style={{ background: 'var(--ink)' }}>
+          <button
+            onClick={() => setPanel('news')}
+            className="tap flex flex-shrink-0 items-center px-3 seam-r stave-label"
+            style={{ color: 'var(--sig-cyan)', fontSize: 11 }}
+            aria-label="Open news"
+          >
+            News
+          </button>
+          <div className="min-w-0 flex-1">
+            <NewsTicker />
+          </div>
         </footer>
       )}
 
-      {/* Floating Home Button for Kiosk Mode */}
-      <FloatingHomeButton />
+      {/* ---- Overlays ------------------------------------------------------ */}
+      {panel === 'news' && <NewsPanel onClose={() => setPanel(null)} />}
+      {panel === 'weather' && <WeatherPanel onClose={() => setPanel(null)} />}
+      {panel === 'sources' && <SourcesPanel onClose={() => setPanel(null)} />}
 
-      {/* Screensaver - shows after 1 hour of no music */}
+      <FloatingHomeButton />
       <Screensaver isActive={showScreensaver} onDismiss={dismissScreensaver} />
+      <SplashScreen />
     </div>
   );
 }
@@ -101,10 +143,12 @@ function App() {
     <WeatherProvider>
       <RadioProvider>
         <KioskProvider>
-          <SpotifyPlayerProvider>
-            <AppContent />
-            <KeyboardToggle />
-          </SpotifyPlayerProvider>
+          <SourcesProvider>
+            <SpotifyPlayerProvider>
+              <AppContent />
+              <KeyboardToggle />
+            </SpotifyPlayerProvider>
+          </SourcesProvider>
         </KioskProvider>
       </RadioProvider>
     </WeatherProvider>

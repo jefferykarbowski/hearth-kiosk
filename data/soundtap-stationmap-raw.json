@@ -1,0 +1,3734 @@
+[
+ {
+  "url": "1431am",
+  "lat": 40.6393495,
+  "lng": 22.9446064,
+  "name": "1431AM"
+ },
+ {
+  "url": "3rrr",
+  "lat": -37.767498,
+  "lng": 144.979926,
+  "name": "3RRR"
+ },
+ {
+  "url": "4zzz",
+  "lat": -27.456943,
+  "lng": 153.031296,
+  "name": "4ZZZ"
+ },
+ {
+  "url": "88nine",
+  "lat": 42.6691681,
+  "lng": -87.9155928,
+  "name": "88Nine"
+ },
+ {
+  "url": "9thfloorradio",
+  "lat": 37.8043637,
+  "lng": -122.2711137,
+  "name": "9th Floor Radio"
+ },
+ {
+  "url": "academyfm",
+  "lat": 51.081397,
+  "lng": 1.169456,
+  "name": "Academy FM"
+ },
+ {
+  "url": "acikradyo",
+  "lat": 41.0082376,
+  "lng": 28.9783589,
+  "name": "Acik Radyo"
+ },
+ {
+  "url": "aggieradio",
+  "lat": 41.761292,
+  "lng": -111.847363,
+  "name": "Aggie Radio"
+ },
+ {
+  "url": "aimsstudentradio",
+  "lat": 40.573239,
+  "lng": -105.087892,
+  "name": "Aims Student Radio"
+ },
+ {
+  "url": "andhowfm",
+  "lat": -41.1193822,
+  "lng": 174.8587926,
+  "name": "andhowFM"
+ },
+ {
+  "url": "artonair",
+  "lat": 40.716386,
+  "lng": -74.003278,
+  "name": "ArtonAir"
+ },
+ {
+  "url": "ashevillefm",
+  "lat": 35.5950581,
+  "lng": -82.5514869,
+  "name": "AshevilleFM"
+ },
+ {
+  "url": "audioboxlive",
+  "lat": 45.5086699,
+  "lng": -73.5539925,
+  "name": "AudioBoxLive"
+ },
+ {
+  "url": "b92",
+  "lat": 44.817425,
+  "lng": 20.420311,
+  "name": "B92"
+ },
+ {
+  "url": "babsoncollegeradio",
+  "lat": 42.302586,
+  "lng": -71.377645,
+  "name": "Babson College Radio"
+ },
+ {
+  "url": "bagelradio",
+  "lat": 37.784517,
+  "lng": -122.409464,
+  "name": "Bagel Radio"
+ },
+ {
+  "url": "bailriggfm",
+  "lat": 54.048151,
+  "lng": -2.803827,
+  "name": "Bailrigg FM"
+ },
+ {
+  "url": "bartokradio",
+  "lat": 47.492365,
+  "lng": 19.064367,
+  "name": "Bartok Radio"
+ },
+ {
+  "url": "bauradyo",
+  "lat": 41.0082376,
+  "lng": 28.9783589,
+  "name": "BAU Radyo"
+ },
+ {
+  "url": "bbcradio",
+  "lat": 51.5073509,
+  "lng": -0.1277583,
+  "name": "BBC Radio"
+ },
+ {
+  "url": "bearcastradio",
+  "lat": 39.130607,
+  "lng": -84.518123,
+  "name": "BearCast Radio"
+ },
+ {
+  "url": "berkeleyliberationradio",
+  "lat": 37.777089,
+  "lng": -122.411701,
+  "name": "Berkeley Liberation Radio"
+ },
+ {
+  "url": "berlincommunityradiostation",
+  "lat": 52.502238,
+  "lng": 13.439411,
+  "name": "Berlin Community Radio"
+ },
+ {
+  "url": "bfffm",
+  "lat": 37.7749295,
+  "lng": -122.4194155,
+  "name": "BFF.fm"
+ },
+ {
+  "url": "blacksquirrelradio",
+  "lat": 41.151483,
+  "lng": -81.350927,
+  "name": "Black Squirrel Radio"
+ },
+ {
+  "url": "blueechoradio",
+  "lat": 35.5950581,
+  "lng": -82.5514869,
+  "name": "Blue Echo Radio"
+ },
+ {
+  "url": "bondibeachradio",
+  "lat": -31.2532183,
+  "lng": 146.921099,
+  "name": "Bondi Beach Radio"
+ },
+ {
+  "url": "boomradio",
+  "lat": -31.9363895,
+  "lng": 115.8419536,
+  "name": "Boom Radio"
+ },
+ {
+  "url": "brooklynradio",
+  "lat": 40.6781784,
+  "lng": -73.9441579,
+  "name": "Brooklyn Radio"
+ },
+ {
+  "url": "bsr",
+  "lat": 42.181401,
+  "lng": -71.069958,
+  "name": "BSR"
+ },
+ {
+  "url": "btradio",
+  "lat": 48.82438,
+  "lng": 2.370375,
+  "name": "BT Radio"
+ },
+ {
+  "url": "bullsradio",
+  "lat": 27.981714,
+  "lng": -82.446056,
+  "name": "Bulls Radio"
+ },
+ {
+  "url": "burstradio",
+  "lat": 51.456715,
+  "lng": -2.61287,
+  "name": "Burst Radio"
+ },
+ {
+  "url": "bushradio",
+  "lat": -33.932436,
+  "lng": 18.456742,
+  "name": "Bushradio"
+ },
+ {
+  "url": "bytefm",
+  "lat": 52.5117622,
+  "lng": 13.4558552,
+  "name": "ByteFM"
+ },
+ {
+  "url": "cambridge105",
+  "lat": 52.202419,
+  "lng": 0.139252,
+  "name": "Cambridge 105"
+ },
+ {
+  "url": "cfbx",
+  "lat": 50.667625,
+  "lng": -120.364295,
+  "name": "CFBX"
+ },
+ {
+  "url": "cfru",
+  "lat": 43.530901,
+  "lng": -80.226307,
+  "name": "CFRU"
+ },
+ {
+  "url": "cfuv",
+  "lat": 48.388742,
+  "lng": -123.683145,
+  "name": "CFUV"
+ },
+ {
+  "url": "chapmanradio",
+  "lat": 33.874687,
+  "lng": -117.919452,
+  "name": "Chapman Radio"
+ },
+ {
+  "url": "chirp",
+  "lat": 41.798321,
+  "lng": -88.074048,
+  "name": "CHIRP"
+ },
+ {
+  "url": "choq",
+  "lat": 45.5016889,
+  "lng": -73.567256,
+  "name": "CHOQ"
+ },
+ {
+  "url": "chrw",
+  "lat": 43.008558,
+  "lng": -81.263498,
+  "name": "CHRW"
+ },
+ {
+  "url": "chuo",
+  "lat": 45.4215296,
+  "lng": -75.6971931,
+  "name": "CHUO"
+ },
+ {
+  "url": "cibl",
+  "lat": 45.5016889,
+  "lng": -73.567256,
+  "name": "CIBL"
+ },
+ {
+  "url": "cick",
+  "lat": 54.782355,
+  "lng": -127.1685541,
+  "name": "CICK"
+ },
+ {
+  "url": "cism",
+  "lat": 45.5016889,
+  "lng": -73.567256,
+  "name": "CISM"
+ },
+ {
+  "url": "citr",
+  "lat": 49.267384,
+  "lng": -123.249948,
+  "name": "CiTR"
+ },
+ {
+  "url": "ciut",
+  "lat": 43.663936,
+  "lng": -79.395114,
+  "name": "CIUT"
+ },
+ {
+  "url": "cixx",
+  "lat": 43.013919,
+  "lng": -81.200929,
+  "name": "CIXX"
+ },
+ {
+  "url": "cjam",
+  "lat": 42.3183446,
+  "lng": -83.0342423,
+  "name": "CJAM"
+ },
+ {
+  "url": "cjlo",
+  "lat": 45.5016889,
+  "lng": -73.567256,
+  "name": "CJLO"
+ },
+ {
+  "url": "cjsf",
+  "lat": 49.279088,
+  "lng": -122.920424,
+  "name": "CJSF"
+ },
+ {
+  "url": "cjsw",
+  "lat": 51.078926,
+  "lng": -114.130171,
+  "name": "CJSW"
+ },
+ {
+  "url": "ckcu",
+  "lat": 45.403101,
+  "lng": -75.725167,
+  "name": "CKCU"
+ },
+ {
+  "url": "ckdu",
+  "lat": 44.646628,
+  "lng": -63.574526,
+  "name": "CKDU"
+ },
+ {
+  "url": "ckms",
+  "lat": 43.483083,
+  "lng": -80.546151,
+  "name": "CKMS"
+ },
+ {
+  "url": "ckum",
+  "lat": 46.0878165,
+  "lng": -64.7782313,
+  "name": "CKUM"
+ },
+ {
+  "url": "ckut",
+  "lat": 45.5016889,
+  "lng": -73.567256,
+  "name": "CKUT"
+ },
+ {
+  "url": "ckuw",
+  "lat": 49.8997541,
+  "lng": -97.1374937,
+  "name": "CKUW"
+ },
+ {
+  "url": "clarkradio",
+  "lat": 42.2625932,
+  "lng": -71.8022934,
+  "name": "Clark Radio"
+ },
+ {
+  "url": "collegeradio",
+  "lat": 17.963098,
+  "lng": -76.894129,
+  "name": "College Radio"
+ },
+ {
+  "url": "controradiofirenze",
+  "lat": 43.7695604,
+  "lng": 11.2558136,
+  "name": "Controradio Firenze"
+ },
+ {
+  "url": "coyoteradio",
+  "lat": 34.1083449,
+  "lng": -117.2897652,
+  "name": "Coyote Radio"
+ },
+ {
+  "url": "demonfm",
+  "lat": 52.6368778,
+  "lng": -1.1397592,
+  "name": "DemonFM"
+ },
+ {
+  "url": "detourmusic",
+  "lat": 35.95315,
+  "lng": -83.915659,
+  "name": "detour MUSIC"
+ },
+ {
+  "url": "dinamo",
+  "lat": 40.983483,
+  "lng": 29.022718,
+  "name": "Dinamo"
+ },
+ {
+  "url": "dublab",
+  "lat": 34.0522342,
+  "lng": -118.2436849,
+  "name": "dublab"
+ },
+ {
+  "url": "dublabes",
+  "lat": 41.3850639,
+  "lng": 2.1734035,
+  "name": "dublab.es"
+ },
+ {
+  "url": "dublindigitalradio",
+  "lat": 53.3498053,
+  "lng": -6.2603097,
+  "name": "Dublin Digital Radio"
+ },
+ {
+  "url": "eagleradio",
+  "lat": 42.368791,
+  "lng": -83.355565,
+  "name": "Eagle Radio"
+ },
+ {
+  "url": "enmu",
+  "lat": 34.178032,
+  "lng": -103.346506,
+  "name": "ENMU"
+ },
+ {
+  "url": "expressfm",
+  "lat": 50.80003,
+  "lng": -1.087291,
+  "name": "ExpressFM"
+ },
+ {
+  "url": "felixstoweradio",
+  "lat": 51.961726,
+  "lng": 1.351255,
+  "name": "FelixstoweRadio"
+ },
+ {
+  "url": "fipradio",
+  "lat": 48.856614,
+  "lng": 2.3522219,
+  "name": "FIP Radio"
+ },
+ {
+  "url": "flyfm",
+  "lat": 52.955078,
+  "lng": -1.148277,
+  "name": "FLY FM"
+ },
+ {
+  "url": "fm4",
+  "lat": 48.2081743,
+  "lng": 16.3738189,
+  "name": "FM4"
+ },
+ {
+  "url": "forgeradio",
+  "lat": 53.380889,
+  "lng": -1.487534,
+  "name": "Forge Radio"
+ },
+ {
+  "url": "fredoniaradio",
+  "lat": 42.438355,
+  "lng": -79.309956,
+  "name": "Fredonia Radio"
+ },
+ {
+  "url": "freefm",
+  "lat": -37.79204,
+  "lng": 175.277233,
+  "name": "FreeFM"
+ },
+ {
+  "url": "frquencebanane",
+  "lat": 46.174703,
+  "lng": 6.141848,
+  "name": "Fr\u00e9quence Banane"
+ },
+ {
+  "url": "freshairradio",
+  "lat": 55.952682,
+  "lng": -3.194658,
+  "name": "Fresh Air Radio"
+ },
+ {
+  "url": "frissionradio",
+  "lat": 29.5492282,
+  "lng": -98.4838995,
+  "name": "Frission Radio"
+ },
+ {
+  "url": "futureradio",
+  "lat": 52.637282,
+  "lng": 1.241411,
+  "name": "Future Radio"
+ },
+ {
+  "url": "gashouseradio",
+  "lat": 39.946335,
+  "lng": -74.960316,
+  "name": "Gashouse Radio"
+ },
+ {
+  "url": "ghettoradio",
+  "lat": -1.273718,
+  "lng": 36.831767,
+  "name": "Ghetto Radio"
+ },
+ {
+  "url": "gtownradio",
+  "lat": 39.9525839,
+  "lng": -75.1652215,
+  "name": "G-Town Radio"
+ },
+ {
+  "url": "hawkradiohilbert",
+  "lat": 42.7158927,
+  "lng": -78.8294768,
+  "name": "Hawk Radio Hilbert"
+ },
+ {
+  "url": "hollowearthradio",
+  "lat": 47.61306,
+  "lng": -122.305421,
+  "name": "Hollow Earth Radio"
+ },
+ {
+  "url": "infowars",
+  "lat": 30.248271,
+  "lng": -97.761664,
+  "name": "InfoWars"
+ },
+ {
+  "url": "internationalradiofestival",
+  "lat": 47.3686498,
+  "lng": 8.5391825,
+  "name": "International Radio Festival"
+ },
+ {
+  "url": "ituradyosu",
+  "lat": 41.0082376,
+  "lng": 28.9783589,
+  "name": "ITU Radyosu"
+ },
+ {
+  "url": "kafa",
+  "lat": 38.842528,
+  "lng": -104.863573,
+  "name": "KAFA"
+ },
+ {
+  "url": "kalw",
+  "lat": 37.720797,
+  "lng": -122.407157,
+  "name": "KALW"
+ },
+ {
+  "url": "kalx",
+  "lat": 37.870123,
+  "lng": -122.257836,
+  "name": "KALX"
+ },
+ {
+  "url": "kamp",
+  "lat": 32.271887,
+  "lng": -111.002137,
+  "name": "KAMP"
+ },
+ {
+  "url": "kanefm",
+  "lat": 51.3147593,
+  "lng": -0.5599501,
+  "name": "KaneFM"
+ },
+ {
+  "url": "kaor",
+  "lat": 42.7794417,
+  "lng": -96.9292104,
+  "name": "KAOR"
+ },
+ {
+  "url": "kaos",
+  "lat": 47.073404,
+  "lng": -122.974234,
+  "name": "KAOS"
+ },
+ {
+  "url": "kaosradio",
+  "lat": 30.286364,
+  "lng": -97.697162,
+  "name": "KAOS Radio"
+ },
+ {
+  "url": "kaskusradio",
+  "lat": -6.14205,
+  "lng": 106.816068,
+  "name": "Kaskus Radio"
+ },
+ {
+  "url": "kbga",
+  "lat": 46.8787176,
+  "lng": -113.996586,
+  "name": "KBGA"
+ },
+ {
+  "url": "kboo",
+  "lat": 45.522467,
+  "lng": -122.657562,
+  "name": "KBOO"
+ },
+ {
+  "url": "kbvr",
+  "lat": 44.563693,
+  "lng": -123.276252,
+  "name": "KBVR"
+ },
+ {
+  "url": "kbvu",
+  "lat": 42.6430359,
+  "lng": -95.2019399,
+  "name": "KBVU"
+ },
+ {
+  "url": "kcea",
+  "lat": 37.461327,
+  "lng": -122.176076,
+  "name": "KCEA"
+ },
+ {
+  "url": "kchungradio",
+  "lat": 34.050584,
+  "lng": -118.245582,
+  "name": "KCHUNG Radio"
+ },
+ {
+  "url": "kcou",
+  "lat": 38.939404,
+  "lng": -92.326134,
+  "name": "KCOU"
+ },
+ {
+  "url": "kcpr",
+  "lat": 35.299286,
+  "lng": -120.661463,
+  "name": "KCPR"
+ },
+ {
+  "url": "kcr",
+  "lat": 32.772144,
+  "lng": -117.072103,
+  "name": "KCR "
+ },
+ {
+  "url": "kcrh",
+  "lat": 37.639655,
+  "lng": -122.105519,
+  "name": "KCRH"
+ },
+ {
+  "url": "kcrw",
+  "lat": 34.0194543,
+  "lng": -118.4911912,
+  "name": "KCRW"
+ },
+ {
+  "url": "kcsb",
+  "lat": 34.42,
+  "lng": -119.7,
+  "name": "KCSB"
+ },
+ {
+  "url": "kcsf",
+  "lat": 37.7749295,
+  "lng": -122.4194155,
+  "name": "KCSF"
+ },
+ {
+  "url": "kcsm",
+  "lat": 37.535519,
+  "lng": -122.33593,
+  "name": "KCSM"
+ },
+ {
+  "url": "kcsn",
+  "lat": 34.236488,
+  "lng": -118.528152,
+  "name": "KCSN"
+ },
+ {
+  "url": "kcsu",
+  "lat": 40.599982,
+  "lng": -105.15637,
+  "name": "KCSU"
+ },
+ {
+  "url": "kdfc",
+  "lat": 37.849094,
+  "lng": -122.499736,
+  "name": "KDFC"
+ },
+ {
+  "url": "kdhr",
+  "lat": 33.86085,
+  "lng": -118.2342378,
+  "name": "KDHR"
+ },
+ {
+  "url": "kdhx",
+  "lat": 38.6270025,
+  "lng": -90.1994042,
+  "name": "KDHX"
+ },
+ {
+  "url": "kdic",
+  "lat": 41.749221,
+  "lng": -92.719749,
+  "name": "KDIC"
+ },
+ {
+  "url": "kdmc",
+  "lat": 37.3058839,
+  "lng": -89.5181476,
+  "name": "KDMC"
+ },
+ {
+  "url": "kdrt",
+  "lat": 38.5449065,
+  "lng": -121.7405167,
+  "name": "KDRT"
+ },
+ {
+  "url": "kdvs",
+  "lat": 38.5449065,
+  "lng": -121.7405167,
+  "name": "KDVS"
+ },
+ {
+  "url": "kecg",
+  "lat": 37.908258,
+  "lng": -122.295247,
+  "name": "KECG"
+ },
+ {
+  "url": "kexp",
+  "lat": 47.6062095,
+  "lng": -122.3320708,
+  "name": "KEXP"
+ },
+ {
+  "url": "kffpfreeformportland",
+  "lat": 45.5230622,
+  "lng": -122.6764816,
+  "name": "KFFP (Freeform Portland)"
+ },
+ {
+  "url": "kfjc",
+  "lat": 37.361224,
+  "lng": -122.128452,
+  "name": "KFJC"
+ },
+ {
+  "url": "kgnu",
+  "lat": 40.0149856,
+  "lng": -105.2705456,
+  "name": "KGNU"
+ },
+ {
+  "url": "khdx",
+  "lat": 35.0886963,
+  "lng": -92.4421011,
+  "name": "KHDX"
+ },
+ {
+  "url": "khsu",
+  "lat": 40.875594,
+  "lng": -124.081194,
+  "name": "KHSU"
+ },
+ {
+  "url": "kipo",
+  "lat": 21.293275,
+  "lng": -157.839398,
+  "name": "KIPO"
+ },
+ {
+  "url": "kjack",
+  "lat": 35.1982836,
+  "lng": -111.651302,
+  "name": "KJACK"
+ },
+ {
+  "url": "kjhk",
+  "lat": 38.956794,
+  "lng": -95.246324,
+  "name": "KJHK"
+ },
+ {
+  "url": "kkcr",
+  "lat": 22.2033221,
+  "lng": -159.4977455,
+  "name": "KKCR"
+ },
+ {
+  "url": "kkfi",
+  "lat": 39.056234,
+  "lng": -94.585768,
+  "name": "KKFI"
+ },
+ {
+  "url": "kkup",
+  "lat": 37.3229978,
+  "lng": -122.0321823,
+  "name": "KKUP"
+ },
+ {
+  "url": "klbc",
+  "lat": 33.768321,
+  "lng": -118.1956168,
+  "name": "KLBC"
+ },
+ {
+  "url": "klsu",
+  "lat": 30.412894,
+  "lng": -91.182354,
+  "name": "KLSU"
+ },
+ {
+  "url": "kmet",
+  "lat": 39.745284,
+  "lng": -105.005854,
+  "name": "KMET"
+ },
+ {
+  "url": "kmrd",
+  "lat": 35.3653705,
+  "lng": -105.9699878,
+  "name": "KMRD"
+ },
+ {
+  "url": "kmsc",
+  "lat": 42.474438,
+  "lng": -96.35975,
+  "name": "KMSC"
+ },
+ {
+  "url": "kmud",
+  "lat": 40.803377,
+  "lng": -124.166438,
+  "name": "KMUD"
+ },
+ {
+  "url": "kmuw",
+  "lat": 37.715431,
+  "lng": -97.297438,
+  "name": "KMUW"
+ },
+ {
+  "url": "knds",
+  "lat": 46.89165,
+  "lng": -96.797504,
+  "name": "KNDS"
+ },
+ {
+  "url": "knkr",
+  "lat": 20.0859161,
+  "lng": -155.7171332,
+  "name": "KNKR"
+ },
+ {
+  "url": "kntu",
+  "lat": 33.212116,
+  "lng": -97.145863,
+  "name": "KNTU"
+ },
+ {
+  "url": "kolhacampus",
+  "lat": 32.0852999,
+  "lng": 34.7817676,
+  "name": "Kol Ha Campus"
+ },
+ {
+  "url": "koop",
+  "lat": 30.267153,
+  "lng": -97.7430608,
+  "name": "KOOP"
+ },
+ {
+  "url": "koto",
+  "lat": 37.938883,
+  "lng": -107.831175,
+  "name": "KOTO"
+ },
+ {
+  "url": "kpcc",
+  "lat": 34.137798,
+  "lng": -118.148637,
+  "name": "KPCC"
+ },
+ {
+  "url": "kpfa",
+  "lat": 37.8715926,
+  "lng": -122.272747,
+  "name": "KPFA"
+ },
+ {
+  "url": "kpfk",
+  "lat": 34.135316,
+  "lng": -118.361784,
+  "name": "KPFK"
+ },
+ {
+  "url": "kpft",
+  "lat": 29.743206,
+  "lng": -95.386746,
+  "name": "KPFT"
+ },
+ {
+  "url": "kplu",
+  "lat": 47.14696,
+  "lng": -122.44037,
+  "name": "KPLU"
+ },
+ {
+  "url": "kpoo",
+  "lat": 37.78196,
+  "lng": -122.43933,
+  "name": "KPOO"
+ },
+ {
+  "url": "kpov",
+  "lat": 44.056293,
+  "lng": -121.316168,
+  "name": "KPOV"
+ },
+ {
+  "url": "kpsu",
+  "lat": 45.511788,
+  "lng": -122.684095,
+  "name": "KPSU"
+ },
+ {
+  "url": "kpvl",
+  "lat": 43.304072,
+  "lng": -91.784244,
+  "name": "KPVL"
+ },
+ {
+  "url": "kqal",
+  "lat": 44.045933,
+  "lng": -91.644891,
+  "name": "KQAL"
+ },
+ {
+  "url": "kqed",
+  "lat": 37.7749295,
+  "lng": -122.4194155,
+  "name": "KQED"
+ },
+ {
+  "url": "kqny",
+  "lat": 39.935168,
+  "lng": -120.929691,
+  "name": "KQNY"
+ },
+ {
+  "url": "krbx",
+  "lat": 43.613739,
+  "lng": -116.237651,
+  "name": "KRBX"
+ },
+ {
+  "url": "krcc",
+  "lat": 38.846596,
+  "lng": -104.819303,
+  "name": "KRCC"
+ },
+ {
+  "url": "krcl",
+  "lat": 40.770301,
+  "lng": -111.94701,
+  "name": "KRCL"
+ },
+ {
+  "url": "krfc",
+  "lat": 40.579356,
+  "lng": -105.077044,
+  "name": "KRFC"
+ },
+ {
+  "url": "krfh",
+  "lat": 40.8665166,
+  "lng": -124.0828396,
+  "name": "KRFH"
+ },
+ {
+  "url": "krlx",
+  "lat": 44.4613,
+  "lng": -93.156052,
+  "name": "KRLX"
+ },
+ {
+  "url": "krnu",
+  "lat": 40.806862,
+  "lng": -96.681679,
+  "name": "KRNU"
+ },
+ {
+  "url": "krov",
+  "lat": 39.5137752,
+  "lng": -121.556359,
+  "name": "KROV"
+ },
+ {
+  "url": "krsc",
+  "lat": 36.3125963,
+  "lng": -95.61609,
+  "name": "KRSC"
+ },
+ {
+  "url": "krsq",
+  "lat": 48.1191353,
+  "lng": -96.1811473,
+  "name": "KRSQ"
+ },
+ {
+  "url": "krtu",
+  "lat": 29.464372,
+  "lng": -98.482791,
+  "name": "KRTU"
+ },
+ {
+  "url": "krui",
+  "lat": 41.663464,
+  "lng": -91.537834,
+  "name": "KRUI"
+ },
+ {
+  "url": "krux",
+  "lat": 32.28752,
+  "lng": -106.750457,
+  "name": "KRUX"
+ },
+ {
+  "url": "ksau",
+  "lat": 31.629346,
+  "lng": -94.679099,
+  "name": "KSAU"
+ },
+ {
+  "url": "ksbr",
+  "lat": 33.552983,
+  "lng": -117.66616,
+  "name": "KSBR"
+ },
+ {
+  "url": "kscl",
+  "lat": 32.480535,
+  "lng": -93.731547,
+  "name": "KSCL"
+ },
+ {
+  "url": "kscu",
+  "lat": 37.349992,
+  "lng": -121.940572,
+  "name": "KSCU"
+ },
+ {
+  "url": "ksdp",
+  "lat": 55.316526,
+  "lng": -160.521859,
+  "name": "KSDP"
+ },
+ {
+  "url": "ksdt",
+  "lat": 32.873577,
+  "lng": -117.237811,
+  "name": "KSDT"
+ },
+ {
+  "url": "kser",
+  "lat": 47.98234,
+  "lng": -122.206967,
+  "name": "KSER"
+ },
+ {
+  "url": "ksfs",
+  "lat": 37.7749295,
+  "lng": -122.4194155,
+  "name": "KSFS"
+ },
+ {
+  "url": "ksjd",
+  "lat": 37.351932,
+  "lng": -108.443669,
+  "name": "KSJD"
+ },
+ {
+  "url": "ksjs",
+  "lat": 37.3382082,
+  "lng": -121.8863286,
+  "name": "KSJS"
+ },
+ {
+  "url": "kslu",
+  "lat": 30.51569,
+  "lng": -90.467934,
+  "name": "KSLU"
+ },
+ {
+  "url": "kspc",
+  "lat": 34.0966764,
+  "lng": -117.7197785,
+  "name": "KSPC"
+ },
+ {
+  "url": "ksto",
+  "lat": 44.4582983,
+  "lng": -93.161604,
+  "name": "KSTO"
+ },
+ {
+  "url": "ksua",
+  "lat": 64.886118,
+  "lng": -147.740787,
+  "name": "KSUA"
+ },
+ {
+  "url": "ksuowlradio",
+  "lat": 34.0234337,
+  "lng": -84.6154897,
+  "name": "KSU Owl Radio"
+ },
+ {
+  "url": "ktai",
+  "lat": 27.523624,
+  "lng": -97.879193,
+  "name": "KTAI"
+ },
+ {
+  "url": "ktcu",
+  "lat": 32.711273,
+  "lng": -97.360307,
+  "name": "KTCU"
+ },
+ {
+  "url": "ktru",
+  "lat": 29.7604267,
+  "lng": -95.3698028,
+  "name": "KTRU"
+ },
+ {
+  "url": "ktsw",
+  "lat": 29.903306,
+  "lng": -97.968482,
+  "name": "KTSW"
+ },
+ {
+  "url": "ktuh",
+  "lat": 21.299053,
+  "lng": -157.819708,
+  "name": "KTUH"
+ },
+ {
+  "url": "kuci",
+  "lat": 33.64635,
+  "lng": -117.846887,
+  "name": "KUCI"
+ },
+ {
+  "url": "kucr",
+  "lat": 33.999677,
+  "lng": -117.367523,
+  "name": "KUCR"
+ },
+ {
+  "url": "kuiw",
+  "lat": 29.4241219,
+  "lng": -98.4936282,
+  "name": "KUIW"
+ },
+ {
+  "url": "kumd",
+  "lat": 46.818672,
+  "lng": -92.08432,
+  "name": "KUMD"
+ },
+ {
+  "url": "kunm",
+  "lat": 35.0853336,
+  "lng": -106.6055534,
+  "name": "KUNM"
+ },
+ {
+  "url": "kunv",
+  "lat": 36.007766,
+  "lng": -115.006635,
+  "name": "KUNV"
+ },
+ {
+  "url": "kuoi",
+  "lat": 46.728498,
+  "lng": -117.004054,
+  "name": "KUOI"
+ },
+ {
+  "url": "kups",
+  "lat": 47.2528768,
+  "lng": -122.4442906,
+  "name": "KUPS"
+ },
+ {
+  "url": "kur",
+  "lat": 40.603586,
+  "lng": -75.495534,
+  "name": "KUR"
+ },
+ {
+  "url": "kuradyo",
+  "lat": 41.104521,
+  "lng": 29.00001,
+  "name": "KU Radyo"
+ },
+ {
+  "url": "kure",
+  "lat": 42.02359,
+  "lng": -93.650701,
+  "name": "KURE"
+ },
+ {
+  "url": "kusf",
+  "lat": 37.7749295,
+  "lng": -122.4194155,
+  "name": "KUSF"
+ },
+ {
+  "url": "kusp",
+  "lat": 36.964547,
+  "lng": -121.997721,
+  "name": "KUSP"
+ },
+ {
+  "url": "kust",
+  "lat": 44.995017,
+  "lng": -93.453832,
+  "name": "KUST"
+ },
+ {
+  "url": "kvmr",
+  "lat": 39.262349,
+  "lng": -121.02044,
+  "name": "KVMR"
+ },
+ {
+  "url": "kvnf",
+  "lat": 38.868265,
+  "lng": -107.597498,
+  "name": "KVNF"
+ },
+ {
+  "url": "kvno",
+  "lat": 41.258228,
+  "lng": -96.009219,
+  "name": "KVNO"
+ },
+ {
+  "url": "kvrx",
+  "lat": 30.288894,
+  "lng": -97.740513,
+  "name": "KVRX"
+ },
+ {
+  "url": "kvsc",
+  "lat": 45.55236,
+  "lng": -94.152557,
+  "name": "KVSC"
+ },
+ {
+  "url": "kwcw",
+  "lat": 46.0645809,
+  "lng": -118.3430209,
+  "name": "KWCW"
+ },
+ {
+  "url": "kwlc",
+  "lat": 43.310527,
+  "lng": -91.811544,
+  "name": "KWLC"
+ },
+ {
+  "url": "kwmr",
+  "lat": 38.069467,
+  "lng": -122.806593,
+  "name": "KWMR"
+ },
+ {
+  "url": "kwss",
+  "lat": 33.45324,
+  "lng": -111.926217,
+  "name": "KWSS"
+ },
+ {
+  "url": "kwtf",
+  "lat": 38.440429,
+  "lng": -122.7140548,
+  "name": "KWTF"
+ },
+ {
+  "url": "kwur",
+  "lat": 38.645885,
+  "lng": -90.318726,
+  "name": "KWUR"
+ },
+ {
+  "url": "kwva",
+  "lat": 44.044599,
+  "lng": -123.074013,
+  "name": "KWVA"
+ },
+ {
+  "url": "kwvs",
+  "lat": 34.0050079,
+  "lng": -118.8100893,
+  "name": "KWVS"
+ },
+ {
+  "url": "kxlu",
+  "lat": 34.0522342,
+  "lng": -118.2436849,
+  "name": "KXLU"
+ },
+ {
+  "url": "kxsf2",
+  "lat": 37.7749295,
+  "lng": -122.4194155,
+  "name": "KXSF"
+ },
+ {
+  "url": "kxua",
+  "lat": 36.062208,
+  "lng": -94.164432,
+  "name": "KXUA"
+ },
+ {
+  "url": "kxul",
+  "lat": 32.510375,
+  "lng": -92.124285,
+  "name": "KXUL"
+ },
+ {
+  "url": "kyrs",
+  "lat": 47.658941,
+  "lng": -117.41255,
+  "name": "KYRS"
+ },
+ {
+  "url": "kzap",
+  "lat": 38.5815719,
+  "lng": -121.4943996,
+  "name": "KZAP"
+ },
+ {
+  "url": "kzfr",
+  "lat": 39.728573,
+  "lng": -121.839747,
+  "name": "KZFR"
+ },
+ {
+  "url": "kzlx",
+  "lat": 40.352564,
+  "lng": -94.884482,
+  "name": "KZLX"
+ },
+ {
+  "url": "kzmu",
+  "lat": 38.546793,
+  "lng": -109.517885,
+  "name": "KZMU"
+ },
+ {
+  "url": "kzsc",
+  "lat": 36.9741171,
+  "lng": -122.0307963,
+  "name": "KZSC"
+ },
+ {
+  "url": "kzsu",
+  "lat": 37.4418834,
+  "lng": -122.1430195,
+  "name": "KZSU"
+ },
+ {
+  "url": "kzum",
+  "lat": 40.81341,
+  "lng": -96.707266,
+  "name": "KZUM"
+ },
+ {
+  "url": "kzyx",
+  "lat": 39.071875,
+  "lng": -123.457122,
+  "name": "KZYX"
+ },
+ {
+  "url": "lasellradio",
+  "lat": 42.34217,
+  "lng": -71.243269,
+  "name": "Lasell Radio"
+ },
+ {
+  "url": "lcccradio",
+  "lat": 41.293872,
+  "lng": -82.221939,
+  "name": "LCCC Radio"
+ },
+ {
+  "url": "lcr",
+  "lat": 52.487557,
+  "lng": -1.483812,
+  "name": "LCR"
+ },
+ {
+  "url": "lehmanradio",
+  "lat": 40.8447819,
+  "lng": -73.8648268,
+  "name": "Lehman Radio"
+ },
+ {
+  "url": "lemellotron",
+  "lat": 48.856614,
+  "lng": 2.3522219,
+  "name": "LeMellotron"
+ },
+ {
+  "url": "liffeysoundfm",
+  "lat": 53.348361,
+  "lng": -6.422657,
+  "name": "Liffey Sound FM"
+ },
+ {
+  "url": "lsr",
+  "lat": 53.569373,
+  "lng": -1.439943,
+  "name": "LSR"
+ },
+ {
+  "url": "luxuriamusic",
+  "lat": 34.0928092,
+  "lng": -118.3286614,
+  "name": "Luxuria Music"
+ },
+ {
+  "url": "m945",
+  "lat": 48.162211,
+  "lng": 11.555417,
+  "name": "M94.5"
+ },
+ {
+  "url": "massasoitradio",
+  "lat": 42.0834335,
+  "lng": -71.0183787,
+  "name": "Massasoit Radio"
+ },
+ {
+  "url": "maxfm",
+  "lat": 39.9333635,
+  "lng": 32.8597419,
+  "name": "Max FM"
+ },
+ {
+  "url": "mutinyradio",
+  "lat": 37.7749295,
+  "lng": -122.4194155,
+  "name": "Mutiny Radio"
+ },
+ {
+  "url": "nerveradio",
+  "lat": 50.900084,
+  "lng": -1.403792,
+  "name": "Nerve Radio"
+ },
+ {
+  "url": "nessradio",
+  "lat": 31.6294723,
+  "lng": -7.9810845,
+  "name": "Ness Radio"
+ },
+ {
+  "url": "newtownradio",
+  "lat": 40.6781784,
+  "lng": -73.9441579,
+  "name": "Newtown Radio"
+ },
+ {
+  "url": "norsecoderadio",
+  "lat": 39.032333,
+  "lng": -84.463206,
+  "name": "Norse Code Radio"
+ },
+ {
+  "url": "npr",
+  "lat": 38.903956,
+  "lng": -77.008828,
+  "name": "NPR"
+ },
+ {
+  "url": "numayisradyo",
+  "lat": 41.0082376,
+  "lng": 28.9783589,
+  "name": "Numayis Radyo"
+ },
+ {
+  "url": "ohiofm",
+  "lat": 40.020918,
+  "lng": -82.866183,
+  "name": "OHIO FM"
+ },
+ {
+  "url": "orange94",
+  "lat": 48.2403976,
+  "lng": 16.387124,
+  "name": "Orange94"
+ },
+ {
+  "url": "ospreyradio",
+  "lat": 30.224169,
+  "lng": -81.603737,
+  "name": "Osprey Radio"
+ },
+ {
+  "url": "party934",
+  "lat": 41.9209018,
+  "lng": -73.9612887,
+  "name": "Party 934"
+ },
+ {
+  "url": "pbsfm",
+  "lat": -37.797822,
+  "lng": 144.986538,
+  "name": "PBSFM"
+ },
+ {
+  "url": "periszkopradio",
+  "lat": 46.0727345,
+  "lng": 18.232266,
+  "name": "Periszkop Radio"
+ },
+ {
+  "url": "pirateradio",
+  "lat": 43.156304,
+  "lng": -77.611724,
+  "name": "Pirate Radio"
+ },
+ {
+  "url": "plugradio",
+  "lat": 48.856614,
+  "lng": 2.3522219,
+  "name": "PLUG Radio"
+ },
+ {
+  "url": "pri",
+  "lat": 44.981709,
+  "lng": -93.27416,
+  "name": "PRI"
+ },
+ {
+  "url": "pribali",
+  "lat": -8.4095178,
+  "lng": 115.188916,
+  "name": "PRI Bali"
+ },
+ {
+  "url": "protonradio",
+  "lat": 40.7127837,
+  "lng": -74.0059413,
+  "name": "Proton Radio"
+ },
+ {
+  "url": "purefm",
+  "lat": 50.903664,
+  "lng": -1.397172,
+  "name": "Pure FM"
+ },
+ {
+  "url": "radarradio",
+  "lat": 51.5073509,
+  "lng": -0.1277583,
+  "name": "Radar Radio"
+ },
+ {
+  "url": "radio110",
+  "lat": 45.070312,
+  "lng": 7.6868565,
+  "name": "Radio110"
+ },
+ {
+  "url": "radio1190",
+  "lat": 40.005988,
+  "lng": -105.272048,
+  "name": "Radio1190"
+ },
+ {
+  "url": "radio6023",
+  "lat": 45.33063,
+  "lng": 8.421702,
+  "name": "Radio 6023"
+ },
+ {
+  "url": "radio905fm",
+  "lat": 10.658655,
+  "lng": -61.521239,
+  "name": "Radio 90.5fm"
+ },
+ {
+  "url": "radioactive2",
+  "lat": 36.9679573,
+  "lng": 24.7024179,
+  "name": "Radio Active"
+ },
+ {
+  "url": "radiobeirut",
+  "lat": 33.8937913,
+  "lng": 35.5017767,
+  "name": "Radio Beirut"
+ },
+ {
+  "url": "radioblc",
+  "lat": 44.7755294,
+  "lng": 17.2149671,
+  "name": "Radio BLC"
+ },
+ {
+  "url": "radiobremen",
+  "lat": 53.0792962,
+  "lng": 8.8016937,
+  "name": "Radio Bremen"
+ },
+ {
+  "url": "radiobue",
+  "lat": 45.731064,
+  "lng": 11.548103,
+  "name": "RadioBue"
+ },
+ {
+  "url": "radiocampus",
+  "lat": 47.236388,
+  "lng": 5.989896,
+  "name": "Radio Campus"
+ },
+ {
+  "url": "radiocampuslille",
+  "lat": 50.6207,
+  "lng": 3.13149,
+  "name": "Radio Campus Lille"
+ },
+ {
+  "url": "radiocardiff",
+  "lat": 51.469542,
+  "lng": -3.176292,
+  "name": "Radio Cardiff"
+ },
+ {
+  "url": "radiocaroline",
+  "lat": 40.748646,
+  "lng": -74.009206,
+  "name": "Radio Caroline"
+ },
+ {
+  "url": "radiocentraal",
+  "lat": 51.22015,
+  "lng": 4.396566,
+  "name": "Radio Centraal"
+ },
+ {
+  "url": "radiocicletta",
+  "lat": 43.7228386,
+  "lng": 10.4016888,
+  "name": "RadioCicletta"
+ },
+ {
+  "url": "radiodc",
+  "lat": 41.0464858,
+  "lng": -73.9495818,
+  "name": "Radio DC"
+ },
+ {
+  "url": "radiodepaul",
+  "lat": 41.877512,
+  "lng": -87.627227,
+  "name": "Radio Depaul"
+ },
+ {
+  "url": "radiodio",
+  "lat": 45.439695,
+  "lng": 4.3871779,
+  "name": "Radio Dio"
+ },
+ {
+  "url": "radioeco",
+  "lat": 43.713907,
+  "lng": 10.397075,
+  "name": "RadioEco"
+ },
+ {
+  "url": "radiofil",
+  "lat": 41.0082376,
+  "lng": 28.9783589,
+  "name": "Radiofil"
+ },
+ {
+  "url": "radiofreebrooklyn",
+  "lat": 40.6781784,
+  "lng": -73.9441579,
+  "name": "Radio Free Brooklyn"
+ },
+ {
+  "url": "radiofreekokomo",
+  "lat": 40.038896,
+  "lng": -85.991466,
+  "name": "Radio Free Kokomo"
+ },
+ {
+  "url": "radiogrenouille",
+  "lat": 43.296482,
+  "lng": 5.36978,
+  "name": "RadioGrenouille"
+ },
+ {
+  "url": "radiohchicha",
+  "lat": 48.856614,
+  "lng": 2.3522219,
+  "name": "Radio Hchicha"
+ },
+ {
+  "url": "radiok",
+  "lat": 44.970222,
+  "lng": -93.242447,
+  "name": "RadioK"
+ },
+ {
+  "url": "radiokidnappers",
+  "lat": -39.636002,
+  "lng": 176.84697,
+  "name": "Radio Kidnappers"
+ },
+ {
+  "url": "radionova",
+  "lat": 48.856614,
+  "lng": 2.3522219,
+  "name": "Radio Nova"
+ },
+ {
+  "url": "radioone91fm",
+  "lat": -45.8787605,
+  "lng": 170.5027976,
+  "name": "Radio One 91FM"
+ },
+ {
+  "url": "radioparadise",
+  "lat": 39.806828,
+  "lng": -121.627474,
+  "name": "Radio Paradise"
+ },
+ {
+  "url": "radiopavia",
+  "lat": 45.181481,
+  "lng": 9.154636,
+  "name": "Radio Pavia"
+ },
+ {
+  "url": "radiophoenix",
+  "lat": 33.458155,
+  "lng": -112.073994,
+  "name": "Radio Phoenix"
+ },
+ {
+  "url": "radiosanjuan",
+  "lat": 18.4663338,
+  "lng": -66.1057217,
+  "name": "Radio San Juan"
+ },
+ {
+  "url": "radioscorpio",
+  "lat": 50.885788,
+  "lng": 4.718027,
+  "name": "Radio Scorpio"
+ },
+ {
+  "url": "radiostadmontfoort",
+  "lat": 52.044632,
+  "lng": 4.934645,
+  "name": "RadioStadMontfoort"
+ },
+ {
+  "url": "radioutd",
+  "lat": 32.974669,
+  "lng": -96.718087,
+  "name": "Radio UTD"
+ },
+ {
+  "url": "radiovalencia",
+  "lat": 37.7749295,
+  "lng": -122.4194155,
+  "name": "Radio Valencia"
+ },
+ {
+  "url": "radiowivenhoe",
+  "lat": 51.851449,
+  "lng": 1.066013,
+  "name": "Radio Wivenhoe"
+ },
+ {
+  "url": "radioxnova",
+  "lat": 26.078793,
+  "lng": -80.240039,
+  "name": "RadioX Nova"
+ },
+ {
+  "url": "rdiozero",
+  "lat": 38.8673672,
+  "lng": -9.2845548,
+  "name": "R\u00e1dio Zero"
+ },
+ {
+  "url": "radyoa",
+  "lat": 39.7667061,
+  "lng": 30.5256311,
+  "name": "Radyo A"
+ },
+ {
+  "url": "radyoarkent",
+  "lat": 41.00527,
+  "lng": 28.97696,
+  "name": "Radyo Arkent"
+ },
+ {
+  "url": "radyobilkent",
+  "lat": 39.9333635,
+  "lng": 32.8597419,
+  "name": "Radyo Bilkent"
+ },
+ {
+  "url": "radyobogazici",
+  "lat": 41.0082376,
+  "lng": 28.9783589,
+  "name": "Radyo Bogazici"
+ },
+ {
+  "url": "radyobozcaada",
+  "lat": 39.8205136,
+  "lng": 26.035717,
+  "name": "Radyo Bozcaada"
+ },
+ {
+  "url": "radyodejavu",
+  "lat": 36.8968908,
+  "lng": 30.7133233,
+  "name": "Radyo Dejavu"
+ },
+ {
+  "url": "radyoegecampus",
+  "lat": 38.314913,
+  "lng": 26.637986,
+  "name": "Radyo Ege Campus"
+ },
+ {
+  "url": "radyoeko",
+  "lat": 38.572679,
+  "lng": 27.060291,
+  "name": "Radyo Eko"
+ },
+ {
+  "url": "radyoeksen",
+  "lat": 41.114215,
+  "lng": 29.022435,
+  "name": "Radyo Eksen"
+ },
+ {
+  "url": "radyoilef",
+  "lat": 39.9333635,
+  "lng": 32.8597419,
+  "name": "Radyo ILEF"
+ },
+ {
+  "url": "radyoki",
+  "lat": 40.8532704,
+  "lng": 29.8815203,
+  "name": "Radyo Ki"
+ },
+ {
+  "url": "radyomuzik",
+  "lat": 41.0082376,
+  "lng": 28.9783589,
+  "name": "Radyo Muzik"
+ },
+ {
+  "url": "radyoodtu",
+  "lat": 39.9333635,
+  "lng": 32.8597419,
+  "name": "Radyo ODTU"
+ },
+ {
+  "url": "radyotrafik",
+  "lat": 41.0082376,
+  "lng": 28.9783589,
+  "name": "Radyo Trafik"
+ },
+ {
+  "url": "radyoturk",
+  "lat": 52.519171,
+  "lng": 13.4060912,
+  "name": "RadyoTurk"
+ },
+ {
+  "url": "radyovaveyla",
+  "lat": 36.8968908,
+  "lng": 30.7133233,
+  "name": "Radyo Vaveyla"
+ },
+ {
+  "url": "radyovesaire",
+  "lat": 41.0082376,
+  "lng": 28.9783589,
+  "name": "Radyo Vesaire"
+ },
+ {
+  "url": "ramairradio",
+  "lat": 53.795984,
+  "lng": -1.759398,
+  "name": "RamAir Radio"
+ },
+ {
+  "url": "raw",
+  "lat": 52.477782,
+  "lng": -1.895539,
+  "name": "RaW"
+ },
+ {
+  "url": "rbmaradio",
+  "lat": 13.0448862,
+  "lng": 80.1583178,
+  "name": "RBMA Radio"
+ },
+ {
+  "url": "reactionradio",
+  "lat": 51.181122,
+  "lng": -0.7098,
+  "name": "Reaction Radio"
+ },
+ {
+  "url": "resonancefm",
+  "lat": 51.5073509,
+  "lng": -0.1277583,
+  "name": "ResonanceFM"
+ },
+ {
+  "url": "riddleradio",
+  "lat": 34.54482,
+  "lng": -112.456366,
+  "name": "Riddle Radio"
+ },
+ {
+  "url": "rinsefm",
+  "lat": 51.526587,
+  "lng": -0.080542,
+  "name": "Rinse FM"
+ },
+ {
+  "url": "rockpopunited",
+  "lat": 33.5731104,
+  "lng": -7.5898434,
+  "name": "RockPop United"
+ },
+ {
+  "url": "rtrfm",
+  "lat": -31.934851,
+  "lng": 115.872028,
+  "name": "RTRfm"
+ },
+ {
+  "url": "sanbaradio",
+  "lat": 46.017285,
+  "lng": 10.94585,
+  "name": "Sanbaradio"
+ },
+ {
+  "url": "scadatlanta",
+  "lat": 33.7489954,
+  "lng": -84.3879824,
+  "name": "ScadAtlanta "
+ },
+ {
+  "url": "scadradio",
+  "lat": 32.069436,
+  "lng": -81.092934,
+  "name": "SCAD Radio"
+ },
+ {
+  "url": "scratchradio",
+  "lat": 52.486243,
+  "lng": -1.890401,
+  "name": "Scratch Radio"
+ },
+ {
+  "url": "seoulcommunityradio",
+  "lat": 37.566535,
+  "lng": 126.9779692,
+  "name": "Seoul Community Radio"
+ },
+ {
+  "url": "sirenfm",
+  "lat": 53.268697,
+  "lng": -0.527901,
+  "name": "Siren FM"
+ },
+ {
+  "url": "siuewebradio",
+  "lat": 38.746597,
+  "lng": -90.072788,
+  "name": "SIUE Web Radio"
+ },
+ {
+  "url": "skywalkerfm",
+  "lat": 52.5200066,
+  "lng": 13.404954,
+  "name": "Skywalker-FM"
+ },
+ {
+  "url": "sohoradio",
+  "lat": 51.5073509,
+  "lng": -0.1277583,
+  "name": "Soho Radio"
+ },
+ {
+  "url": "soundartradio",
+  "lat": 50.7155591,
+  "lng": -3.530875,
+  "name": "Soundart Radio"
+ },
+ {
+  "url": "southernsoulradio",
+  "lat": 44.4448968,
+  "lng": -83.3643122,
+  "name": "Southern Soul Radio"
+ },
+ {
+  "url": "star96",
+  "lat": 39.8397733,
+  "lng": -89.6624992,
+  "name": "STAR 96"
+ },
+ {
+  "url": "surgeradio",
+  "lat": 50.934467,
+  "lng": -1.397452,
+  "name": "Surge Radio"
+ },
+ {
+  "url": "sweatlodgeradio",
+  "lat": 52.502671,
+  "lng": 13.409658,
+  "name": "Sweat Lodge Radio"
+ },
+ {
+  "url": "takomaradio",
+  "lat": 38.9778882,
+  "lng": -77.0074765,
+  "name": "Takoma Radio"
+ },
+ {
+  "url": "tapdetroit2",
+  "lat": 42.331427,
+  "lng": -83.0457538,
+  "name": "Tap Detroit"
+ },
+ {
+  "url": "teleportstation",
+  "lat": 55.755826,
+  "lng": 37.6173,
+  "name": "TeleportStation"
+ },
+ {
+  "url": "theblaze1330am",
+  "lat": 33.421801,
+  "lng": -111.937552,
+  "name": "The Blaze 1330 AM"
+ },
+ {
+  "url": "thecore",
+  "lat": 40.5214008,
+  "lng": -74.4613824,
+  "name": "the Core"
+ },
+ {
+  "url": "thecurrent",
+  "lat": 44.231153,
+  "lng": -95.271198,
+  "name": "the current"
+ },
+ {
+  "url": "theedgeradio",
+  "lat": 37.970659,
+  "lng": -87.568925,
+  "name": "The Edge Radio"
+ },
+ {
+  "url": "thegalaxyradio",
+  "lat": 38.599817,
+  "lng": -90.467223,
+  "name": "The Galaxy Radio"
+ },
+ {
+  "url": "thelion",
+  "lat": 40.796111,
+  "lng": -77.862778,
+  "name": "The LION"
+ },
+ {
+  "url": "thelordofsatire",
+  "lat": 40.7127837,
+  "lng": -74.0059413,
+  "name": "the Lord of Satire"
+ },
+ {
+  "url": "thelotradio",
+  "lat": 40.6781784,
+  "lng": -73.9441579,
+  "name": "The Lot Radio"
+ },
+ {
+  "url": "theriver",
+  "lat": 41.272557,
+  "lng": -95.801536,
+  "name": "The River"
+ },
+ {
+  "url": "thetomleykisshow",
+  "lat": 34.132695,
+  "lng": -118.35763,
+  "name": "The Tom Leykis Show"
+ },
+ {
+  "url": "thetowerradio",
+  "lat": 37.755198,
+  "lng": -122.452833,
+  "name": "the Tower Radio"
+ },
+ {
+  "url": "theuumsl",
+  "lat": 38.706803,
+  "lng": -90.305696,
+  "name": "The U - UMSL"
+ },
+ {
+  "url": "thewolf",
+  "lat": 33.572562,
+  "lng": -85.097898,
+  "name": "The Wolf"
+ },
+ {
+  "url": "titanradio",
+  "lat": 33.808048,
+  "lng": -117.864897,
+  "name": "Titan Radio"
+ },
+ {
+  "url": "tornadoradio",
+  "lat": 30.291384,
+  "lng": -97.721258,
+  "name": "Tornado Radio"
+ },
+ {
+  "url": "triplej",
+  "lat": -33.926204,
+  "lng": 151.053414,
+  "name": "tripleJ"
+ },
+ {
+  "url": "uclaradio",
+  "lat": 34.017694,
+  "lng": -118.406155,
+  "name": "UCLAradio"
+ },
+ {
+  "url": "umfm",
+  "lat": 49.895136,
+  "lng": -97.1383744,
+  "name": "UMFM"
+ },
+ {
+  "url": "uncstudentradio",
+  "lat": 40.413842,
+  "lng": -104.694197,
+  "name": "UNC Student Radio"
+ },
+ {
+  "url": "unifm",
+  "lat": 36.8968908,
+  "lng": 30.7133233,
+  "name": "Uni FM"
+ },
+ {
+  "url": "universityradiohilo",
+  "lat": 21.306982,
+  "lng": -157.811671,
+  "name": "University Radio Hilo"
+ },
+ {
+  "url": "urbanknightsradio",
+  "lat": 37.762716,
+  "lng": -122.419219,
+  "name": "Urban Knights Radio"
+ },
+ {
+  "url": "urn",
+  "lat": 52.937971,
+  "lng": -1.194317,
+  "name": "URN"
+ },
+ {
+  "url": "ury",
+  "lat": 53.9622908,
+  "lng": -1.0818995,
+  "name": "URY"
+ },
+ {
+  "url": "vicradio",
+  "lat": 42.4502,
+  "lng": -76.495,
+  "name": "VICradio"
+ },
+ {
+  "url": "vmfm",
+  "lat": 41.408969,
+  "lng": -75.6624122,
+  "name": "VMFM"
+ },
+ {
+  "url": "vocalo",
+  "lat": 41.528546,
+  "lng": -87.697107,
+  "name": "vocalo"
+ },
+ {
+  "url": "volnafm",
+  "lat": 32.715738,
+  "lng": -117.1610838,
+  "name": "Volna FM"
+ },
+ {
+  "url": "wacc",
+  "lat": 40.652448,
+  "lng": -74.350501,
+  "name": "WACC"
+ },
+ {
+  "url": "waer",
+  "lat": 43.036554,
+  "lng": -76.12807,
+  "name": "WAER"
+ },
+ {
+  "url": "wakeradio",
+  "lat": 36.099977,
+  "lng": -79.777254,
+  "name": "WAKE Radio"
+ },
+ {
+  "url": "wantitradio",
+  "lat": 37.80678,
+  "lng": -122.269836,
+  "name": "Want It! Radio"
+ },
+ {
+  "url": "wapj",
+  "lat": 41.801426,
+  "lng": -73.122525,
+  "name": "WAPJ"
+ },
+ {
+  "url": "waynradio",
+  "lat": 42.529271,
+  "lng": -83.304842,
+  "name": "WAYN"
+ },
+ {
+  "url": "wbaa",
+  "lat": 41.103633,
+  "lng": -85.179489,
+  "name": "WBAA"
+ },
+ {
+  "url": "wbai",
+  "lat": 40.704852,
+  "lng": -74.005969,
+  "name": "WBAI"
+ },
+ {
+  "url": "wbar",
+  "lat": 40.7143528,
+  "lng": -74.0059731,
+  "name": "WBAR"
+ },
+ {
+  "url": "wbcrlp",
+  "lat": 42.19695,
+  "lng": -73.362917,
+  "name": "WBCR-lp"
+ },
+ {
+  "url": "wbcx",
+  "lat": 33.7748275,
+  "lng": -84.2963123,
+  "name": "WBCX"
+ },
+ {
+  "url": "wber",
+  "lat": 43.11024,
+  "lng": -77.462301,
+  "name": "WBER"
+ },
+ {
+  "url": "wbfh",
+  "lat": 42.578367,
+  "lng": -83.286045,
+  "name": "WBFH"
+ },
+ {
+  "url": "wbgu",
+  "lat": 41.371569,
+  "lng": -83.641446,
+  "name": "WBGU"
+ },
+ {
+  "url": "wbjb",
+  "lat": 40.752578,
+  "lng": -73.978374,
+  "name": "WBJB"
+ },
+ {
+  "url": "wbny",
+  "lat": 42.933995,
+  "lng": -78.879068,
+  "name": "WBNY"
+ },
+ {
+  "url": "wboi",
+  "lat": 41.103633,
+  "lng": -85.179489,
+  "name": "WBOI"
+ },
+ {
+  "url": "wbor",
+  "lat": 43.907451,
+  "lng": -69.960315,
+  "name": "WBOR"
+ },
+ {
+  "url": "wbrs",
+  "lat": 42.35942,
+  "lng": -71.257118,
+  "name": "WBRS"
+ },
+ {
+  "url": "wbur",
+  "lat": 42.350519,
+  "lng": -71.115641,
+  "name": "WBUR"
+ },
+ {
+  "url": "wbwc",
+  "lat": 41.369414,
+  "lng": -81.848372,
+  "name": "WBWC"
+ },
+ {
+  "url": "wbzc",
+  "lat": 40.015367,
+  "lng": -74.884076,
+  "name": "WBZC"
+ },
+ {
+  "url": "wcbn",
+  "lat": 42.2808256,
+  "lng": -83.7430378,
+  "name": "WCBN"
+ },
+ {
+  "url": "wccr",
+  "lat": 36.7434169,
+  "lng": -84.1596561,
+  "name": "WCCR"
+ },
+ {
+  "url": "wcdb",
+  "lat": 42.685365,
+  "lng": -73.825201,
+  "name": "WCDB"
+ },
+ {
+  "url": "wcfm",
+  "lat": 42.710499,
+  "lng": -73.20213,
+  "name": "WCFM"
+ },
+ {
+  "url": "wchc",
+  "lat": 42.237593,
+  "lng": -71.808127,
+  "name": "WCHC"
+ },
+ {
+  "url": "wcks",
+  "lat": 42.6579231,
+  "lng": -86.2052745,
+  "name": "WCKS"
+ },
+ {
+  "url": "wcrx",
+  "lat": 41.87414,
+  "lng": -87.624461,
+  "name": "WCRX"
+ },
+ {
+  "url": "wcsb",
+  "lat": 41.49932,
+  "lng": -81.6943605,
+  "name": "WCSB"
+ },
+ {
+  "url": "wcsf",
+  "lat": 41.532809,
+  "lng": -88.098392,
+  "name": "WCSF"
+ },
+ {
+  "url": "wcuw",
+  "lat": 42.251583,
+  "lng": -71.819901,
+  "name": "WCUW"
+ },
+ {
+  "url": "wdbm",
+  "lat": 42.727065,
+  "lng": -84.473702,
+  "name": "WDBM"
+ },
+ {
+  "url": "wdce",
+  "lat": 37.580146,
+  "lng": -77.542764,
+  "name": "WDCE"
+ },
+ {
+  "url": "wdcr",
+  "lat": 43.703077,
+  "lng": -72.289973,
+  "name": "WDCR"
+ },
+ {
+  "url": "wdcv",
+  "lat": 40.202609,
+  "lng": -77.195824,
+  "name": "WDCV"
+ },
+ {
+  "url": "wdiy",
+  "lat": 40.61023,
+  "lng": -75.382576,
+  "name": "WDIY"
+ },
+ {
+  "url": "wdrt",
+  "lat": 43.55379,
+  "lng": -90.889182,
+  "name": "WDRT"
+ },
+ {
+  "url": "wdsr",
+  "lat": 40.4406248,
+  "lng": -79.9958864,
+  "name": "WDSR"
+ },
+ {
+  "url": "wdvx",
+  "lat": 35.967172,
+  "lng": -83.919538,
+  "name": "WDVX"
+ },
+ {
+  "url": "weci",
+  "lat": 39.823941,
+  "lng": -84.913241,
+  "name": "WECI"
+ },
+ {
+  "url": "wecs",
+  "lat": 41.683432,
+  "lng": -72.215912,
+  "name": "WECS"
+ },
+ {
+  "url": "weft",
+  "lat": 40.116817,
+  "lng": -88.241749,
+  "name": "WEFT"
+ },
+ {
+  "url": "weralp",
+  "lat": 38.8799697,
+  "lng": -77.1067698,
+  "name": "WERA-LP"
+ },
+ {
+  "url": "wers",
+  "lat": 42.352337,
+  "lng": -71.065316,
+  "name": "WERS"
+ },
+ {
+  "url": "weru",
+  "lat": 44.565082,
+  "lng": -68.667266,
+  "name": "WERU"
+ },
+ {
+  "url": "werw",
+  "lat": 43.0481221,
+  "lng": -76.1474244,
+  "name": "WERW"
+ },
+ {
+  "url": "wesn",
+  "lat": 40.491153,
+  "lng": -88.993711,
+  "name": "WESN"
+ },
+ {
+  "url": "wess",
+  "lat": 40.997317,
+  "lng": -75.172402,
+  "name": "WESS"
+ },
+ {
+  "url": "wesu",
+  "lat": 41.555445,
+  "lng": -72.652166,
+  "name": "WESU"
+ },
+ {
+  "url": "wfcs",
+  "lat": 41.693433,
+  "lng": -72.763152,
+  "name": "WFCS"
+ },
+ {
+  "url": "wfhb",
+  "lat": 39.165699,
+  "lng": -86.53377,
+  "name": "WFHB"
+ },
+ {
+  "url": "wfmu",
+  "lat": 40.71654,
+  "lng": -74.036369,
+  "name": "WFMU"
+ },
+ {
+  "url": "wfnp",
+  "lat": 41.741541,
+  "lng": -74.120866,
+  "name": "WFNP"
+ },
+ {
+  "url": "wfpk",
+  "lat": 38.2526647,
+  "lng": -85.7584557,
+  "name": "WFPK"
+ },
+ {
+  "url": "wfsn",
+  "lat": 41.8995001,
+  "lng": -79.8453298,
+  "name": "WFSN"
+ },
+ {
+  "url": "wfuv",
+  "lat": 40.860526,
+  "lng": -73.883848,
+  "name": "WFUV"
+ },
+ {
+  "url": "wgcc",
+  "lat": 43.01756,
+  "lng": -78.138071,
+  "name": "WGCC"
+ },
+ {
+  "url": "wgcs",
+  "lat": 41.565591,
+  "lng": -85.828462,
+  "name": "WGCS"
+ },
+ {
+  "url": "wgls",
+  "lat": 39.707802,
+  "lng": -75.121459,
+  "name": "WGLS"
+ },
+ {
+  "url": "wgmu",
+  "lat": 38.833131,
+  "lng": -77.308207,
+  "name": "WGMU"
+ },
+ {
+  "url": "wgot",
+  "lat": 29.654323,
+  "lng": -82.339099,
+  "name": "WGOT"
+ },
+ {
+  "url": "wgrpradiatefm",
+  "lat": 25.7889689,
+  "lng": -80.2264393,
+  "name": "WGRP Radiate FM"
+ },
+ {
+  "url": "wgtb",
+  "lat": 38.91,
+  "lng": -77.075355,
+  "name": "WGTB"
+ },
+ {
+  "url": "wgur",
+  "lat": 33.325797,
+  "lng": -83.388815,
+  "name": "WGUR"
+ },
+ {
+  "url": "wgxc",
+  "lat": 42.3292408,
+  "lng": -75.7699147,
+  "name": "WGXC"
+ },
+ {
+  "url": "whei",
+  "lat": 41.1144992,
+  "lng": -83.1779746,
+  "name": "WHEI"
+ },
+ {
+  "url": "whfr",
+  "lat": 42.3222599,
+  "lng": -83.1763145,
+  "name": "WHFR"
+ },
+ {
+  "url": "whpk",
+  "lat": 41.790759,
+  "lng": -87.598245,
+  "name": "WHPK"
+ },
+ {
+  "url": "whrb",
+  "lat": 42.371933,
+  "lng": -71.113499,
+  "name": "WHRB"
+ },
+ {
+  "url": "whrt",
+  "lat": 41.1408363,
+  "lng": -73.2612615,
+  "name": "WHRT"
+ },
+ {
+  "url": "whrv",
+  "lat": 36.8507689,
+  "lng": -76.2858726,
+  "name": "WHRV"
+ },
+ {
+  "url": "whrw",
+  "lat": 42.089758,
+  "lng": -75.917242,
+  "name": "WHRW"
+ },
+ {
+  "url": "whur",
+  "lat": 38.9071923,
+  "lng": -77.0368707,
+  "name": "WHUR"
+ },
+ {
+  "url": "whws",
+  "lat": 42.880701,
+  "lng": -76.982099,
+  "name": "WHWS"
+ },
+ {
+  "url": "whynotradio",
+  "lat": 39.941175,
+  "lng": -75.149166,
+  "name": "WHYNOT Radio"
+ },
+ {
+  "url": "wicb",
+  "lat": 42.449936,
+  "lng": -76.48107,
+  "name": "WICB"
+ },
+ {
+  "url": "wicn",
+  "lat": 42.259932,
+  "lng": -71.80209,
+  "name": "WICN"
+ },
+ {
+  "url": "widb",
+  "lat": 37.7272727,
+  "lng": -89.2167501,
+  "name": "WIDB"
+ },
+ {
+  "url": "widr",
+  "lat": 42.286581,
+  "lng": -85.573698,
+  "name": "WIDR"
+ },
+ {
+  "url": "witr",
+  "lat": 43.084236,
+  "lng": -77.674633,
+  "name": "WITR"
+ },
+ {
+  "url": "wiup",
+  "lat": 40.615795,
+  "lng": -79.161209,
+  "name": "WIUP"
+ },
+ {
+  "url": "wiuv",
+  "lat": 43.608122,
+  "lng": -73.181221,
+  "name": "WIUV"
+ },
+ {
+  "url": "wiwu",
+  "lat": 40.521849,
+  "lng": -85.665931,
+  "name": "WIWU"
+ },
+ {
+  "url": "wixq",
+  "lat": 39.9959936,
+  "lng": -76.3535986,
+  "name": "WIXQ"
+ },
+ {
+  "url": "wjab",
+  "lat": 34.7303688,
+  "lng": -86.5861037,
+  "name": "WJAB"
+ },
+ {
+  "url": "wjcu",
+  "lat": 41.46248,
+  "lng": -81.850771,
+  "name": "WJCU"
+ },
+ {
+  "url": "wjhk",
+  "lat": 38.9716689,
+  "lng": -95.2352501,
+  "name": "WJHK"
+ },
+ {
+  "url": "wjhu",
+  "lat": 39.2903848,
+  "lng": -76.6121893,
+  "name": "WJHU"
+ },
+ {
+  "url": "wjjw",
+  "lat": 42.690915,
+  "lng": -73.103992,
+  "name": "WJJW"
+ },
+ {
+  "url": "wjmf",
+  "lat": 41.91914,
+  "lng": -71.538366,
+  "name": "WJMF"
+ },
+ {
+  "url": "wjtb",
+  "lat": 40.735657,
+  "lng": -74.1723667,
+  "name": "WJTB"
+ },
+ {
+  "url": "wkco",
+  "lat": 40.373675,
+  "lng": -82.395715,
+  "name": "WKCO"
+ },
+ {
+  "url": "wkcr",
+  "lat": 40.7127837,
+  "lng": -74.0059413,
+  "name": "WKCR"
+ },
+ {
+  "url": "wkdu",
+  "lat": 39.9525839,
+  "lng": -75.1652215,
+  "name": "WKDU"
+ },
+ {
+  "url": "wkms",
+  "lat": 36.92172,
+  "lng": -88.097248,
+  "name": "WKMS"
+ },
+ {
+  "url": "wknc",
+  "lat": 35.7795897,
+  "lng": -78.6381787,
+  "name": "WKNC"
+ },
+ {
+  "url": "wkrb",
+  "lat": 40.65,
+  "lng": -73.95,
+  "name": "WKRB"
+ },
+ {
+  "url": "wlfc",
+  "lat": 41.052504,
+  "lng": -83.651737,
+  "name": "WLFC"
+ },
+ {
+  "url": "wlfr",
+  "lat": 39.491618,
+  "lng": -74.531454,
+  "name": "WLFR"
+ },
+ {
+  "url": "wloy",
+  "lat": 39.2903848,
+  "lng": -76.6121893,
+  "name": "WLOY"
+ },
+ {
+  "url": "wlra",
+  "lat": 41.6475306,
+  "lng": -88.0895061,
+  "name": "WLRA"
+ },
+ {
+  "url": "wlso",
+  "lat": 46.521858,
+  "lng": -84.3460896,
+  "name": "WLSO"
+ },
+ {
+  "url": "wlur",
+  "lat": 37.788187,
+  "lng": -79.443093,
+  "name": "WLUR"
+ },
+ {
+  "url": "wluw",
+  "lat": 41.897543,
+  "lng": -87.625417,
+  "name": "WLUW"
+ },
+ {
+  "url": "wlvr",
+  "lat": 40.60623,
+  "lng": -75.379053,
+  "name": "WLVR"
+ },
+ {
+  "url": "wmbc",
+  "lat": 39.2903848,
+  "lng": -76.6121893,
+  "name": "WMBC"
+ },
+ {
+  "url": "wmbr",
+  "lat": 42.359362,
+  "lng": -71.088299,
+  "name": "WMBR"
+ },
+ {
+  "url": "wmfo",
+  "lat": 42.406897,
+  "lng": -71.116504,
+  "name": "WMFO"
+ },
+ {
+  "url": "wmhw",
+  "lat": 43.586266,
+  "lng": -84.773843,
+  "name": "WMHW"
+ },
+ {
+  "url": "wmkv",
+  "lat": 39.275715,
+  "lng": -84.47968,
+  "name": "WMKV"
+ },
+ {
+  "url": "wmnf",
+  "lat": 27.981712,
+  "lng": -82.446057,
+  "name": "WMNF"
+ },
+ {
+  "url": "wmnj",
+  "lat": 40.760027,
+  "lng": -74.425912,
+  "name": "WMNJ"
+ },
+ {
+  "url": "wmre",
+  "lat": 33.7489954,
+  "lng": -84.3879824,
+  "name": "WMRE"
+ },
+ {
+  "url": "wmsc",
+  "lat": 40.864822,
+  "lng": -74.200423,
+  "name": "WMSC"
+ },
+ {
+  "url": "wmse",
+  "lat": 43.04173,
+  "lng": -87.906706,
+  "name": "WMSE"
+ },
+ {
+  "url": "wmsv",
+  "lat": 33.454425,
+  "lng": -88.791838,
+  "name": "WMSV"
+ },
+ {
+  "url": "wmtu",
+  "lat": 47.11364,
+  "lng": -88.548123,
+  "name": "WMTU"
+ },
+ {
+  "url": "wmuc",
+  "lat": 38.983064,
+  "lng": -76.943947,
+  "name": "WMUC"
+ },
+ {
+  "url": "wmuh",
+  "lat": 40.597392,
+  "lng": -75.510165,
+  "name": "WMUH"
+ },
+ {
+  "url": "wmul",
+  "lat": 38.4192496,
+  "lng": -82.445154,
+  "name": "WMUL"
+ },
+ {
+  "url": "wmwm",
+  "lat": 42.503985,
+  "lng": -70.890048,
+  "name": "WMWM"
+ },
+ {
+  "url": "wmxm",
+  "lat": 42.250023,
+  "lng": -87.829236,
+  "name": "WMXM"
+ },
+ {
+  "url": "wnaa",
+  "lat": 36.077913,
+  "lng": -79.771975,
+  "name": "WNAA"
+ },
+ {
+  "url": "wncw",
+  "lat": 35.35496,
+  "lng": -81.92793,
+  "name": "WNCW"
+ },
+ {
+  "url": "wnku",
+  "lat": 39.039228,
+  "lng": -84.465775,
+  "name": "WNKU"
+ },
+ {
+  "url": "wnur",
+  "lat": 41.8781136,
+  "lng": -87.6297982,
+  "name": "WNUR"
+ },
+ {
+  "url": "wnyc",
+  "lat": 40.726765,
+  "lng": -74.005418,
+  "name": "WNYC"
+ },
+ {
+  "url": "wnyu",
+  "lat": 40.726304,
+  "lng": -73.996767,
+  "name": "WNYU"
+ },
+ {
+  "url": "woas",
+  "lat": 46.874941,
+  "lng": -89.300141,
+  "name": "WOAS"
+ },
+ {
+  "url": "wobc",
+  "lat": 41.2939386,
+  "lng": -82.2173786,
+  "name": "WOBC"
+ },
+ {
+  "url": "wobo",
+  "lat": 39.062522,
+  "lng": -84.098791,
+  "name": "WOBO"
+ },
+ {
+  "url": "wonc",
+  "lat": 41.769968,
+  "lng": -88.144388,
+  "name": "WONC"
+ },
+ {
+  "url": "wony",
+  "lat": 42.467301,
+  "lng": -75.060719,
+  "name": "WONY"
+ },
+ {
+  "url": "wool",
+  "lat": 42.924877,
+  "lng": -72.306039,
+  "name": "WOOL"
+ },
+ {
+  "url": "worldmusicradio",
+  "lat": 57.209049,
+  "lng": 9.677583,
+  "name": "World Music Radio"
+ },
+ {
+  "url": "worldwidefm",
+  "lat": 51.5073509,
+  "lng": -0.1277583,
+  "name": "Worldwide FM"
+ },
+ {
+  "url": "wort",
+  "lat": 43.067368,
+  "lng": -89.3907,
+  "name": "WORT"
+ },
+ {
+  "url": "wpcd",
+  "lat": 40.125587,
+  "lng": -88.291441,
+  "name": "WPCD"
+ },
+ {
+  "url": "wpfk",
+  "lat": 38.248219,
+  "lng": -85.757906,
+  "name": "WPFK"
+ },
+ {
+  "url": "wpfw",
+  "lat": 38.922306,
+  "lng": -77.041433,
+  "name": "WPFW"
+ },
+ {
+  "url": "wphs",
+  "lat": 42.519834,
+  "lng": -83.009909,
+  "name": "WPHS"
+ },
+ {
+  "url": "wpir",
+  "lat": 40.65,
+  "lng": -73.95,
+  "name": "WPIR"
+ },
+ {
+  "url": "wpkn",
+  "lat": 41.166706,
+  "lng": -73.190237,
+  "name": "WPKN"
+ },
+ {
+  "url": "wprb",
+  "lat": 40.343006,
+  "lng": -74.655955,
+  "name": "WPRB"
+ },
+ {
+  "url": "wprk",
+  "lat": 28.594722,
+  "lng": -81.335068,
+  "name": "WPRK"
+ },
+ {
+  "url": "wpsc",
+  "lat": 40.996209,
+  "lng": -74.280426,
+  "name": "WPSC"
+ },
+ {
+  "url": "wpts",
+  "lat": 40.444378,
+  "lng": -79.953385,
+  "name": "WPTS"
+ },
+ {
+  "url": "wpub",
+  "lat": 40.7143528,
+  "lng": -74.0059731,
+  "name": "WPUB"
+ },
+ {
+  "url": "wqaq",
+  "lat": 41.419383,
+  "lng": -72.895489,
+  "name": "WQAQ"
+ },
+ {
+  "url": "wqhs",
+  "lat": 39.948972,
+  "lng": -75.189583,
+  "name": "WQHS"
+ },
+ {
+  "url": "wras",
+  "lat": 33.7489954,
+  "lng": -84.3879824,
+  "name": "WRAS"
+ },
+ {
+  "url": "wrbb",
+  "lat": 42.339403,
+  "lng": -71.087548,
+  "name": "WRBB"
+ },
+ {
+  "url": "wrbc",
+  "lat": 41.877415,
+  "lng": -87.636574,
+  "name": "WRBC"
+ },
+ {
+  "url": "wrbcradio",
+  "lat": 44.105073,
+  "lng": -70.208388,
+  "name": "WRBC Radio"
+ },
+ {
+  "url": "wrct",
+  "lat": 40.443095,
+  "lng": -79.942541,
+  "name": "WRCT"
+ },
+ {
+  "url": "wrek",
+  "lat": 33.773465,
+  "lng": -84.397745,
+  "name": "WREK"
+ },
+ {
+  "url": "wrfalp",
+  "lat": 42.097696,
+  "lng": -79.243193,
+  "name": "WRFA-LP"
+ },
+ {
+  "url": "wrfl",
+  "lat": 38.0405837,
+  "lng": -84.5037164,
+  "name": "WRFL"
+ },
+ {
+  "url": "wrgp",
+  "lat": 25.756377,
+  "lng": -80.372651,
+  "name": "WRGP"
+ },
+ {
+  "url": "wrgw",
+  "lat": 38.900272,
+  "lng": -77.04706,
+  "name": "WRGW"
+ },
+ {
+  "url": "wrir",
+  "lat": 37.554533,
+  "lng": -77.457152,
+  "name": "WRIR"
+ },
+ {
+  "url": "wriu",
+  "lat": 41.484992,
+  "lng": -71.529831,
+  "name": "WRIU"
+ },
+ {
+  "url": "wrmc",
+  "lat": 44.015329,
+  "lng": -73.167351,
+  "name": "WRMC"
+ },
+ {
+  "url": "wrpi",
+  "lat": 42.729288,
+  "lng": -73.679504,
+  "name": "WRPI"
+ },
+ {
+  "url": "wrpn",
+  "lat": 43.843466,
+  "lng": -88.842206,
+  "name": "WRPN"
+ },
+ {
+  "url": "wrrg",
+  "lat": 41.9258642,
+  "lng": -87.8358943,
+  "name": "WRRG"
+ },
+ {
+  "url": "wrst",
+  "lat": 44.029459,
+  "lng": -88.552283,
+  "name": "WRST"
+ },
+ {
+  "url": "wrtu",
+  "lat": 18.405678,
+  "lng": -66.050721,
+  "name": "WRTU"
+ },
+ {
+  "url": "wrub",
+  "lat": 42.978333,
+  "lng": -78.8,
+  "name": "WRUB"
+ },
+ {
+  "url": "wruf",
+  "lat": 29.647725,
+  "lng": -82.347308,
+  "name": "WRUF"
+ },
+ {
+  "url": "wrur",
+  "lat": 43.122477,
+  "lng": -77.624257,
+  "name": "WRUR"
+ },
+ {
+  "url": "wruv",
+  "lat": 44.4758825,
+  "lng": -73.212072,
+  "name": "WRUV"
+ },
+ {
+  "url": "wruw",
+  "lat": 41.49932,
+  "lng": -81.6943605,
+  "name": "WRUW"
+ },
+ {
+  "url": "wrvu",
+  "lat": 36.1626638,
+  "lng": -86.7816016,
+  "name": "WRVU"
+ },
+ {
+  "url": "wsbf",
+  "lat": 34.678439,
+  "lng": -82.820698,
+  "name": "WSBF"
+ },
+ {
+  "url": "wsbu",
+  "lat": 42.079902,
+  "lng": -78.484521,
+  "name": "WSBU"
+ },
+ {
+  "url": "wsca",
+  "lat": 43.0717552,
+  "lng": -70.7625532,
+  "name": "WSCA"
+ },
+ {
+  "url": "wsia",
+  "lat": 40.597604,
+  "lng": -74.114309,
+  "name": "WSIA"
+ },
+ {
+  "url": "wsnc",
+  "lat": 36.093471,
+  "lng": -80.23116,
+  "name": "WSNC"
+ },
+ {
+  "url": "wsoe",
+  "lat": 36.10512,
+  "lng": -79.504607,
+  "name": "WSOE"
+ },
+ {
+  "url": "wsou",
+  "lat": 40.7489277,
+  "lng": -74.2609903,
+  "name": "WSOU"
+ },
+ {
+  "url": "wspc",
+  "lat": 40.881451,
+  "lng": -74.045265,
+  "name": "WSPC"
+ },
+ {
+  "url": "wspn",
+  "lat": 43.098668,
+  "lng": -73.78683,
+  "name": "WSPN"
+ },
+ {
+  "url": "wsum",
+  "lat": 43.0730517,
+  "lng": -89.4012302,
+  "name": "WSUM"
+ },
+ {
+  "url": "wsup",
+  "lat": 42.732261,
+  "lng": -90.485802,
+  "name": "WSUP"
+ },
+ {
+  "url": "wsyc",
+  "lat": 40.0506453,
+  "lng": -77.5202647,
+  "name": "WSYC"
+ },
+ {
+  "url": "wtbu",
+  "lat": 42.348833,
+  "lng": -71.10177,
+  "name": "WTBU"
+ },
+ {
+  "url": "wtip",
+  "lat": 47.6051056,
+  "lng": -90.4931767,
+  "name": "WTIP"
+ },
+ {
+  "url": "wtju",
+  "lat": 38.041847,
+  "lng": -78.503484,
+  "name": "WTJU"
+ },
+ {
+  "url": "wtmd",
+  "lat": 39.2903848,
+  "lng": -76.6121893,
+  "name": "WTMD"
+ },
+ {
+  "url": "wtnd",
+  "lat": 40.4592076,
+  "lng": -90.6717971,
+  "name": "WTND"
+ },
+ {
+  "url": "wtre",
+  "lat": 39.952335,
+  "lng": -75.163789,
+  "name": "WTRE"
+ },
+ {
+  "url": "wtsr",
+  "lat": 40.27021,
+  "lng": -74.779698,
+  "name": "WTSR"
+ },
+ {
+  "url": "wtul",
+  "lat": 29.939464,
+  "lng": -90.119957,
+  "name": "WTUL"
+ },
+ {
+  "url": "wuag",
+  "lat": 36.068006,
+  "lng": -79.805658,
+  "name": "WUAG"
+ },
+ {
+  "url": "wuev",
+  "lat": 37.973375,
+  "lng": -87.530014,
+  "name": "WUEV"
+ },
+ {
+  "url": "wumb",
+  "lat": 42.319669,
+  "lng": -71.047165,
+  "name": "WUMB"
+ },
+ {
+  "url": "wumd",
+  "lat": 42.288421,
+  "lng": -83.737149,
+  "name": "WUMD"
+ },
+ {
+  "url": "wumm",
+  "lat": 44.7150789,
+  "lng": -67.461376,
+  "name": "WUMM"
+ },
+ {
+  "url": "wumr",
+  "lat": 35.1495343,
+  "lng": -90.0489801,
+  "name": "WUMR"
+ },
+ {
+  "url": "wunc",
+  "lat": 35.9131996,
+  "lng": -79.0558445,
+  "name": "WUNC"
+ },
+ {
+  "url": "wunh",
+  "lat": 43.134369,
+  "lng": -70.930223,
+  "name": "WUNH"
+ },
+ {
+  "url": "wuog",
+  "lat": 33.95,
+  "lng": -83.383333,
+  "name": "WUOG"
+ },
+ {
+  "url": "wupx",
+  "lat": 46.556565,
+  "lng": -87.401314,
+  "name": "WUPX"
+ },
+ {
+  "url": "wusb",
+  "lat": 40.914234,
+  "lng": -73.116266,
+  "name": "WUSB"
+ },
+ {
+  "url": "wusc",
+  "lat": 34.000711,
+  "lng": -81.021758,
+  "name": "WUSC"
+ },
+ {
+  "url": "wuso",
+  "lat": 39.935893,
+  "lng": -83.811873,
+  "name": "WUSO"
+ },
+ {
+  "url": "wutk",
+  "lat": 35.952677,
+  "lng": -83.926364,
+  "name": "WUTK"
+ },
+ {
+  "url": "wuvt",
+  "lat": 37.229688,
+  "lng": -80.417873,
+  "name": "WUVT"
+ },
+ {
+  "url": "wvau",
+  "lat": 38.8951118,
+  "lng": -77.0363658,
+  "name": "WVAU"
+ },
+ {
+  "url": "wvbr",
+  "lat": 42.4439614,
+  "lng": -76.5018807,
+  "name": "WVBR"
+ },
+ {
+  "url": "wvcp",
+  "lat": 36.362112,
+  "lng": -86.497498,
+  "name": "WVCP"
+ },
+ {
+  "url": "wvew",
+  "lat": 42.852966,
+  "lng": -72.558106,
+  "name": "WVEW"
+ },
+ {
+  "url": "wvfs",
+  "lat": 30.440007,
+  "lng": -84.291303,
+  "name": "WVFS"
+ },
+ {
+  "url": "wvkr",
+  "lat": 41.7003713,
+  "lng": -73.9209701,
+  "name": "WVKR"
+ },
+ {
+  "url": "wvtc",
+  "lat": 43.936975,
+  "lng": -72.603589,
+  "name": "WVTC"
+ },
+ {
+  "url": "wvud",
+  "lat": 39.676914,
+  "lng": -75.74986,
+  "name": "WVUD"
+ },
+ {
+  "url": "wvum",
+  "lat": 25.759377,
+  "lng": -80.381619,
+  "name": "WVUM"
+ },
+ {
+  "url": "wvyc",
+  "lat": 39.946435,
+  "lng": -76.728293,
+  "name": "WVYC"
+ },
+ {
+  "url": "wwec",
+  "lat": 40.1528719,
+  "lng": -76.6027455,
+  "name": "WWEC"
+ },
+ {
+  "url": "wwhr",
+  "lat": 36.983375,
+  "lng": -86.456658,
+  "name": "WWHR"
+ },
+ {
+  "url": "wwoz",
+  "lat": 29.959004,
+  "lng": -90.060328,
+  "name": "WWOZ"
+ },
+ {
+  "url": "wwvuu92",
+  "lat": 39.6348202,
+  "lng": -79.9535637,
+  "name": "WWVU U92"
+ },
+ {
+  "url": "wxac",
+  "lat": 40.403733,
+  "lng": -75.940518,
+  "name": "WXAC"
+ },
+ {
+  "url": "wxav",
+  "lat": 41.710867,
+  "lng": -87.714495,
+  "name": "WXAV"
+ },
+ {
+  "url": "wxcu",
+  "lat": 39.9611755,
+  "lng": -82.9987942,
+  "name": "WXCU"
+ },
+ {
+  "url": "wxdu",
+  "lat": 36.008981,
+  "lng": -78.917388,
+  "name": "WXDU"
+ },
+ {
+  "url": "wxoj",
+  "lat": 42.335505,
+  "lng": -72.6719853,
+  "name": "WXOJ"
+ },
+ {
+  "url": "wxou",
+  "lat": 42.680588,
+  "lng": -83.1338214,
+  "name": "WXOU"
+ },
+ {
+  "url": "wxox",
+  "lat": 38.2526647,
+  "lng": -85.7584557,
+  "name": "WXOX"
+ },
+ {
+  "url": "wxpn",
+  "lat": 39.952051,
+  "lng": -75.185147,
+  "name": "WXPN"
+ },
+ {
+  "url": "wxpr",
+  "lat": 45.630645,
+  "lng": -89.419012,
+  "name": "WXPR"
+ },
+ {
+  "url": "wxut",
+  "lat": 41.6639383,
+  "lng": -83.555212,
+  "name": "WXUT"
+ },
+ {
+  "url": "wxyc",
+  "lat": 35.91031,
+  "lng": -79.047712,
+  "name": "WXYC"
+ },
+ {
+  "url": "wybc",
+  "lat": 41.305631,
+  "lng": -72.927784,
+  "name": "WYBC"
+ },
+ {
+  "url": "wynradio",
+  "lat": 25.796005,
+  "lng": -80.128712,
+  "name": "WYN Radio"
+ },
+ {
+  "url": "wyomingpublicradio",
+  "lat": 41.314621,
+  "lng": -105.56983,
+  "name": "Wyoming Public Radio"
+ },
+ {
+  "url": "wysu",
+  "lat": 41.106822,
+  "lng": -80.646759,
+  "name": "WYSU"
+ },
+ {
+  "url": "wzbc",
+  "lat": 42.3600825,
+  "lng": -71.0588801,
+  "name": "WZBC"
+ },
+ {
+  "url": "wzbt",
+  "lat": 39.835739,
+  "lng": -77.236019,
+  "name": "WZBT"
+ },
+ {
+  "url": "wzly",
+  "lat": 42.293152,
+  "lng": -71.305335,
+  "name": "WZLY"
+ },
+ {
+  "url": "xrayfm",
+  "lat": 45.5230622,
+  "lng": -122.6764816,
+  "name": "XRAY FM"
+ },
+ {
+  "url": "xtreme",
+  "lat": 51.526817,
+  "lng": -3.686598,
+  "name": "Xtreme"
+ },
+ {
+  "url": "ynotradio",
+  "lat": 39.950112,
+  "lng": -75.158746,
+  "name": "YNOT Radio"
+ },
+ {
+  "url": "zumix",
+  "lat": 42.368144,
+  "lng": -71.037765,
+  "name": "ZUMIX"
+ }
+]

@@ -2,104 +2,180 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Custom base styles */
+/*
+  LYRAPOD — graphic-notation interface. See DESIGN.md.
+
+  THESIS: A listening device whose interface is a score. It refuses the smart-display
+  dashboard of glass cards and indigo gradients; sources are staves, stations are marks.
+  OWN-WORLD: Ink-black field, off-white chalk marks, four saturated source colours from
+  Wehinger's Artikulation. Hairline seams, no shadows, no blur. Archivo caps, JetBrains
+  Mono figures. Marks are drawn SVG: comb, arc, block, stipple.
+  STORY: The listener glances, reads which stave is live by colour and motion, taps once.
+  FIRST VIEWPORT: Stave rail across the top carrying the live source; realization panel
+  left at quarter-width; station marks tiled right. Transport sits in the realization.
+  FORM: Graphic notation, candidate 5 of the grounded list, seed key c202c884.
+*/
+
 @layer base {
+  :root {
+    --ink:        #07080a;
+    --ink-2:      #0e1015;
+    --ink-3:      #161922;
+    --ink-4:      #222633;
+
+    --chalk:      #e8e6df;
+    --chalk-2:    #9a9a94;  /* 7.1:1 on --ink */
+    --chalk-3:    #7c7c76;  /* 4.8:1 on --ink — the AA floor for body text.
+                               Was #61615c, which measured 3.2:1 and failed. */
+
+    --sig-green:   #3ff5a8;
+    --sig-magenta: #ff3d8b;
+    --sig-amber:   #ffb03a;
+    --sig-cyan:    #49d4ff;
+    --sig-violet:  #a77bff;
+
+    /* The live source colour. Set on :root by the app so marks inherit it. */
+    --sig: var(--sig-green);
+
+    --seam: 1px solid var(--ink-3);
+
+    /* Exponential ease-out — marks decelerate like a pen leaving paper. */
+    --draw: cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  html, body, #root {
+    height: 100%;
+  }
+
   body {
-    @apply bg-[#0a0a0f] text-white antialiased;
-    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    background: var(--ink);
+    color: var(--chalk);
+    font-family: 'Archivo', system-ui, -apple-system, sans-serif;
+    font-size: 15px;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    /* Kiosk: never rubber-band or text-select on touch. */
+    overscroll-behavior: none;
+    -webkit-user-select: none;
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  /* Tabular figures everywhere numbers carry meaning. */
+  .tnum, time, .font-mono {
+    font-variant-numeric: tabular-nums;
+    font-feature-settings: 'tnum' 1;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--sig);
+    outline-offset: 2px;
   }
 }
 
-/* Custom component classes */
 @layer components {
-  .glass {
-    @apply bg-white/5 backdrop-blur-xl border border-white/10 rounded-2xl;
+  /* ---- Score surfaces -------------------------------------------------- */
+
+  /* A panel is defined by its seams, never by shadow or blur. */
+  .panel {
+    background: var(--ink-2);
+    border: var(--seam);
   }
-  
-  .glass-hover {
-    @apply hover:bg-white/10 hover:border-white/20 transition-all duration-300;
+
+  .seam-t { border-top: var(--seam); }
+  .seam-b { border-bottom: var(--seam); }
+  .seam-l { border-left: var(--seam); }
+  .seam-r { border-right: var(--seam); }
+
+  /* ---- Stave label: engraved panel legend ------------------------------ */
+  .stave-label {
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--chalk-2);
   }
-  
-  .btn-primary {
-    @apply bg-indigo-500 hover:bg-indigo-600 text-white font-medium px-6 py-3 rounded-xl transition-all duration-300;
+
+  /* ---- Touch targets --------------------------------------------------- */
+  .tap {
+    min-width: 44px;
+    min-height: 44px;
   }
-  
-  .text-gradient {
-    @apply bg-gradient-to-r from-indigo-500 to-purple-500 bg-clip-text text-transparent;
+
+  .tap-lg {
+    min-width: 64px;
+    min-height: 64px;
+  }
+
+  /* ---- The rule: a hairline that carries the source colour ------------- */
+  .rule-live {
+    background: var(--sig);
   }
 }
 
-/* Animated background */
-.animated-bg {
-  background: 
-    radial-gradient(ellipse at 20% 20%, rgba(99, 102, 241, 0.15) 0%, transparent 50%),
-    radial-gradient(ellipse at 80% 80%, rgba(139, 92, 246, 0.15) 0%, transparent 50%),
-    radial-gradient(ellipse at 50% 50%, rgba(99, 102, 241, 0.05) 0%, transparent 70%);
-  animation: bgPulse 8s ease-in-out infinite;
+/* ---- Marks: motion is drawing ------------------------------------------ */
+
+/* A mark enters by being drawn, not by fading in. */
+.mark-draw path,
+.mark-draw line,
+.mark-draw polyline {
+  stroke-dasharray: var(--len, 400);
+  stroke-dashoffset: var(--len, 400);
+  animation: draw 1.4s var(--draw) forwards;
 }
 
-@keyframes bgPulse {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0.7; }
+@keyframes draw {
+  to { stroke-dashoffset: 0; }
 }
 
-/* Equalizer bar animations */
-.eq-bar {
-  height: 8px;
-  transition: height 0.1s ease;
+/* The comb: broadband static. Rules flicker at uneven intervals so it reads
+   as noise rather than as a loading bar. */
+.comb-rule {
+  transform-origin: 50% 100%;
+  animation: comb var(--dur, 1.2s) steps(2, jump-none) infinite;
+  animation-delay: var(--delay, 0s);
 }
 
-.eq-bar-1 {
-  animation: wave1 1.1s ease-in-out infinite;
-}
-.eq-bar-2 {
-  animation: wave2 1.2s ease-in-out infinite;
-}
-.eq-bar-3 {
-  animation: wave3 1.3s ease-in-out infinite;
-}
-.eq-bar-4 {
-  animation: wave4 1.4s ease-in-out infinite;
-}
-.eq-bar-5 {
-  animation: wave5 1.5s ease-in-out infinite;
+@keyframes comb {
+  0%, 100% { transform: scaleY(0.35); opacity: 0.55; }
+  50%      { transform: scaleY(1);    opacity: 1; }
 }
 
-@keyframes wave1 {
-  0%, 100% { height: 8px; }
-  50% { height: 20px; }
-}
-@keyframes wave2 {
-  0%, 100% { height: 10px; }
-  50% { height: 16px; }
-}
-@keyframes wave3 {
-  0%, 100% { height: 12px; }
-  50% { height: 24px; }
-}
-@keyframes wave4 {
-  0%, 100% { height: 10px; }
-  50% { height: 18px; }
-}
-@keyframes wave5 {
-  0%, 100% { height: 6px; }
-  50% { height: 16px; }
+/* The whistler: a descending sweep, used only for the live realization. */
+.whistler {
+  animation: whistler 6s var(--draw) infinite;
 }
 
-/* News ticker scroll animation */
+@keyframes whistler {
+  0%       { transform: translateY(-6%) scaleY(1.05); opacity: 0; }
+  12%      { opacity: 1; }
+  100%     { transform: translateY(6%) scaleY(0.95); opacity: 0; }
+}
+
+/* Stipple: the idle field. Slow, so it never competes with content. */
+.stipple {
+  animation: stipple 9s ease-in-out infinite;
+}
+
+@keyframes stipple {
+  0%, 100% { opacity: 0.18; }
+  50%      { opacity: 0.34; }
+}
+
+/* Ticker */
 @keyframes scroll {
-  0% { transform: translateX(0); }
+  0%   { transform: translateX(0); }
   100% { transform: translateX(-50%); }
 }
 
 .animate-scroll {
-  animation: scroll 30s linear infinite;
+  animation: scroll 44s linear infinite;
 }
 
-/* Scrollbar styling */
+/* ---- Scrollbars: thin seams ------------------------------------------- */
 ::-webkit-scrollbar {
-  width: 6px;
-  height: 6px;
+  width: 8px;
+  height: 8px;
 }
 
 ::-webkit-scrollbar-track {
@@ -107,10 +183,34 @@
 }
 
 ::-webkit-scrollbar-thumb {
-  background: rgba(255, 255, 255, 0.2);
-  border-radius: 3px;
+  background: var(--ink-4);
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: rgba(255, 255, 255, 0.3);
+  background: var(--chalk-3);
+}
+
+/* ---- Reduced motion: marks stay drawn, nothing loops ------------------- */
+@media (prefers-reduced-motion: reduce) {
+  .mark-draw path,
+  .mark-draw line,
+  .mark-draw polyline {
+    animation: none;
+    stroke-dashoffset: 0;
+  }
+
+  .comb-rule,
+  .whistler,
+  .stipple,
+  .animate-scroll {
+    animation: none;
+  }
+
+  .comb-rule { transform: scaleY(0.7); opacity: 0.8; }
+  .whistler  { opacity: 0.9; transform: none; }
+  .stipple   { opacity: 0.26; }
+
+  *, *::before, *::after {
+    transition-duration: 0.01ms !important;
+  }
 }

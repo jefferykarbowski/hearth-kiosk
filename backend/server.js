@@ -7,7 +7,7 @@ import { parseString } from 'xml2js';
 import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
-import { exec, spawn } from 'child_process';
+import { exec, execFile, spawn } from 'child_process';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -16,13 +16,48 @@ const app = express();
 const server = createServer(app);
 const wss = new WebSocketServer({ server });
 
-// Load config
+// Load config. config.json holds local secrets and is not tracked in git;
+// every secret can also be supplied via environment variable, which wins.
 let config = {};
 try {
   const configPath = path.join(__dirname, 'config.json');
   config = JSON.parse(fs.readFileSync(configPath, 'utf8'));
 } catch (e) {
-  console.error('Error loading config:', e);
+  if (e.code !== 'ENOENT') console.error('Error loading config:', e);
+}
+
+const applyEnvOverrides = (cfg) => {
+  const overrides = {
+    weather: { apiKey: 'WEATHER_API_KEY', zipCode: 'WEATHER_ZIP', country: 'WEATHER_COUNTRY', units: 'WEATHER_UNITS' },
+    news: { rssUrl: 'NEWS_RSS_URL' },
+    lastfm: { apiKey: 'LASTFM_API_KEY' },
+    spotify: { clientId: 'SPOTIFY_CLIENT_ID', clientSecret: 'SPOTIFY_CLIENT_SECRET', redirectUri: 'SPOTIFY_REDIRECT_URI' },
+    mixcloud: { clientId: 'MIXCLOUD_CLIENT_ID', clientSecret: 'MIXCLOUD_CLIENT_SECRET', redirectUri: 'MIXCLOUD_REDIRECT_URI' },
+  };
+
+  for (const [section, keys] of Object.entries(overrides)) {
+    for (const [key, envVar] of Object.entries(keys)) {
+      if (process.env[envVar]) {
+        cfg[section] = cfg[section] || {};
+        cfg[section][key] = process.env[envVar];
+      }
+    }
+  }
+  return cfg;
+};
+
+config = applyEnvOverrides(config);
+
+// Warn loudly at boot rather than failing mysteriously mid-OAuth.
+for (const [service, keys] of Object.entries({
+  weather: ['apiKey'],
+  spotify: ['clientId', 'clientSecret'],
+  mixcloud: ['clientId', 'clientSecret'],
+})) {
+  const missing = keys.filter((k) => !config[service]?.[k]);
+  if (missing.length) {
+    console.warn(`[config] ${service} missing: ${missing.join(', ')} — that feature will be disabled`);
+  }
 }
 
 // Middleware
@@ -355,6 +390,60 @@ app.get('/api/weather', async (req, res) => {
   }
 });
 
+// Forecast: 5 day / 3 hour, condensed to one entry per day plus the next hours.
+app.get('/api/weather/forecast', async (req, res) => {
+  if (!config.weather?.apiKey) {
+    return res.status(503).json({ error: 'Weather not configured' });
+  }
+
+  try {
+    const { apiKey, zipCode, country, units } = config.weather;
+    const url = `https://api.openweathermap.org/data/2.5/forecast?zip=${zipCode},${country}&units=${units}&appid=${apiKey}`;
+
+    const response = await fetch(url);
+    const data = await response.json();
+
+    if (!data.list) {
+      return res.status(502).json({ error: data.message || 'Invalid forecast data' });
+    }
+
+    const hourly = data.list.slice(0, 8).map((e) => ({
+      time: e.dt * 1000,
+      temp: Math.round(e.main.temp),
+      icon: e.weather?.[0]?.icon,
+      description: e.weather?.[0]?.description,
+      pop: Math.round((e.pop || 0) * 100),
+    }));
+
+    // Group by local calendar day, then reduce each day to a min/max.
+    const days = new Map();
+    for (const e of data.list) {
+      const key = new Date(e.dt * 1000).toDateString();
+      const day = days.get(key) || { date: e.dt * 1000, min: Infinity, max: -Infinity, icons: {}, pop: 0 };
+      day.min = Math.min(day.min, e.main.temp_min);
+      day.max = Math.max(day.max, e.main.temp_max);
+      day.pop = Math.max(day.pop, Math.round((e.pop || 0) * 100));
+      const ic = e.weather?.[0]?.icon;
+      if (ic) day.icons[ic] = (day.icons[ic] || 0) + 1;
+      days.set(key, day);
+    }
+
+    const daily = [...days.values()].map((d) => ({
+      date: d.date,
+      min: Math.round(d.min),
+      max: Math.round(d.max),
+      pop: d.pop,
+      // Most frequent icon that day, preferring daytime variants.
+      icon: Object.entries(d.icons).sort((a, b) => b[1] - a[1])[0]?.[0] || '01d',
+    }));
+
+    res.json({ city: data.city?.name || null, hourly, daily });
+  } catch (e) {
+    console.error('Forecast fetch error:', e.message);
+    res.status(500).json({ error: 'Failed to fetch forecast' });
+  }
+});
+
 // News API (RSS)
 app.get('/api/news', async (req, res) => {
   const rssUrl = config.news?.rssUrl || 'https://feeds.npr.org/1001/rss.xml';
@@ -370,12 +459,33 @@ app.get('/api/news', async (req, res) => {
       }
       
       const items = result?.rss?.channel?.[0]?.item || [];
-      const headlines = items.slice(0, 10).map(item => ({
-        title: item.title?.[0] || '',
-        link: item.link?.[0] || ''
+
+      // Strip tags and collapse whitespace — RSS descriptions carry markup.
+      const clean = (s) =>
+        String(s || '')
+          .replace(/<[^>]*>/g, '')
+          .replace(/&(nbsp|amp|quot|#39|lt|gt);/g, (m) =>
+            ({ '&nbsp;': ' ', '&amp;': '&', '&quot;': '"', '&#39;': "'", '&lt;': '<', '&gt;': '>' }[m] || ' '))
+          .replace(/\s+/g, ' ')
+          .trim();
+
+      // Feeds place images in several different places; take the first that exists.
+      const imageOf = (item) =>
+        item['media:content']?.[0]?.$?.url ||
+        item['media:thumbnail']?.[0]?.$?.url ||
+        (item.enclosure?.[0]?.$?.type?.startsWith('image/') ? item.enclosure[0].$.url : null) ||
+        null;
+
+      const headlines = items.slice(0, 24).map((item) => ({
+        title: clean(item.title?.[0]),
+        link: item.link?.[0] || '',
+        description: clean(item.description?.[0]).slice(0, 400),
+        pubDate: item.pubDate?.[0] || null,
+        author: clean(item['dc:creator']?.[0]) || null,
+        image: imageOf(item),
       }));
-      
-      res.json({ headlines });
+
+      res.json({ headlines, source: result?.rss?.channel?.[0]?.title?.[0] || null });
     });
   } catch (e) {
     console.error('News fetch error:', e.message);
@@ -415,6 +525,12 @@ function saveTokens() {
 
 // Load persisted tokens
 const savedTokens = loadTokens();
+
+// Device names the kiosk may appear under in Spotify Connect. The first entry
+// must match the `name` the Web Playback SDK registers with in
+// frontend/src/contexts/SpotifyPlayerContext.jsx; the rest are earlier names
+// kept so an already-paired device is still recognised.
+const KIOSK_DEVICE_NAMES = ['Kitchen Kiosk', 'Kitchen Computer'];
 
 // Spotify OAuth & API
 let spotifyTokens = savedTokens.spotify || {
@@ -1325,14 +1441,21 @@ app.put('/api/spotify/play', async (req, res) => {
     return res.status(401).json({ error: 'Not authenticated', needsAuth: true });
   }
 
-  // Helper to find Kitchen Computer device
-  const findKitchenDevice = async () => {
+  // Pick a device to play on. Prefers the in-app Web Playback SDK player, then
+  // whatever is already active, then anything at all. The SDK registers itself
+  // under the first KIOSK_DEVICE_NAMES entry; matching a single hardcoded name
+  // that no device used left the request with no device_id, which Spotify
+  // rejects with NO_ACTIVE_DEVICE, so nothing played.
+  const findTargetDevice = async () => {
     const devRes = await fetch('https://api.spotify.com/v1/me/player/devices', {
       headers: { 'Authorization': `Bearer ${spotifyTokens.accessToken}` }
     });
     if (!devRes.ok) return null;
     const { devices } = await devRes.json();
-    return devices?.find(d => d.name === 'Kitchen Computer');
+    if (!devices?.length) return null;
+    return devices.find(d => KIOSK_DEVICE_NAMES.includes(d.name))
+      || devices.find(d => d.is_active)
+      || devices[0];
   };
 
   // Helper to transfer playback
@@ -1351,16 +1474,22 @@ app.put('/api/spotify/play', async (req, res) => {
 
   try {
     let targetDeviceId = device_id;
-    
-    // If no device specified, check if we have an active device
+
+    // If no device specified, resolve one and hand playback to it if needed
     if (!targetDeviceId) {
-      const kitchenDevice = await findKitchenDevice();
-      if (kitchenDevice && !kitchenDevice.is_active) {
-        console.log('[Spotify] No active device, transferring to Kitchen Computer...');
-        await transferToDevice(kitchenDevice.id);
-        targetDeviceId = kitchenDevice.id;
-      } else if (kitchenDevice?.is_active) {
-        targetDeviceId = kitchenDevice.id;
+      const target = await findTargetDevice();
+      if (target) {
+        if (!target.is_active) {
+          console.log(`[Spotify] No active device, transferring to "${target.name}"...`);
+          await transferToDevice(target.id);
+        }
+        targetDeviceId = target.id;
+      } else {
+        console.warn('[Spotify] No available Spotify devices to play on');
+        return res.status(404).json({
+          error: 'No available Spotify device. Open Spotify on this device, or check that the in-app player started (it needs Spotify Premium).',
+          noDevice: true
+        });
       }
     }
 
@@ -2618,10 +2747,17 @@ app.post('/api/volume/mute/toggle', async (req, res) => {
 // BLUETOOTH DEVICE MANAGEMENT
 // ============================================
 
-// Helper: Execute bluetoothctl command
-function bluetoothctl(command) {
+// Bluetooth addresses arrive from the network, so they are validated before
+// they reach any subprocess.
+const BT_ADDRESS = /^[0-9A-F]{2}(:[0-9A-F]{2}){5}$/i;
+const isBluetoothAddress = (address) => typeof address === 'string' && BT_ADDRESS.test(address);
+
+// Helper: Execute bluetoothctl command.
+// Takes discrete arguments and uses execFile, so no shell parses them and a
+// value like "; rm -rf ~" is passed through as a literal argument.
+function bluetoothctl(...args) {
   return new Promise((resolve, reject) => {
-    exec(`bluetoothctl ${command}`, { timeout: 10000 }, (error, stdout, stderr) => {
+    execFile('bluetoothctl', args, { timeout: 10000 }, (error, stdout, stderr) => {
       if (error) {
         reject(new Error(stderr || error.message));
       } else {
@@ -2651,8 +2787,9 @@ function parseDevices(output, type = 'paired') {
 
 // Helper: Get device connection status
 async function getDeviceInfo(address) {
+  if (!isBluetoothAddress(address)) return null;
   try {
-    const output = await bluetoothctl(`info ${address}`);
+    const output = await bluetoothctl('info', address);
     const connected = output.includes('Connected: yes');
     const paired = output.includes('Paired: yes');
     const trusted = output.includes('Trusted: yes');
@@ -2680,7 +2817,7 @@ app.get('/api/bluetooth/devices', async (req, res) => {
     }
 
     // Get paired devices
-    const pairedOutput = await bluetoothctl('devices Paired');
+    const pairedOutput = await bluetoothctl('devices', 'Paired');
     const pairedDevices = parseDevices(pairedOutput, 'paired');
 
     // Get connection status for each paired device
@@ -2735,6 +2872,9 @@ app.post('/api/bluetooth/scan', async (req, res) => {
 // Connect to a device
 app.post('/api/bluetooth/connect/:address', async (req, res) => {
   const { address } = req.params;
+  if (!isBluetoothAddress(address)) {
+    return res.status(400).json({ error: 'Invalid Bluetooth address' });
+  }
   console.log(`[Bluetooth] Connecting to ${address}...`);
 
   try {
@@ -2744,10 +2884,10 @@ app.post('/api/bluetooth/connect/:address', async (req, res) => {
     }
 
     // Trust the device first (for auto-reconnect)
-    await bluetoothctl(`trust ${address}`);
+    await bluetoothctl('trust', address);
 
     // Connect
-    await bluetoothctl(`connect ${address}`);
+    await bluetoothctl('connect', address);
 
     console.log(`[Bluetooth] Connected to ${address}`);
     res.json({ success: true, message: 'Connected' });
@@ -2760,6 +2900,9 @@ app.post('/api/bluetooth/connect/:address', async (req, res) => {
 // Disconnect from a device
 app.post('/api/bluetooth/disconnect/:address', async (req, res) => {
   const { address } = req.params;
+  if (!isBluetoothAddress(address)) {
+    return res.status(400).json({ error: 'Invalid Bluetooth address' });
+  }
   console.log(`[Bluetooth] Disconnecting from ${address}...`);
 
   try {
@@ -2768,7 +2911,7 @@ app.post('/api/bluetooth/disconnect/:address', async (req, res) => {
       return res.status(503).json({ error: 'bluetoothctl not found' });
     }
 
-    await bluetoothctl(`disconnect ${address}`);
+    await bluetoothctl('disconnect', address);
 
     console.log(`[Bluetooth] Disconnected from ${address}`);
     res.json({ success: true, message: 'Disconnected' });
@@ -2787,6 +2930,7 @@ app.get('/api/bluetooth/status', async (req, res) => {
     }
 
     const output = await bluetoothctl('show');
+    // (no user input reaches this call)
     const powered = output.includes('Powered: yes');
     const discovering = output.includes('Discovering: yes');
     const nameMatch = output.match(/Name:\s*(.+)/);
@@ -2814,7 +2958,7 @@ app.post('/api/bluetooth/power/:state', async (req, res) => {
       return res.status(503).json({ error: 'bluetoothctl not found' });
     }
 
-    await bluetoothctl(`power ${powerState}`);
+    await bluetoothctl('power', powerState);
     console.log(`[Bluetooth] Power ${powerState}`);
     res.json({ success: true, powered: powerState === 'on' });
   } catch (e) {

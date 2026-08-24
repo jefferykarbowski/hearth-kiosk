@@ -1,17 +1,19 @@
-# 🔥 Hearth
+# LyraPod
 
-**The warm center of your smart kitchen.**
+**Freeform radio, on one screen, in one room.**
 
-A touchscreen kiosk for your kitchen that brings together freeform radio, music streaming, weather, and more — all in one beautiful interface.
+A touchscreen listening device for college and community radio, long-form DJ sets, and streaming. Built to sit on a counter and stay on: one glance, one tap, no phone.
+
+255 curated stations, every stream verified.
 
 ## Features
 
-- 📻 **Freeform Radio** — Curated college and community radio stations (WCBN, KFJC, WFMU, KCRW, NTS, and more)
-- 🎵 **Spotify Connect** — Your music library with full playback control
-- 🎛️ **Mixcloud** — DJ sets and long-form mixes
-- 🌤️ **Weather** — Dynamic backgrounds based on current conditions
-- 📰 **News Ticker** — Stay informed while you cook
-- 🖥️ **Screensaver** — Beautiful ambient mode when idle
+- **Freeform Radio** — College and community stations: WCBN, KFJC, KALX, WFMU, KCRW, NTS
+- **Mixcloud** — DJ sets and long-form mixes
+- **Spotify Connect** — Full playback control
+- **Weather** — Dynamic backgrounds driven by current conditions
+- **News Ticker** — Headlines while you cook
+- **Screensaver** — Ambient mode when idle
 
 ## Tech Stack
 
@@ -23,36 +25,34 @@ A touchscreen kiosk for your kitchen that brings together freeform radio, music 
 ## Quick Start
 
 ```bash
-# Install dependencies
 npm run install:all
-
-# Development mode
 npm run dev
+```
 
-# Production (kiosk mode)
+Production kiosk mode:
+
+```bash
 ./start-kiosk-electron.sh
 ```
 
 ## Configuration
 
-Configure your Hearth at [hearth-at-home.com](https://hearth-at-home.com) (coming soon):
-- Choose which tabs to display
-- Connect your Spotify account
-- Pick your favorite radio stations
-- Set your location for weather
+Copy `backend/config.example.json` to `backend/config.json` and fill in your keys, or supply them as environment variables — `SPOTIFY_CLIENT_ID`, `SPOTIFY_CLIENT_SECRET`, `MIXCLOUD_CLIENT_ID`, `MIXCLOUD_CLIENT_SECRET`, `WEATHER_API_KEY`. Environment variables take precedence.
+
+`backend/config.json` is not tracked in git. Never commit it.
 
 ## Hardware
 
-Runs great on:
-- Microsoft Surface Pro (recommended)
+- Microsoft Surface Pro (current reference device)
+- Allwinner A133 tablet, 7" 1024x600 (target production hardware)
 - Raspberry Pi 4+ with touchscreen
-- Any tablet/computer with a browser
 
-## Part of the Hearth Ecosystem
+## Repository Layout
 
-- **This repo:** The kiosk application
-- **hearth-website:** Dashboard and configuration ([GitHub](https://github.com/jefferykarbowski/hearth-website))
+This repo holds the kiosk application. The cloud dashboard and the Android/AOSP build live alongside it as the monorepo consolidation lands.
 
----
+## Station data
 
-Made with 🔥 for kitchens everywhere.
+`data/` holds the reconstructed SoundTap directory — 622 non-commercial stations recovered from the Internet Archive and joined to Radio Browser for current streams. `scripts/` holds the harvest, match, verify and artwork pipeline; streams rot, so re-run `verify-all-streams.py` and `repair-streams.py` periodically.
+
+The shipping catalogue lives in `frontend/src/config/stations.js` and is generated, not hand-edited. `scripts/merge-soundtap.mjs` rebuilds it from the soundtap.fm project's own catalogue (a sibling repo, whose stations are probed live before it carries them) unioned with the stations LyraPod had first; `data/soundtap-merge.json` records what that pass excluded and why. Note that `verify-all-streams.py` reports a TLS handshake failure for a few hosts that browsers negotiate with fine, so confirm with `curl` before dropping a station on its say-so.

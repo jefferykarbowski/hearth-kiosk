@@ -26,12 +26,13 @@ export default function NewsTicker() {
   if (headlines.length === 0) return null;
 
   return (
-    <div className="bg-black/50 backdrop-blur-sm border-t border-white/10 py-2 overflow-hidden">
+    <div className="overflow-hidden py-2" style={{ background: 'var(--ink)' }}>
       <div className="animate-scroll flex whitespace-nowrap">
-        {/* Duplicate headlines for seamless loop */}
+        {/* Duplicated so the loop has no visible seam. */}
         {[...headlines, ...headlines].map((headline, i) => (
-          <span key={i} className="mx-8 text-sm text-white/70">
-            <span className="text-indigo-400 mr-2">•</span>
+          <span key={i} className="mx-8 text-sm" style={{ color: 'var(--chalk-2)' }}>
+            {/* A tick on the time axis, not a bullet. */}
+            <span aria-hidden="true" className="mr-3 inline-block align-middle" style={{ width: 1, height: 11, background: 'var(--sig-cyan)' }} />
             {headline.title}
           </span>
         ))}

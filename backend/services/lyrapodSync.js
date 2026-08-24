@@ -1,15 +1,22 @@
 /**
- * Hearth Sync Service
- * Syncs kiosk configuration from the Hearth website
+ * LyraPod Sync Service
+ * Syncs kiosk configuration from the LyraPod cloud dashboard.
+ *
+ * Not yet wired into server.js — the dashboard API it talks to does not exist
+ * yet. Kept in ESM so it loads cleanly once the endpoints are live.
  */
 
-const fs = require('fs');
-const path = require('path');
+import fs from 'fs';
+import path from 'path';
+import { fileURLToPath } from 'url';
 
-const CONFIG_FILE = path.join(__dirname, '../data/hearth-config.json');
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
+const CONFIG_FILE = path.join(__dirname, '../data/lyrapod-config.json');
 const DEFAULT_CONFIG = {
   kioskId: null,
-  hearthApiUrl: 'https://hearth-at-home.com/api',
+  apiUrl: process.env.LYRAPOD_API_URL || 'https://lyrapod.fm/api',
   location: null,
   timezone: 'America/Detroit',
   tabs: {
@@ -31,7 +38,7 @@ const DEFAULT_CONFIG = {
   lastSync: null,
 };
 
-class HearthSync {
+class LyraPodSync {
   constructor() {
     this.config = this.loadConfig();
     this.syncInterval = null;
@@ -44,7 +51,7 @@ class HearthSync {
         return { ...DEFAULT_CONFIG, ...JSON.parse(data) };
       }
     } catch (error) {
-      console.error('Error loading Hearth config:', error);
+      console.error('Error loading LyraPod config:', error);
     }
     return { ...DEFAULT_CONFIG };
   }
@@ -57,7 +64,7 @@ class HearthSync {
       }
       fs.writeFileSync(CONFIG_FILE, JSON.stringify(this.config, null, 2));
     } catch (error) {
-      console.error('Error saving Hearth config:', error);
+      console.error('Error saving LyraPod config:', error);
     }
   }
 
@@ -69,7 +76,7 @@ class HearthSync {
 
     try {
       const response = await fetch(
-        `${this.config.hearthApiUrl}/kiosk/${this.config.kioskId}/config`
+        `${this.config.apiUrl}/kiosk/${this.config.kioskId}/config`
       );
 
       if (!response.ok) {
@@ -77,7 +84,7 @@ class HearthSync {
       }
 
       const data = await response.json();
-      
+
       if (data.config) {
         this.config = {
           ...this.config,
@@ -85,12 +92,12 @@ class HearthSync {
           lastSync: new Date().toISOString(),
         };
         this.saveConfig();
-        console.log('Synced config from Hearth cloud');
+        console.log('Synced config from LyraPod cloud');
       }
 
       return this.config;
     } catch (error) {
-      console.error('Error syncing from Hearth cloud:', error);
+      console.error('Error syncing from LyraPod cloud:', error);
       return null;
     }
   }
@@ -100,7 +107,7 @@ class HearthSync {
     if (this.syncInterval) {
       clearInterval(this.syncInterval);
     }
-    
+
     this.syncInterval = setInterval(() => {
       this.syncFromCloud();
     }, intervalMs);
@@ -133,6 +140,6 @@ class HearthSync {
 }
 
 // Singleton instance
-const hearthSync = new HearthSync();
+const lyrapodSync = new LyraPodSync();
 
-module.exports = hearthSync;
+export default lyrapodSync;

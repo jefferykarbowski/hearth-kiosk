@@ -1,7 +1,7 @@
 {
-  "name": "kitchen-radio-kiosk",
+  "name": "lyrapod-kiosk",
   "version": "1.0.0",
-  "description": "Kitchen Radio Kiosk - Electron App",
+  "description": "LyraPod Kiosk - Electron App",
   "main": "main.js",
   "scripts": {
     "start": "electron .",

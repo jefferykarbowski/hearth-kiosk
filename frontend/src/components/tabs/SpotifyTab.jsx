@@ -243,29 +243,34 @@ export default function SpotifyTab() {
   const playTrack = async (uri, contextUri = null) => {
     console.log('[playTrack] Called with:', { uri, contextUri, playerReady, deviceId });
     
-    // Try SDK first
+    // Try SDK first. play() reports failure by returning false rather than
+    // throwing, so the result has to be checked or a failed play looks like a
+    // success and the API fallback below never runs.
     if (playerReady && deviceId) {
       try {
         console.log('[playTrack] Using SDK...');
-        if (contextUri) {
-          await play({ context_uri: contextUri, offset: { uri } });
-        } else {
-          await play({ uris: [uri] });
+        const ok = contextUri
+          ? await play({ context_uri: contextUri, offset: { uri } })
+          : await play({ uris: [uri] });
+        if (ok) {
+          console.log('[playTrack] SDK play successful');
+          return;
         }
-        console.log('[playTrack] SDK play successful');
-        return;
+        console.warn('[playTrack] SDK play returned false, trying API fallback');
       } catch (e) {
         console.error('[playTrack] SDK play error, trying API fallback:', e);
       }
     }
-    
-    // Fallback to backend API (plays on active device like Kitchen Computer)
+
+    // Fallback to backend API. Deliberately does not pass the SDK's device id:
+    // we only get here when the SDK is unavailable or just failed on that
+    // device, so the backend should resolve and transfer to a device itself.
     console.log('[playTrack] Using API fallback...');
     try {
-      const body = contextUri 
+      const body = contextUri
         ? { context_uri: contextUri, offset: { uri } }
         : { uris: [uri] };
-      
+
       console.log('[playTrack] API request body:', body);
       const res = await fetch('/api/spotify/play', {
         method: 'PUT',
@@ -285,24 +290,33 @@ export default function SpotifyTab() {
   };
 
   const playContext = async (contextUri) => {
-    // Try SDK first
+    if (!contextUri) {
+      console.error('[playContext] Called with no context uri');
+      return;
+    }
+
+    // Try SDK first. As in playTrack, a false return means the play failed and
+    // we still need the API fallback.
     if (playerReady && deviceId) {
       try {
-        await play({ context_uri: contextUri });
-        return;
+        const ok = await play({ context_uri: contextUri });
+        if (ok) return;
+        console.warn('[playContext] SDK play returned false, trying API fallback');
       } catch (e) {
         console.error('SDK play context error, trying API fallback:', e);
       }
     }
-    
-    // Fallback to backend API
+
+    // Fallback to backend API, which resolves a device itself (see playTrack)
     try {
+      const body = { context_uri: contextUri };
+
       const res = await fetch('/api/spotify/play', {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ context_uri: contextUri })
+        body: JSON.stringify(body)
       });
-      
+
       if (!res.ok) {
         const err = await res.json();
         console.error('API play context error:', err);
@@ -1427,7 +1441,6 @@ function TrackList({ tracks, onPlay, onArtistClick, numbered = false, showAlbum 
           <motion.button
             key={track.id || index}
             onClick={handleTrackClick}
-            onTouchEnd={handleTrackClick}
             className="w-full flex items-center gap-4 p-4 hover:bg-white/5 transition-colors text-left group"
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
