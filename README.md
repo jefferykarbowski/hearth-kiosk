@@ -4,7 +4,7 @@
 
 A touchscreen listening device for college and community radio, long-form DJ sets, and streaming. Built to sit on a counter and stay on: one glance, one tap, no phone.
 
-135 curated stations, every stream verified.
+255 curated stations, every stream verified.
 
 ## Features
 
@@ -54,3 +54,5 @@ This repo holds the kiosk application. The cloud dashboard and the Android/AOSP 
 ## Station data
 
 `data/` holds the reconstructed SoundTap directory — 622 non-commercial stations recovered from the Internet Archive and joined to Radio Browser for current streams. `scripts/` holds the harvest, match, verify and artwork pipeline; streams rot, so re-run `verify-all-streams.py` and `repair-streams.py` periodically.
+
+The shipping catalogue lives in `frontend/src/config/stations.js` and is generated, not hand-edited. `scripts/merge-soundtap.mjs` rebuilds it from the soundtap.fm project's own catalogue (a sibling repo, whose stations are probed live before it carries them) unioned with the stations LyraPod had first; `data/soundtap-merge.json` records what that pass excluded and why. Note that `verify-all-streams.py` reports a TLS handshake failure for a few hosts that browsers negotiate with fine, so confirm with `curl` before dropping a station on its say-so.
